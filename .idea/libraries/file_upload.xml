@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="file-upload">
+    <CLASSES>
+      <root url="file://E:/Study/SE/毕业设计/TrackRecordBasedOnWeb/lib/file-upload" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://E:/Study/SE/毕业设计/TrackRecordBasedOnWeb/lib/file-upload/src/main/java" />
+      <root url="file://E:/Study/SE/毕业设计/TrackRecordBasedOnWeb/lib/file-upload/src/test/java" />
+    </SOURCES>
+    <jarDirectory url="file://E:/Study/SE/毕业设计/TrackRecordBasedOnWeb/lib/file-upload" recursive="false" />
+  </library>
+</component>

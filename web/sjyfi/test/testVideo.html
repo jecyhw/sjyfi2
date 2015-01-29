@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+<meta charset="UTF-8">
+<title></title>
+<link rel="stylesheet" type="text/css" href="../css/video-js.css"/>
+<script src="../js/jquery.js"></script>
+<script src="../jsold/video.js"></script>
+
+
+</head>
+<body>
+
+<a>sdds</a>
+<script>
+    videojs.options.flash.swf = "../video-js.swf";
+
+    $("a").click(function() {
+    $(document.body).append('<video class="video-js vjs-default-skin slide-show" ' +
+    'controls="" preload="auto" data-setup="{}" ' +
+    'width="300" height="200">' +
+    '<source src="../../video/preload.mp4" type="video/mp4">' +
+    '</video>');
+    });
+</script>
+<video class="video-js vjs-default-skin slide-show" controls="" preload="auto" data-setup="{}" width="300" hei
+ght="200"><source src="http://159.226.15.215/var/gpstracks/routeRecord_20140718_085253/routeRecord_20140718_085253/video/20140718_095931.mp4" type="video/mp4"></video>
+</body>
+</html>
+
+<!--<!DOCTYPE html>-->
+<!--<html>-->
+<!--<head lang="en">-->
+    <!--<meta charset="UTF-8">-->
+    <!--<title></title>-->
+    <!--<link href="../css/video-js.css" rel="stylesheet" type="text/css">-->
+    <!--<script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>-->
+    <!--<script src="../jsold/jquery.jplayer.min.js"></script>-->
+    <!--<script>-->
+
+        <!--$(document).ready(function() {-->
+            <!--$("#test").jPlayer( {-->
+                <!--ready: function () {-->
+                    <!--$(this).jPlayer("setMedia", {-->
+                        <!--m4a: "preload.mp4" // Defines the mp3 url-->
+                    <!--});-->
+                <!--},-->
+                <!--swfPath: "../jsold",-->
+                <!--supplied: "m4a"-->
+            <!--});-->
+        <!--});-->
+
+    <!--</script>-->
+
+<!--</head>-->
+<!--<body>-->
+<!--<script type="text/javascript">-->
+    <!--$(document).ready(function(){-->
+        <!--$("#jquery_jplayer_1").jPlayer({-->
+            <!--ready: function () {-->
+                <!--$(this).jPlayer("setMedia", {-->
+                    <!--m4a: "preload.mp4"-->
+                <!--});-->
+            <!--},-->
+            <!--swfPath: "../jsold/Jplayer.swf",-->
+            <!--supplied: "m4a",-->
+            <!--size: {width:300, height:250}-->
+        <!--});-->
+    <!--});-->
+<!--</script>-->
+<!--<div id="jquery_jplayer_1"></div>-->
+<!--<div id="jp_container_1">-->
+    <!--<a href="#" class="jp-play">Play</a>-->
+    <!--<a href="#" class="jp-pause">Pause</a>-->
+<!--</div>-->
+
+<!--</div>-->
+<!--</body>-->
+<!--</html>-->

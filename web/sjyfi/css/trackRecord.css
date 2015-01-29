@@ -1,0 +1,306 @@
+@charset "utf-8";
+
+body {
+    font-size: 12px;
+    font-family: "Trebuchet MS", Arial,Tahoma,"Microsoft Yahei","STXihei", sans-serif;
+}
+body, html, .main {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    overflow-y:hidden;
+}
+
+ul, ul li, dl, dl dd{
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+}
+
+table{
+    border-collapse: collapse;
+    text-align: center;
+    border-spacing: 0px;
+    margin:auto;
+    table-layout:fixed;
+}
+
+table th, table td {
+	word-wrap: break-word ;
+	word-break: break-all;
+}
+
+.main {
+    min-width: 1000px;
+    position:relative;
+}
+
+.top {
+    position: relative;
+    padding-left:4px;
+}
+
+.top_left {
+    float:left;
+    width: 1000px;
+    padding-top:4px;
+    padding-bottom: 4px;
+}
+.top_left .tab_wrap {
+    float: left;
+    width: 730px;
+}
+
+.top_left .tab{
+    padding-left: 130px;
+    height: 25px;
+    border-bottom: 1px solid #8A2BE2;
+    width:600px;
+}
+
+.top_left dl dd {
+    display: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+.top_left dl dd:first-child {
+    display: block;
+}
+
+.top_left table {
+    text-align: right;
+    clear:both;
+
+}
+
+.top_left #file_upload {
+    float: right;
+    max-width: 100px;
+    max-height: 73px;
+    word-wrap: break-word;
+    word-break: break-all;
+    height: 24px;
+}
+
+
+.btn-one:hover, .top_left ul li:hover {
+    background-color: white;
+    color: #8A2BE2;
+}
+
+.btn-one {
+    text-decoration: none;
+    margin-right: 5px;
+    padding: 0px 5px;
+    height: 26px;
+    font-size: 16px;
+    background-color: #8A2BE2;
+    border: 1px solid #8A2BE2;
+    color: white;
+    cursor: pointer;
+}
+
+.top_left #file_upload {
+    margin: 0px;
+    height: 24px;
+    line-height: 24px;
+}
+
+.top_left ul li {
+    float: left;
+    list-style-type: none;
+    margin-left: 5px;
+    border: 1px solid #8A2BE2;
+    padding: 0px 5px;
+    height: 24px;
+    line-height: 24px;
+    font-size:16px;
+    cursor: pointer;
+    color: white;
+    background-color: #8A2BE2;
+}
+
+.top_left .li_click {
+    height: 25px;
+    line-height: 25px;
+    color: #8A2BE2;
+    background-color: white;
+    border-bottom: 0px;
+}
+
+
+.top_left .search_warp {
+    clear: both;
+    border: 1px solid #8A2BE2;
+    border-top:0px solid #8A2BE2;
+    text-align: center;
+    padding:5px;
+}
+
+
+.top_right {
+    float: right;
+    padding-top:4px;
+    text-align: right;
+}
+
+.bottom {
+    border-top:1px solid darkgray;
+    clear: both;
+    position:absolute;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+}
+
+.bottom table {
+    color: green;
+}
+.even {
+    background-color:#DBE22B;
+}
+
+.odd {
+    background-color:#DEB887;
+}
+
+.bottom tbody tr:hover {
+    background-color: #A84AFF;
+    color:white;
+}
+
+.bottom td, th, .ui-dialog-info td {
+    border-right:1px solid white;
+    padding: 0px;
+}
+
+.bottom thead tr {
+    background-color: #8A2BE2;
+    color: white;
+}
+
+.bottom .td_show_in_map {
+    width: 50px;
+}
+
+.bottom .td_name {
+    width: 180px;
+}
+
+.bottom .td_start_time {
+    width: 100px;
+}
+
+.bottom .td_file_size {
+    width: 70px;
+}
+.bottom table a:link, .bottom table a:visited {
+    color: green;
+    text-decoration: underline;
+}
+
+
+.bottom table a:hover {
+    color: blue;
+    text-decoration: none;
+}
+
+.bottom table a:active {
+    color: red;
+    text-decoration: none;
+}
+
+.bottom .bottom_left{
+    position:absolute;
+    left:0px;
+    bottom: 0px;
+    top:0px;
+    width: 404px;
+    overflow-y:auto;
+}
+
+.bottom .bottom_right{
+    position:absolute;
+    height: 100%;
+    border-left:1px solid darkgray;
+    box-shadow: 0px 0px 3px;
+    right:0px;
+    left: 404px;
+}
+
+.bottom #map{
+    height: 100%;
+    width:100%;
+    margin:0px;
+    z-index: 300;
+}
+/* upload file css start*/
+.file_list{
+    display: none;
+    position: absolute;
+    right: 20px;
+    bottom: 0px;
+    z-index: 10000;
+    width: 600px;
+}
+
+.file_list_header {
+    height: 18px;
+    border-bottom: 0px!important;
+}
+.file_list_header button {
+    float: right;
+    width: 18px!important;
+    height: 18px !important;
+    margin-right: 10px;
+}
+
+#upload_maximum {
+    display: none;
+}
+/* upload file css end*/
+
+/*input*/
+.top_left input[type="text"] {
+    width: 120px;
+    padding: 0px;
+    margin: 0px;
+}
+
+.top_left .input_position{
+    width:90px!important;
+}
+
+/*view single track record info css start*/
+.ui-dialog-info span {
+    color: #8A2BE2;
+}
+
+.ui-dialog-info td {
+	padding: 2px 0px;
+}
+
+.ui-dialog-info img:hover {
+    cursor: pointer;
+}
+
+.ui-dialog-info .td1 {
+    width: 110px;
+}
+
+.ui-dialog-info .td2 {
+    width: 200px;
+}
+
+.ui-dialog-info .td3 {
+    width: 95px;
+}
+
+.ui-dialog-info .td4 {
+    width: 150px;
+}
+
+.ui-dialog-info .td5 {
+    width: 65px;
+}
