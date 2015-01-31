@@ -14,10 +14,10 @@ public class DBUtil {
         Connection connection = null;
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            connection = DriverManager.getConnection("jdbc:mysql://159.226.15" +
-            ".215:3306/sjyfi_db?zeroDateTimeBehavior=convertToNull&allowMultiQueries=true&characterEncoding=utf8&autoReconnect=true", "jecyhw", "yanghuiwei");
-            //connection = DriverManager.getConnection("jdbc:mysql://localhost" +
-             //       "/sjyfi_db?zeroDateTimeBehavior=convertToNull&allowMultiQueries=true&characterEncoding=utf8&autoReconnect=true", "jecyhw", "yanghuiwei");
+            //connection = DriverManager.getConnection("jdbc:mysql://159.226.15" +
+            //".215:3306/sjyfi_db?zeroDateTimeBehavior=convertToNull&allowMultiQueries=true&characterEncoding=utf8&autoReconnect=true", "jecyhw", "yanghuiwei");
+            connection = DriverManager.getConnection("jdbc:mysql://localhost" +
+                    "/sjyfi_db?zeroDateTimeBehavior=convertToNull&allowMultiQueries=true&characterEncoding=utf8&autoReconnect=true", "jecyhw", "yanghuiwei");
             TestOutput.println("数据库连接正常");
         } catch (ClassNotFoundException e) {
             TestOutput.println("找不到数据库的驱动文件:");
@@ -222,10 +222,10 @@ public class DBUtil {
 
     static public PreparedStatement getPreparedStatement(String sql) throws SQLException {
         TestOutput.println(sql);
-        if (conn == null || conn.isClosed()) {
+        /*if (conn == null || conn.isClosed()) {
             TestOutput.println("Connection closed, reconnection now");
             conn = getConnection();
-        }
+        }*/
         return conn.prepareStatement(sql);
     }
 

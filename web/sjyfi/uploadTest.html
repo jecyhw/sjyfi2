@@ -6,25 +6,30 @@
 	<title></title>
 	<link rel="stylesheet" type="text/css" href="css/jquery-ui.css"/>
 
+	<link rel="stylesheet" type="text/css" href="js/fancybox/jquery.fancybox.css"  media="screen">
+	<link rel="stylesheet" type="text/css" href="js/fancybox/helpers/jquery.fancybox-buttons.css"  media="screen">
+
 	<script type="text/javascript" src="js/jquery.js"></script>
 	<script type="text/javascript" src="js/jquery-ui.js"></script>
+	<script type="text/javascript" src="js/fancybox/jquery.mousewheel-3.0.6.pack.js"></script>
+	<script type="text/javascript" src="js/fancybox/jquery.fancybox.js"></script>
+	<script type="text/javascript" src="js/fancybox/helpers/jquery.fancybox-buttons.js"></script>
+	<script type="text/javascript" src="js/jwplayer.js"></script>
 	<style>
-	 body {
-		 margin: 0px;
-		 padding: 0px;
+		body {
+			margin: 0px;
+			padding: 0px;
 
-	 }
+		}
 		img {
 
-		   width: 100%;
+			width: 100%;
 			height: 100%;
 			margin: 0px;
 			padding: 0px;
 		}
 
 		.overlay {
-
-
 			position: fixed;
 			bottom: 0px;
 			top: 0px;
@@ -66,6 +71,27 @@
 			height: 100%;
 			overflow: auto;
 		}
+
+		#player-loading {
+			position: fixed;
+			background: none repeat  #020202;
+			cursor: pointer;
+			z-index: 8060;
+			top: 0px;
+			left: 0px;
+			right: 0px;
+			bottom: 0px;
+		}
+		#player-loading div{
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			margin-top: -22px;
+			margin-left: -22px;
+			width: 44px;
+			height: 44px;
+			background: url('js/fancybox/fancybox_loading.gif')  no-repeat;
+		}
 	</style>
 
 	<script>
@@ -73,22 +99,55 @@
 		//上传最小化
 		//上传关闭
 		$(document).ready(function() {
+			var isPlayer;
+			$.fancybox([{href:'http://159.226.15.215/var/gpstracks/routeRecord_20141013_005302/routeRecord_20141013_005302/photo/20141013_005312.jpg', type: 'image'},
+
+				{href: '<div id="test" style="position: relative;"></div><div id="player-loading"><div></div></div>', type: 'html', autoSize: true, autoResize: true, scrolling:'no'}], {
+				afterLoad: function(current, previous){
+
+					if (current.type == 'html') {
+						isPlayer = true;
+
+
+
+					}
+					else {
+						isPlayer = false;
+					}
+				},
+				afterShow: function() {
+					if (isPlayer) {
+
+						jwplayer('test').setup({
+							file: 'video/test.mp3',
+
+
+							events: {
+								onReady: function() {
+									$("#player-loading").remove();
+								}
+							}
+						});
+					}
+				},
+				loop: false,
+				closeBtn: false ,
+				modal: true,
+
+				helpers:  {
+					title	: { type : 'inside' },
+					buttons : {
+
+					}
+				}
+			});
+			jwplayer.key = "m476PqaVB57UPPquVHfobNzMOH+z+knyJgpE+w==";
 
 		});
 
 	</script>
 </head>
 <body>
-<div></div>
-<div class="overlay">
-	<div class="wrap">
-		<div class="skin">
-<div class="outer">
-<img src="http://159.226.15.215/var/gpstracks/routeRecord_20141013_005302/routeRecord_20141013_005302/photo/20141013_005312.jpg"/>
-</div><a class="close"></a>
-            <div></div>
-	</div>
-</div>
-</div>
+
 </body>
 </html>

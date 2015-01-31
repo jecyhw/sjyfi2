@@ -17,11 +17,13 @@
         var user_dir = '<%=System.getProperty("user.dir")%>'
     </script>
 
-    <link rel="stylesheet" type="text/css" href="css/slide.css" />
     <link rel="stylesheet" type="text/css" href="css/imgareaselect-default.css">
     <link rel="stylesheet" type="text/css" href="js/jquery-ui/jquery-ui.css" />
     <link rel="stylesheet" type="text/css" href="css/jquery.plupload.ui.css"/>
-    <link rel="stylesheet" type="text/css" href="js/bootstrap/css/bootstrap.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="js/bootstrap/css/bootstrap.css" media="screen"/>
+    <link rel="stylesheet" type="text/css" href="js/fancybox/jquery.fancybox.css"  media="screen">
+    <link rel="stylesheet" type="text/css" href="js/fancybox/helpers/jquery.fancybox-buttons.css"  media="screen">
+
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/bootstrap/js/alert.js"></script>
     <script type="text/javascript" src="js/jquery-ui/jquery-ui.js"></script>
@@ -34,8 +36,9 @@
     <script type="text/javascript" src="js/jwplayer.js"></script>
     <script type="text/javascript"
             src="http://api.map.baidu.com/api?v=2.0&ak=QT9ntk6IBtEHGSy4BG7zOXoU"></script>
-    <script type="text/javascript" src="http://developer.baidu.com/map/jsdemo/demo/changeMore.js"></script>
-    <%--<script type="text/javascript" src="http://developer.baidu.com/map/jsdemo/demo/convertor.js"></script>--%>
+    <script type="text/javascript" src="js/fancybox/jquery.mousewheel-3.0.6.pack.js"></script>
+    <script type="text/javascript" src="js/fancybox/jquery.fancybox.js"></script>
+    <script type="text/javascript" src="js/fancybox/helpers/jquery.fancybox-buttons.js"></script>
     <script type="text/javascript" src="js/common.js"></script>
     <script type="text/javascript" src="js/jmap.js"></script>
     <script type="text/javascript" src="js/trackRecord.js"></script>
@@ -164,6 +167,28 @@
             !important;
         }
         /* upload file css end*/
+
+        #player-loading {
+            position: fixed;
+            background: none repeat  #000000;
+            cursor: pointer;
+            z-index: 8060;
+            top: 0px;
+            left: 0px;
+            right: 0px;
+            bottom: 0px;
+        }
+
+        #player-loading div{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -22px;
+            margin-left: -22px;
+            width: 44px;
+            height: 44px;
+            background: url('js/fancybox/fancybox_loading.gif')  no-repeat;
+        }
     </style>
 </head>
 <body>
@@ -369,6 +394,6 @@
     </div>
 </div>
 <div style="display: none !important;" id="preload"></div>
-<div id="ui-dialog"></div>
+<%--<div id="ui-dialog"></div>--%>
 </body>
 </html>

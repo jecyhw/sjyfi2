@@ -165,6 +165,7 @@
                     var marker = new BMap.Marker(baiDuPoints[index]);
                     overlay.push(marker);
                     marker.addEventListener("click", function () {
+
                         this.openInfoWindow(slide(placeMark.description, placeMark.name));//图片，视频展示
                     });
                 }
@@ -172,86 +173,54 @@
             }
 
             function slide(desc, name) {
-                var height = 248,
-                    width = 348,
-                    videoHeight = 200,
-                    videoWidth = 300,
-                    info =
-                    '<div class="bx-body">'
-                    + '<div class="bx-wrapper">'
-                    + '<div class="bx">';
 
+
+                var msg = [], playerObj = {};
                 $.each(desc, function (index, val) {
-                    if (val.indexOf("photo") > -1) {
-                        info += '<div><img src="' + val + '"/></div>';
+                    var child = {};
+                    child.href = val;
+                    if (val.indexOf('photo') < 0) {
+                        child.type = 'image';
+                    } else {
+                        child.type = 'html';
+                        child.scrolling = "no";
                     }
-                    else {
-                        info += '<div><div id="' + new Date().getTime() + '" name="' + val + '"/>视频正在加载中...</div></div>';
-                    }
+                    msg.push(val);
                 });
-                info += '</div>';
-                if (desc.length > 1) {//多张图片或音，视频，则显示切换按钮
-                    info += '<div class="bx-controls-direction">'
-                    + '<a class="prev">Prev</a>'
-                    + '<a class="next">Next</a>'
-                    + '</div>';
-                }
-                info += '</div>'
-                + '<div class="bx-img-wrap">描述:<span class="bx-img-desc">' + name + '</span></div>'
-                + '</div>';
-
-                var infoWin = new BMap.InfoWindow(info, {
-                    enableMessage: false,
-                    height: height,
-                    width: width
-                });
-                infoWin.addEventListener("open", function (event) {
-
-                    var $body = $(".bx-body"),
-                        bx_slide = $body.find('.bx').children(),
-                        cur = 0;
-                    player(bx_slide.eq(cur));
-                    bx_slide.eq(cur).addClass('slide-show');
-                    $body.find(".prev").click(function () {
-                        if (cur > 0) {
-                            bx_slide.eq(cur).removeClass('slide-show');
-                            cur--;
-                            player(bx_slide.eq(cur));//如果是视频就播放
-                            bx_slide.eq(cur).addClass("slide-show");
+                $.fancybox(msg, {
+                    title: name,
+                    afterLoad: function (current, previous) {
+                        if (current.type == 'html') {
+                            playerObj.addr = current.href;
+                            playerObj.id = new Date().getTime();
+                            current.content = '<div id="' + playerObj.id + '">+</div><div id="player-loading"><div></div></div>'
+                        } else {
+                            playerObj = {};
                         }
-                    });
-
-                    $body.find(".next").click(function () {
-                        if (cur < bx_slide.length - 1) {
-                            bx_slide.eq(cur).removeClass('slide-show');
-                            cur++;
-                            player(bx_slide.eq(cur));//如果是视频就播放
-                            bx_slide.eq(cur).addClass("slide-show");
-                        }
-
-                    });
-
-                    function player(cur) {
-                        var div = cur.find("div");
-                        if (div.length > 0) {
-                            infoWin.setWidth(width);
-                            infoWin.redraw();
-                            jwplayer(div.attr("id")).setup({
-                                file: div.attr("name"),
-                                width: videoWidth,
-                                height: videoHeight
+                    },
+                    afterShow: function () {
+                        if (playerObj.id) {
+                            jwplayer(playerObj.id).setup({
+                                file: playerObj.addr,
+                                events: {
+                                    onReady: function() {
+                                        $("#player-loading").remove();
+                                    }
+                                }
                             });
                         }
-                        else {
-                            cur.find('img').load(function () {
-                                infoWin.setWidth($body.outerWidth());
-                                infoWin.redraw();
-                            });
+                    },
+                    loop: false,
+                    closeBtn: false ,
+                    modal: true,
+                    helpers:  {
+                        title	: { type : 'inside' },
+                        buttons : {
+
                         }
                     }
                 });
-                return infoWin;
-            };
+            }
         }
 
         function showInMap() {

@@ -1,10 +1,10 @@
 <component name="libraryTable">
   <library name="jdbc">
     <CLASSES>
-      <root url="file://E:/Study/SE/毕业设计/TrackRecordBasedOnWeb/lib/jdbc" />
+      <root url="file://$PROJECT_DIR$/lib/jdbc" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
-    <jarDirectory url="file://E:/Study/SE/毕业设计/TrackRecordBasedOnWeb/lib/jdbc" recursive="false" />
+    <jarDirectory url="file://$PROJECT_DIR$/lib/jdbc" recursive="false" />
   </library>
 </component>

@@ -283,8 +283,9 @@ $(document).ready(function () {
                         '<td><span>' + calcFileSize(filesize) + '</span></td>' +
                         '</tr>' +
                         '</table>';
-                    $("#ui-dialog").html(msg);
-                    $("#ui-dialog").dialog("open");
+                    $.fancybox(msg);
+                    /*$("#ui-dialog").html(msg);
+                    $("#ui-dialog").dialog("open");*/
                 }
             );
         });
@@ -345,7 +346,7 @@ $(document).ready(function () {
                     }
                 );
             }
-        })
+        });
 
         $("#file_upload").click(function() {
             $fileUploadList.show();

@@ -1,10 +1,10 @@
 <component name="libraryTable">
   <library name="dom4j">
     <CLASSES>
-      <root url="file://E:/Study/SE/毕业设计/TrackRecordBasedOnWeb/lib/dom4j" />
+      <root url="file://$PROJECT_DIR$/lib/dom4j" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
-    <jarDirectory url="file://E:/Study/SE/毕业设计/TrackRecordBasedOnWeb/lib/dom4j" recursive="false" />
+    <jarDirectory url="file://$PROJECT_DIR$/lib/dom4j" recursive="false" />
   </library>
 </component>

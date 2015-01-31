@@ -1,10 +1,10 @@
 <component name="libraryTable">
   <library name="ant">
     <CLASSES>
-      <root url="file://E:/Study/SE/毕业设计/TrackRecordBasedOnWeb/lib/ant" />
+      <root url="file://$PROJECT_DIR$/lib/ant" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
-    <jarDirectory url="file://E:/Study/SE/毕业设计/TrackRecordBasedOnWeb/lib/ant" recursive="false" />
+    <jarDirectory url="file://$PROJECT_DIR$/lib/ant" recursive="false" />
   </library>
 </component>
