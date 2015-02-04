@@ -8,7 +8,7 @@
 
 	<link rel="stylesheet" type="text/css" href="js/fancybox/jquery.fancybox.css"  media="screen">
 	<link rel="stylesheet" type="text/css" href="js/fancybox/helpers/jquery.fancybox-buttons.css"  media="screen">
-
+	<link rel="stylesheet" type="text/css" href="js/bootstrap/css/bootstrap.css" media="screen"/>
 	<script type="text/javascript" src="js/jquery.js"></script>
 	<script type="text/javascript" src="js/jquery-ui.js"></script>
 	<script type="text/javascript" src="js/fancybox/jquery.mousewheel-3.0.6.pack.js"></script>
@@ -72,9 +72,12 @@
 			overflow: auto;
 		}
 
-		#player-loading {
-			position: fixed;
-			background: none repeat  #020202;
+		.fancybox-overlay-zindex {
+			z-index: 8060;
+		}
+		.player-overlay {
+			position: absolute;
+			background: none repeat  #000000;
 			cursor: pointer;
 			z-index: 8060;
 			top: 0px;
@@ -82,16 +85,8 @@
 			right: 0px;
 			bottom: 0px;
 		}
-		#player-loading div{
-			position: absolute;
-			top: 50%;
-			left: 50%;
-			margin-top: -22px;
-			margin-left: -22px;
-			width: 44px;
-			height: 44px;
-			background: url('js/fancybox/fancybox_loading.gif')  no-repeat;
-		}
+
+
 	</style>
 
 	<script>
@@ -100,9 +95,7 @@
 		//上传关闭
 		$(document).ready(function() {
 			var isPlayer;
-			$.fancybox([{href:'http://159.226.15.215/var/gpstracks/routeRecord_20141013_005302/routeRecord_20141013_005302/photo/20141013_005312.jpg', type: 'image'},
-
-				{href: '<div id="test" style="position: relative;"></div><div id="player-loading"><div></div></div>', type: 'html', autoSize: true, autoResize: true, scrolling:'no'}], {
+			$.fancybox([{href: '<div id="test"></div><div class="player-overlay"><div id="fancybox-loading"><div></div></div></div>', type: 'html', width: 480, height: 270, autoSize: true, autoResize: true, scrolling:'no'}], {
 				afterLoad: function(current, previous){
 
 					if (current.type == 'html') {
@@ -124,25 +117,35 @@
 
 							events: {
 								onReady: function() {
-									$("#player-loading").remove();
+
 								}
 							}
 						});
 					}
-				},
-				loop: false,
-				closeBtn: false ,
-				modal: true,
-
-				helpers:  {
-					title	: { type : 'inside' },
-					buttons : {
-
-					}
 				}
 			});
 			jwplayer.key = "m476PqaVB57UPPquVHfobNzMOH+z+knyJgpE+w==";
+			/*var $timeOutMsg = $('<div class="text-danger"><strong>会话超时，请重新登陆!</strong><hr/><p><span class="text-primary">5</span>秒后自动跳转自登陆页面</p><p>也可点击<a class="btn  btn-danger btn-sm">此处</a>跳转</p></div>');
+			$.fancybox($timeOutMsg, {
+				model: true,
+				closeBtn: false
+			});
 
+			var $spanSec = $timeOutMsg.find('span');
+			var intervalId = setInterval(countDown, 1000);
+			function countDown() {
+				var num = parseInt($spanSec.html());
+				if (num) {
+					$spanSec.html(num - 1);
+				} else {
+					clearInterval(intervalId);
+					window.location.href = "../index.html";
+				}
+			}
+
+			$timeOutMsg.find('a').click(function() {
+				window.location.href = "../index.html";
+			});*/
 		});
 
 	</script>

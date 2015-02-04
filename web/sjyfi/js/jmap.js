@@ -165,7 +165,6 @@
                     var marker = new BMap.Marker(baiDuPoints[index]);
                     overlay.push(marker);
                     marker.addEventListener("click", function () {
-
                         this.openInfoWindow(slide(placeMark.description, placeMark.name));//图片，视频展示
                     });
                 }
@@ -184,6 +183,7 @@
                     } else {
                         child.type = 'html';
                         child.scrolling = "no";
+
                     }
                     msg.push(val);
                 });
@@ -193,7 +193,7 @@
                         if (current.type == 'html') {
                             playerObj.addr = current.href;
                             playerObj.id = new Date().getTime();
-                            current.content = '<div id="' + playerObj.id + '">+</div><div id="player-loading"><div></div></div>'
+                            current.content = '<div id="' + playerObj.id + '">+</div><div class="player-overlay"><div class="sjyfi-loading"><div></div></div></div>'
                         } else {
                             playerObj = {};
                         }
@@ -204,7 +204,7 @@
                                 file: playerObj.addr,
                                 events: {
                                     onReady: function() {
-                                        $("#player-loading").remove();
+                                        $(".player-overlay").remove();
                                     }
                                 }
                             });
@@ -229,7 +229,7 @@
                 mp.addOverlay(overlay[i]);
             }
             jmap(id).setViewPort();
-            $("#" + id).find("input").removeAttr("disabled");
+            $('.table-overlay').hide();
         }
 
         function gps2BaiDuPoints(gpsPoints, callback) {//gps坐标数组,格式为['114.21892734521,29.575429778924','114.21892734521,29.575429778924'],callback全部转换完之后的回调函数，参数为百度坐标数组

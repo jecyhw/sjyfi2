@@ -27,7 +27,9 @@ $(document).ready(function () {
 
 	var $tabs = $("#stabs").tabs({
 		activate: function(e, ui) {
-			$(".bottom").css("top", ($(".top").outerHeight() - 1) + "px");
+            var height = ($(".top").outerHeight() - 1) + "px"
+			$(".bottom").css("top", height);
+            $('.table-overlay').css("top", height);
             var regionCapture =  ui.oldPanel.find("button[name='region_capture']");
             if (regionCapture.length > 0 && regionCapture.html().indexOf("选择区域") == -1) {
                 regionCapture.html('选择区域<span class="glyphicon glyphicon-screenshot"></span>');
@@ -38,7 +40,9 @@ $(document).ready(function () {
 		},
 		create: function(e, ui) {
             var $tabSelf = $(this);
-			$(".bottom").css("top", ($(".top").outerHeight() - 1) + "px");
+            var height = ($(".top").outerHeight() - 1) + "px"
+            $(".bottom").css("top", height);
+            $('.table-overlay').css("top", height);
             query($.toJSON({recorder: $("#account").html()}));
 
             //地图区域绑定
@@ -78,14 +82,12 @@ $(document).ready(function () {
 						}
 					});
 					if (count > 0) {
-						query($.toJSON(cons), btn);
+						query($.toJSON(cons));
 					}
         		});
             });
 
-            function query(conditions, btn) {
-                if (btn)
-                    btn.disabled = true;
+            function query(conditions) {
                 var queryResult =  $("#query-result");
                 $.ajax({
                     url: web_prefix + "/QueryRecordServlet",
@@ -96,39 +98,37 @@ $(document).ready(function () {
                     },
                     success: function (data) {
                         log(data);
-
                         if (data.length == 0) {
                             queryResult.html('<tr><td colspan="4"  class="text-center">无搜索记录</td></tr>');
                         }
                         else {
-                            var body = "",
-                                odd = 1;
+                            var body = "";
                             $.each(data, function (k, v) {
                                 if (v.trackid) {
                                     body += "<tr id='" + v.trackid + "'><td><input type='checkbox' title='显示到地图'/></td>"
-                                        + "<td><a class='btn btn-link btn-xs' href='javascript:void(0)' title='查看详细信息'>"
-                                        + (v.name == undefined ? '无' : v.name) + "</a></td><td>"
-                                        + (v.starttime == undefined ? '无' : v.starttime) + "</td><td>"
-                                        + calcFileSize(v.filesize) + "</td></tr>";
+                                    + "<td><a class='btn btn-link btn-xs' href='javascript:void(0)' title='查看详细信息'>"
+                                    + (v.name == undefined ? '无' : v.name) + "</a></td><td>"
+                                    + (v.starttime == undefined ? '无' : v.starttime) + "</td><td>"
+                                    + calcFileSize(v.filesize) + "</td></tr>";
                                 }
                             })
                             queryResult.html(body);
-                            jmap.clear();
-                            mp.clearOverlays();
                         }
-                        if (btn)
-                            btn.disabled = false;
-
+                        $tabs.find(".tabs-overlay").hide();
+                        jmap.clear();
+                        mp.clearOverlays();
                     },
                     error: function (a, b) {
                         queryResult.html('<tr><td colspan="4" class="text-center">查询出错</td></tr>');
-                        if (btn)
-                            btn.disabled = false;
+                        $tabs.find(".tabs-overlay").hide();
                     },
                     beforeSend: function () {
-                        queryResult.html('<tr><td colspan="4"  class="text-center">正在查询中...</td></tr>');
+                        queryResult.html('<tr><td colspan="4" class="text-center">正在查询中</td></tr>');
+                        if ($tabs) {
+                            $tabs.find(".tabs-overlay").show();
+                            $('.table-overlay').hide();
+                        }
                     }
-
                 });
             }
 
@@ -150,14 +150,12 @@ $(document).ready(function () {
             });
             //
 
-
             var  $startTime =  $("input[name='startTime']"),
                 $endTime = $("input[name='endTime']");
             //日历绑定
             $startTime.each(function(index, time) {
                 $(time).datepicker(
                     $.extend($.datepicker.regional['zh-CN'],{
-                        defaultDate: "+1w",
                         dateFormat:"yy-mm-dd",
                         //changeMonth:true,
                         //changeYear:true,
@@ -167,6 +165,7 @@ $(document).ready(function () {
                         //showOn: 'both',
                         onSelect: function (selectedDate ) {
                             $endTime.eq(index).datepicker("option", "minDate", selectedDate);
+                            $endTime.eq(index).datepicker("option", "defaultDate", selectedDate);
                         }
                     })
                 );
@@ -174,7 +173,6 @@ $(document).ready(function () {
             $endTime.each(function(index, time) {
                 $(time).datepicker(
                     $.extend($.datepicker.regional['zh-CN'],{
-                        defaultDate: "+1w",
                         dateFormat:"yy-mm-dd",
                         //changeMonth:true,
                         showButtonPanel: true,
@@ -182,6 +180,7 @@ $(document).ready(function () {
                         //showOn: 'both',
                         onSelect: function (selectedDate ) {
                             $startTime.eq(index).datepicker("option", "maxDate", selectedDate);
+                            $startTime.eq(index).datepicker("option", "defaultDate", selectedDate);
                         }
                     })
                 );
@@ -193,30 +192,13 @@ $(document).ready(function () {
     //
 
     //
-    $("#ui-dialog").dialog({
-		modal:true,
-		resizable:false,
-		title:"test",
-		height:"auto",
-		width:655,
-		title:"轨迹信息",
-		hide:{effect: "fade"},
-		show:{effect: "fade"},
-		autoOpen:false,
-		buttons: {
-	        "确定": function() {
-	            $(this).dialog('close');
-	        }
-	    }
-	}); 
-    
     $("#query-result").on("click", "input", function(){//将对应选中的轨迹显示到地图
         var it = this,
             id = it.parentNode.parentNode.id;
         if (it.checked) {
             //先查看之前是否已经查询过
             if (!jmap(id).show()) {
-                it.disabled = true;//查询时禁用选框
+                $('.table-overlay').show();
                 $.getJSON(web_prefix + '/RouteRecordMapInfoServlet',
                     { id: id },//获取tr的id
                     function (data) { jmap.loadData(id, data); }
@@ -363,12 +345,23 @@ $(document).ready(function () {
         }).next().click(function () {
             var queueLength = $fileList.plupload('getFiles').length;//$("#kmz_file").uploadify("settings", "queueLength");
             if (queueLength > 0) {
-                var sure = confirm("列表中有未上传完成的文件，\n确定要放弃上传吗？")
-                if (!sure) {
-                    return;
-                }
+                var $tipMsg = $('<div class="text-info">提示!<hr/><p><strong>列表中有未上传完成的文件，\n确定要放弃上传吗？</strong>' +
+                '</p><div class="text-right"><a class="btn btn-info btn-sm">确定</a><a class="btn btn-info btn-sm focus">取消</a></div></div>');
+                $.fancybox($tipMsg, {
+                    modal: true,
+                    closeBtn: false,
+                    afterShow: function() {
+                        $tipMsg.find(".focus").click(function() {
+                            $.fancybox.close(true);
+                        })
+                            .prev().click(function() {
+                                $fileUploadList.hide();
+                                $.fancybox.close(true);
+                            });
+                    }
+                });
             }
-            $fileUploadList.hide();
+
         });
 
         $("#file-upload-error").bind('closed.bs.alert', function () {
@@ -419,10 +412,14 @@ $(document).ready(function () {
                 },
                 function(data) {
                     if (data.result == "true") {
-                        alert("保存成功");
+                        $.fancybox('<div class="text-info">提示!<hr/><div class="text-center"><strong>保存成功。</strong></div></div>', {
+                            modal: true
+                        });
                     }
                     else {
-                        alert("保存失败");
+                        $.fancybox('<div class="text-info"><strong>提示!</strong><hr/><div class="text-center"><strong>保存失败。</strong></div></div>', {
+                            modal: true
+                        });
                     }
                     //查询完后，恢复提交按钮
                     $it.removeAttr("disabled");
@@ -434,11 +431,32 @@ $(document).ready(function () {
 
     $.ajaxSetup({
         cache: false,
-        complete: function (XMLHttpRequest, textStatus) {
-            var sessionstatus = XMLHttpRequest.getResponseHeader("sessionstatus"); // 通过XMLHttpRequest取得响应头，sessionstatus，
+        complete: function (xhr, textStatus) {
+            var sessionstatus = xhr.getResponseHeader("sessionstatus"); // 通过XMLHttpRequest取得响应头，sessionstatus，
             if (sessionstatus == "timeout") {// 如果超时就处理 ，指定要跳转的页面
-                alert("会话超时，请重新登陆");
-                window.location.href = "../index.html";
+                var $timeOutMsg = $('<div class="text-danger"><strong>会话超时，请重新登陆!</strong><hr/><p><span class="text-primary">5</span>秒后自动跳转自登陆页面</p><p>也可点击<a class="btn  btn-danger btn-sm">此处</a>跳转</p></div>');
+                $.fancybox($timeOutMsg, {
+                    modal: true,
+                    closeBtn: false,
+                    afterShow: function() {
+                        var $spanSec = $timeOutMsg.find('span');
+                        var intervalId = setInterval(countDown, 1000);
+
+                        function countDown() {
+                            var num = parseInt($spanSec.html());
+                            if (num) {
+                                $spanSec.html(num - 1);
+                            } else {
+                                clearInterval(intervalId);
+                                window.location.href = "../index.html";
+                            }
+                        }
+
+                        $timeOutMsg.find('a').click(function () {
+                            window.location.href = "../index.html";
+                        });
+                    }
+                });
             }
         }
     });

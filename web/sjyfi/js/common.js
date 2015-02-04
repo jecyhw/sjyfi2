@@ -35,6 +35,7 @@ function bsAlertDanger($parent, id, msg) {
 		+ '<a href="#" class="close" data-dismiss="alert">&times;</a>'
 		+ '<strong>' + msg + '</strong>'
 		+ '</div>';
+		$parent.inse
 		$parent.append(text);
 	}
 }

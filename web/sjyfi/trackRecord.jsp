@@ -12,10 +12,6 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1" />
     <title></title>
-    <script type="text/javascript">
-        var session_id = '<%=session.getId()%>';
-        var user_dir = '<%=System.getProperty("user.dir")%>'
-    </script>
 
     <link rel="stylesheet" type="text/css" href="css/imgareaselect-default.css">
     <link rel="stylesheet" type="text/css" href="js/jquery-ui/jquery-ui.css" />
@@ -168,26 +164,42 @@
         }
         /* upload file css end*/
 
-        #player-loading {
-            position: fixed;
-            background: none repeat  #000000;
-            cursor: pointer;
-            z-index: 8060;
+        .table-overlay, .tabs-overlay, .player-overlay {
+            position: absolute;
             top: 0px;
             left: 0px;
             right: 0px;
             bottom: 0px;
+            cursor: pointer;
+            z-index: 8060;
+            background: url('js/fancybox/fancybox_overlay.png');
+            display: none;
+        }
+        .table-overlay {
+            position: fixed;
+            width: 403px;
+            z-index: 1;
+        }
+        .player-overlay {
+            background: none repeat  #000000;
+            display: block;
         }
 
-        #player-loading div{
+
+        .sjyfi-loading {
             position: absolute;
             top: 50%;
             left: 50%;
             margin-top: -22px;
             margin-left: -22px;
+            opacity: 0.8;
+            filter:alpha(opacity=80);
+            background: url('js/fancybox/fancybox_sprite.png') 0px -108px;
+        }
+        .sjyfi-loading div {
             width: 44px;
             height: 44px;
-            background: url('js/fancybox/fancybox_loading.gif')  no-repeat;
+            background: url('js/fancybox/fancybox_loading.gif') center center no-repeat;
         }
     </style>
 </head>
@@ -311,6 +323,7 @@
                     </tr>
                 </table>
             </div>
+            <div class="tabs-overlay"><div class="sjyfi-loading"><div></div></div></div>
         </div>
         <div class="top-right">
 
@@ -359,6 +372,7 @@
 
                 </tbody>
             </table>
+            <div class="table-overlay"><div class="sjyfi-loading"><div></div></div></div>
         </div>
         <div class="bottom-right">
             <div id="map"></div>
