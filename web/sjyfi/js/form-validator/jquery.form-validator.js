@@ -1700,9 +1700,5 @@
      //   errorMessage : '', // set above in switch statement
      //   errorMessageKey: '' // not used
     });
-	
-	$.fn.test = function() {
-		alert("fuck");
-	}
 })(jQuery);
 

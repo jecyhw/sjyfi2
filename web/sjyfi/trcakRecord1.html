@@ -6,19 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1" />
     <meta http-equiv="X-UA-Compatible" content="IE=9" />
 <title>Untitled Document</title>
- <link rel="stylesheet" type="text/css" href="css/slide.css" />
     <link rel="stylesheet" type="text/css" href="css/imgareaselect-default.css">
     <link rel="stylesheet" type="text/css" href="js/jquery-ui/jquery-ui.css" />
     <link rel="stylesheet" type="text/css" href="css/jquery.plupload.ui.css"/>
-    <link rel="stylesheet" type="text/css" href="js/bootstrap/css/bootstrap.css" media="screen">
-    <!--[if lt IE 8]>
-    <link href="js/bootstrap/css/bootstrap-ie7.css" rel="stylesheet" type="text/css">
-    <![endif]-->
+    <link rel="stylesheet" type="text/css" href="js/bootstrap/css/bootstrap.css" media="screen"/>
+    <link rel="stylesheet" type="text/css" href="js/fancybox/jquery.fancybox.css"  media="screen">
+    <link rel="stylesheet" type="text/css" href="js/fancybox/helpers/jquery.fancybox-buttons.css"  media="screen">
+
     <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/bootstrap/js/alert.js"></script>
     <script type="text/javascript" src="js/jquery-ui/jquery-ui.js"></script>
-    <script type="text/javascript"
-            src="js/jquery-ui/i18n/jquery.ui.datepicker-zh-CN.js"></script>
-             <script type="text/javascript" src="js/bootstrap/js/bootstrap.js"></script>
+    <script type="text/javascript" src="js/jquery-ui/i18n/jquery.ui.datepicker-zh-CN.js"></script>
     <script type="text/javascript" src="js/plupload/plupload.full.min.js"></script>
     <script type="text/javascript" src="js/plupload/jquery.plupload.ui.js"></script>
     <script type="text/javascript" src="js/plupload/zh_CN.js"></script>
@@ -27,20 +25,16 @@
     <script type="text/javascript" src="js/jwplayer.js"></script>
     <script type="text/javascript"
             src="http://api.map.baidu.com/api?v=2.0&ak=QT9ntk6IBtEHGSy4BG7zOXoU"></script>
-    
-<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-<!--[if lt IE 9]>
-  <script src="http://apps.bdimg.com/libs/html5shiv/3.7/html5shiv.min.js"></script>
-  <script src="http://apps.bdimg.com/libs/respond.js/1.4.2/respond.min.js"></script>
-<![endif]-->
-
-<script type="text/javascript" src="js/common.js"></script>
+    <script type="text/javascript" src="js/fancybox/jquery.mousewheel-3.0.6.pack.js"></script>
+    <script type="text/javascript" src="js/fancybox/jquery.fancybox.js"></script>
+    <script type="text/javascript" src="js/fancybox/helpers/jquery.fancybox-buttons.js"></script>
+    <script type="text/javascript" src="js/common.js"></script>
     <script type="text/javascript" src="js/jmap.js"></script>
     <script type="text/javascript" src="js/trackRecord.js"></script>
+
     <style>
         body {
             font-size: 12px!important;
-            text-align: center;
             min-width: 1100px;
             overflow-y: hidden;
         }
@@ -65,7 +59,6 @@
 
         .top {
             position: relative;
-            text-align: left;
         }
 
         .top-left {
@@ -134,7 +127,7 @@
             position: absolute;
             right: 20px;
             bottom: 0px;
-            z-index: 10000;
+            z-index: 100;
             width: 600px;
         }
 
@@ -163,6 +156,44 @@
             !important;
         }
         /* upload file css end*/
+
+        .table-overlay, .tabs-overlay, .player-overlay {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            right: 0px;
+            bottom: 0px;
+            cursor: pointer;
+            z-index: 8060;
+            background: url('js/fancybox/fancybox_overlay.png');
+            display: none;
+        }
+        .table-overlay {
+            position: fixed;
+            width: 403px;
+            z-index: 1;
+        }
+        .player-overlay {
+            background: none repeat  #000000;
+            display: block;
+        }
+
+
+        .sjyfi-loading {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -22px;
+            margin-left: -22px;
+            opacity: 0.8;
+            filter:alpha(opacity=80);
+            background: url('js/fancybox/fancybox_sprite.png') 0px -108px;
+        }
+        .sjyfi-loading div {
+            width: 44px;
+            height: 44px;
+            background: url('js/fancybox/fancybox_loading.gif') center center no-repeat;
+        }
     </style>
 </head>
 <body>

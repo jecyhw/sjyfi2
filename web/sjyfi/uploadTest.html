@@ -95,18 +95,23 @@
 		//上传关闭
 		$(document).ready(function() {
 			var isPlayer;
-			$.fancybox([{href: '<div id="test"></div><div class="player-overlay"><div id="fancybox-loading"><div></div></div></div>', type: 'html', width: 480, height: 270, autoSize: true, autoResize: true, scrolling:'no'}], {
+
+			var a = '<video controls="controls" width="640" height="360">'
+			+ '<source src="http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4" type="video/mp4" />'
+			+ '<object type="application/x-shockwave-flash" data="http://releases.flowplayer.org/swf/flowplayer-3.2.1.swf" width="640" height="360">'
+			+ '<param name="movie" value="http://releases.flowplayer.org/swf/flowplayer-3.2.1.swf" />'
+			+ '<param name="allowFullScreen" value="true" />'
+			+ '<param name="wmode" value="transparent" />'
+			+ '<param name="flashVars" value="config={\'playlist\':[{\'url\':\'http%3A%2F%2Fclips.vorwaerts-gmbh.de%2Fbig_buck_bunny.mp4\',\'autoPlay\':false}]}" />'
+			+ '<span title="No video playback capabilities, please download the video below">该视频无法播放,请点击下面按钮进行下载</span>'
+			+ '</object>'
+			+ '</video>'
+			+ '<p><a class="btn btn-primary btn-sm" href="http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4">'
+			+ '点击下载<span class="glyphicon glyphicon-download"></span></a></p>';
+			$.fancybox([{href:a, type: 'html', scrolling:'no'}], {
 				afterLoad: function(current, previous){
 
-					if (current.type == 'html') {
-						isPlayer = true;
 
-
-
-					}
-					else {
-						isPlayer = false;
-					}
 				},
 				afterShow: function() {
 					if (isPlayer) {

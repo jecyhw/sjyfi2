@@ -172,9 +172,42 @@
             }
 
             function slide(desc, name) {
-
-
-                var msg = [], playerObj = {};
+                var msg = [];
+                $.each(desc, function (index, val) {
+                    var child = {};
+                    if (val.indexOf('photo') > -1) {
+                        child.type = 'image';
+                        child.href = val;
+                    } else {
+                        child.type = 'html';
+                        child.scrolling = "no";
+                        child.href = '<video controls="controls" width="640" height="360">'
+                        + '<source src="'+ val + '" type="video/mp4" />'
+                        + '<object type="application/x-shockwave-flash" data="http://player.longtailvideo.com/player.swf" width="640" height="360">'
+                        + '<param name="movie" value="http://player.longtailvideo.com/player.swf" />'
+                        + '<param name="allowFullScreen" value="true" />'
+                        + '<param name="wmode" value="transparent" />'
+                        + '<param name="flashVars" value="controlbar=over&amp;file='+ val + '" />'
+                        + '<span class="text-danger"><strong>该视频无法播放,请点击下面按钮进行下载</strong></span>'
+                        + '</object>'
+                        + '</video>'
+                        + '<p><a class="btn btn-primary btn-sm" href="' +val + '">'
+                        + '点击下载<span class="glyphicon glyphicon-download"></span></a></p>';
+                    }
+                    msg.push(child);
+                });
+                $.fancybox(msg, {
+                    title: name,
+                    loop: false,
+                    closeBtn: false ,
+                    modal: true,
+                    helpers:  {
+                        title	: { type : 'inside' },
+                        buttons : {
+                        }
+                    }
+                });
+               /* var msg = [], playerObj = {};
                 $.each(desc, function (index, val) {
                     var child = {};
                     child.href = val;
@@ -219,7 +252,7 @@
 
                         }
                     }
-                });
+                });*/
             }
         }
 
@@ -230,6 +263,7 @@
             }
             jmap(id).setViewPort();
             $('.table-overlay').hide();
+            $('#' + id).addClass('success');
         }
 
         function gps2BaiDuPoints(gpsPoints, callback) {//gps坐标数组,格式为['114.21892734521,29.575429778924','114.21892734521,29.575429778924'],callback全部转换完之后的回调函数，参数为百度坐标数组

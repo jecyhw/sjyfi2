@@ -29,7 +29,7 @@
     <script type="text/javascript" src="js/plupload/zh_CN.js"></script>
     <script type="text/javascript" src="js/jquery.imgareaselect.js"></script>
     <script type="text/javascript" src="js/jquery.json.js"></script>
-    <script type="text/javascript" src="js/jwplayer.js"></script>
+    <%--<script type="text/javascript" src="js/jwplayer.js"></script>--%>
     <script type="text/javascript"
             src="http://api.map.baidu.com/api?v=2.0&ak=QT9ntk6IBtEHGSy4BG7zOXoU"></script>
     <script type="text/javascript" src="js/fancybox/jquery.mousewheel-3.0.6.pack.js"></script>
@@ -407,7 +407,7 @@
         </div>
     </div>
 </div>
-<div style="display: none !important;" id="preload"></div>
+<%--<div style="display: none !important;" id="preload"></div>--%>
 <%--<div id="ui-dialog"></div>--%>
 </body>
 </html>

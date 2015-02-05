@@ -120,7 +120,8 @@ $(document).ready(function () {
                     },
                     error: function (a, b) {
                         queryResult.html('<tr><td colspan="4" class="text-center">查询出错</td></tr>');
-                        $tabs.find(".tabs-overlay").hide();
+                        if ($tabs)
+                            $tabs.find(".tabs-overlay").hide();
                     },
                     beforeSend: function () {
                         queryResult.html('<tr><td colspan="4" class="text-center">正在查询中</td></tr>');
@@ -319,7 +320,7 @@ $(document).ready(function () {
                     {filename: file.name},
                     function(data) {
                         if (data == 1) {
-                            $('#file-list').plupload('notify', 'error', file.name + '文件在服务器端已存在');
+                            $fileList.plupload('notify', 'error', file.name + '文件在服务器端已存在');
                             cb(false);
                         }
                         else {
@@ -350,18 +351,20 @@ $(document).ready(function () {
                 $.fancybox($tipMsg, {
                     modal: true,
                     closeBtn: false,
-                    afterShow: function() {
-                        $tipMsg.find(".focus").click(function() {
+                    afterShow: function () {
+                        $tipMsg.find(".focus").click(function () {
                             $.fancybox.close(true);
                         })
-                            .prev().click(function() {
+                            .prev().click(function () {
                                 $fileUploadList.hide();
+                                $fileList.plupload('clearQueue');
                                 $.fancybox.close(true);
                             });
                     }
                 });
+            } else {
+                $fileUploadList.hide();
             }
-
         });
 
         $("#file-upload-error").bind('closed.bs.alert', function () {
@@ -461,11 +464,11 @@ $(document).ready(function () {
         }
     });
 
-    jwplayer.key = "m476PqaVB57UPPquVHfobNzMOH+z+knyJgpE+w==";
+    /*jwplayer.key = "m476PqaVB57UPPquVHfobNzMOH+z+knyJgpE+w==";
     jwplayer("preload").setup({file:"", height:0});
     jwplayer().onSetupError(function() {
         $("#preload").remove();
-    });
+    });*/
 });
 
 
