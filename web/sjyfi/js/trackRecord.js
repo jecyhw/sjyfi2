@@ -97,7 +97,6 @@ $(document).ready(function () {
                         data: conditions
                     },
                     success: function (data) {
-                        log(data);
                         if (data.length == 0) {
                             queryResult.html('<tr><td colspan="4"  class="text-center">无搜索记录</td></tr>');
                         }

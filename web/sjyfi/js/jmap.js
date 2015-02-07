@@ -92,7 +92,6 @@
     }
 
     function Draw(id, data) {
-        log(data);
         var lineStyle = {
             strokeColor: "#8A2BE2",
                 fillColor: "",
@@ -161,12 +160,13 @@
 
             function callback(baiDuPoints){
                 for(var index in baiDuPoints){
-                    var placeMark = placeMarks[index];
-                    var marker = new BMap.Marker(baiDuPoints[index]);
-                    overlay.push(marker);
-                    marker.addEventListener("click", function () {
-                        this.openInfoWindow(slide(placeMark.description, placeMark.name));//图片，视频展示
-                    });
+                    (function(placeMark){
+                        var marker = new BMap.Marker(baiDuPoints[index]);
+                        overlay.push(marker);
+                        marker.addEventListener("click", function () {
+                            this.openInfoWindow(slide(placeMark.description, placeMark.name));//图片，视频展示
+                        });
+                    })(placeMarks[index]);
                 }
                 showInMap();
             }
@@ -207,52 +207,6 @@
                         }
                     }
                 });
-               /* var msg = [], playerObj = {};
-                $.each(desc, function (index, val) {
-                    var child = {};
-                    child.href = val;
-                    if (val.indexOf('photo') < 0) {
-                        child.type = 'image';
-                    } else {
-                        child.type = 'html';
-                        child.scrolling = "no";
-
-                    }
-                    msg.push(val);
-                });
-                $.fancybox(msg, {
-                    title: name,
-                    afterLoad: function (current, previous) {
-                        if (current.type == 'html') {
-                            playerObj.addr = current.href;
-                            playerObj.id = new Date().getTime();
-                            current.content = '<div id="' + playerObj.id + '">+</div><div class="player-overlay"><div class="sjyfi-loading"><div></div></div></div>'
-                        } else {
-                            playerObj = {};
-                        }
-                    },
-                    afterShow: function () {
-                        if (playerObj.id) {
-                            jwplayer(playerObj.id).setup({
-                                file: playerObj.addr,
-                                events: {
-                                    onReady: function() {
-                                        $(".player-overlay").remove();
-                                    }
-                                }
-                            });
-                        }
-                    },
-                    loop: false,
-                    closeBtn: false ,
-                    modal: true,
-                    helpers:  {
-                        title	: { type : 'inside' },
-                        buttons : {
-
-                        }
-                    }
-                });*/
             }
         }
 
@@ -268,32 +222,36 @@
 
         function gps2BaiDuPoints(gpsPoints, callback) {//gps坐标数组,格式为['114.21892734521,29.575429778924','114.21892734521,29.575429778924'],callback全部转换完之后的回调函数，参数为百度坐标数组
             var url = "http://api.map.baidu.com/geoconv/v1/?from=1&to=5&ak=kPEqHXhcmEDm9DhNYKbKfeer&callback=?&coords=",
-                maxCnt = 80,
+                maxCnt = 50,
                 arr,
                 baiDuPoints = [],
-                shouldAjaxCount = 0,
-                actuallyAjaxCount = 0;
-            log(gpsPoints);
+                shouldAjaxCount = -1,
+                actuallyAjaxCount = -1;
+            log("gpsPoints:" + gpsPoints);
             while (gpsPoints.length > 0) {
-                arr = gpsPoints.splice(0, 80);
-                shouldAjaxCount++;
-                $.getJSON(url + arr.join(";"),
-                    function(data) {
-                        log(data);
-                        actuallyAjaxCount++;
-                        if (data.status == 0) {
-                            var result;
-                            for (var i in data.result) {
-                                result = data.result[i];
-                                baiDuPoints.push(new BMap.Point(result.x, result.y));
+                arr = gpsPoints.splice(0, maxCnt);
+                (function(ajaxCount) {
+                    $.getJSON(url + arr.join(";"),
+                        function(data) {
+                            ++actuallyAjaxCount;
+                            log("ajaxCount" + ajaxCount  + "," + actuallyAjaxCount + ":" + data);
+                            if (data.status == 0) {
+                                baiDuPoints[ajaxCount] = data.result;
+                            }
+                            if (actuallyAjaxCount == shouldAjaxCount && gpsPoints.length == 0) {
+                                log(baiDuPoints);
+                                var resultPoints = [], result;
+                                for (var i in baiDuPoints) {
+                                    result = baiDuPoints[i];
+                                    for (var j in result) {
+                                        resultPoints.push(new BMap.Point(result[j].x, result[j].y));
+                                    }
+                                }
+                                callback(resultPoints);
                             }
                         }
-                        if (actuallyAjaxCount == shouldAjaxCount && gpsPoints.length == 0) {
-                            log(baiDuPoints);
-                            callback(baiDuPoints);
-                        }
-                    }
-                );
+                    );
+                })(++shouldAjaxCount);
             }
         }
     };

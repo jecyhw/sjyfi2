@@ -17,8 +17,7 @@
     <link rel="stylesheet" type="text/css" href="js/jquery-ui/jquery-ui.css" />
     <link rel="stylesheet" type="text/css" href="css/jquery.plupload.ui.css"/>
     <link rel="stylesheet" type="text/css" href="js/bootstrap/css/bootstrap.css" media="screen"/>
-    <link rel="stylesheet" type="text/css" href="js/fancybox/jquery.fancybox.css"  media="screen">
-    <link rel="stylesheet" type="text/css" href="js/fancybox/helpers/jquery.fancybox-buttons.css"  media="screen">
+    <link rel="stylesheet" type="text/css" href="js/fancybox/jquery.fancybox.css"  media="screen">    <link rel="stylesheet" type="text/css" href="js/fancybox/helpers/jquery.fancybox-buttons.css"  media="screen">
 
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/bootstrap/js/alert.js"></script>
@@ -163,28 +162,19 @@
             !important;
         }
         /* upload file css end*/
-
-        .table-overlay, .tabs-overlay, .player-overlay {
+        .table-overlay, .tabs-overlay {
             position: absolute;
             top: 0px;
             left: 0px;
             right: 0px;
             bottom: 0px;
-            cursor: pointer;
-            z-index: 8060;
-            background: url('js/fancybox/fancybox_overlay.png');
+            z-index: 100;
             display: none;
         }
         .table-overlay {
             position: fixed;
             width: 403px;
-            z-index: 1;
         }
-        .player-overlay {
-            background: none repeat  #000000;
-            display: block;
-        }
-
 
         .sjyfi-loading {
             position: absolute;
@@ -192,11 +182,6 @@
             left: 50%;
             margin-top: -22px;
             margin-left: -22px;
-            opacity: 0.8;
-            filter:alpha(opacity=80);
-            background: url('js/fancybox/fancybox_sprite.png') 0px -108px;
-        }
-        .sjyfi-loading div {
             width: 44px;
             height: 44px;
             background: url('js/fancybox/fancybox_loading.gif') center center no-repeat;
@@ -323,7 +308,7 @@
                     </tr>
                 </table>
             </div>
-            <div class="tabs-overlay"><div class="sjyfi-loading"><div></div></div></div>
+            <div class="tabs-overlay"><div class="sjyfi-loading"></div></div>
         </div>
         <div class="top-right">
 
@@ -372,7 +357,7 @@
 
                 </tbody>
             </table>
-            <div class="table-overlay"><div class="sjyfi-loading"><div></div></div></div>
+            <div class="table-overlay"><div class="sjyfi-loading"></div></div>
         </div>
         <div class="bottom-right">
             <div id="map"></div>
