@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+
+    <title>Plupload - jQuery UI Widget</title>
+
+    <link rel="stylesheet" type="text/css" href="js/jquery-ui/jquery-ui.css" />
+    <link rel="stylesheet" type="text/css" href="css/jquery.plupload.ui.css"/>
+
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/jquery-ui/jquery-ui.js"></script>
+    <script type="text/javascript" src="js/jquery-ui/i18n/jquery.ui.datepicker-zh-CN.js"></script>
+    <script type="text/javascript" src="js/plupload/plupload.full.min.js"></script>
+    <script type="text/javascript" src="js/plupload/jquery.plupload.ui.js"></script>
+
+    <!-- debug
+    <script type="text/javascript" src="../../js/moxie.js"></script>
+    <script type="text/javascript" src="../../js/plupload.dev.js"></script>
+    <script type="text/javascript" src="../../js/jquery.ui.plupload/jquery.ui.plupload.js"></script>
+    -->
+
+</head>
+<body style="font: 13px Verdana; background: #eee; color: #333">
+
+<h1>jQuery UI Widget</h1>
+
+<p>You can see this example with different themes on the <a href="http://plupload.com/example_jquery_ui.php">www.plupload.com</a> website.</p>
+
+    <div id="uploader">
+        <p>Your browser doesn't have Flash, Silverlight or HTML5 support.</p>
+    </div>
+
+</form>
+
+<script type="text/javascript">
+    // Initialize the widget when the DOM is ready
+    $(function() {
+        $("#uploader").plupload({
+            // General settings
+            runtimes : 'html5,flash,silverlight,html4',
+            url : 'upload.jsp',
+            chunk_size: '1024kb',
+            flash_swf_url : 'js/plupload/Moxie.swf',
+
+            // Silverlight settings
+            silverlight_xap_url : 'js/plupload/Moxie.xap'
+        });
+
+    });
+</script>
+</body>
+</html>

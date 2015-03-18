@@ -36,7 +36,7 @@ public final class FileUtil {
      * @param dir
      * @return
      */
-    public static String getNestDir(String dir) {
+    public static String getNestDir(String dir) {//获取kml.xml的上一级目录
         File dirFile = new File(dir);
         dir = dirFile.getAbsolutePath();
         if (dirFile.exists()) {
@@ -52,7 +52,7 @@ public final class FileUtil {
             }
         }
         try {
-            new JUnZipFile().workAndReturnUnZipFileSize(dir + ".kmz", dir);
+            new JUnZipFile().workAndReturnUnZipFileSize(dir + ".kmz", dir);//当文件不存在时，看是否存在该名字的压缩文件，是进行解压，在获取目录
             return getNestDir(dir);
         } catch (IOException e) {
             TestOutput.println(e.getMessage());

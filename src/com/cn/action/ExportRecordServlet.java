@@ -33,13 +33,12 @@ public class ExportRecordServlet extends HttpServlet {
         sbSql.append(");");
 
         List entityList = DBUtil.queryBatch(dao, sbSql.toString(), ids);//查询
-        String zipFileName;
-        DownloadFile downloadFile = new DownloadFile();
+        String zipFileName = null;
+        int isDeleted = 0;
         if (entityList.size() > 0) {
             if (entityList.size() == 1) {
                 String tmp = ((TTracksEntity) entityList.get(0)).getPath();
                 zipFileName = FileUtil.removeLastSeparator(tmp) + ".kmz";
-                downloadFile.work(response, zipFileName);
             } else {
                 List<String> paths = new ArrayList<String>();
                 for (Object entity : entityList) {
@@ -54,11 +53,11 @@ public class ExportRecordServlet extends HttpServlet {
 
                 zipFileName = Config.zipFileDir + fileName + ".kmz";
                 new JZipFile().work(mergeFileName, zipFileName);
-                downloadFile.work(response, zipFileName);
-                FileUtil.deleteFile(mergeFileName);//压缩完毕后删除合并的文件,以及压缩文件
-                FileUtil.deleteFile(zipFileName);
+                FileUtil.deleteFile(mergeFileName);//压缩完毕后删除合并的文件
+                isDeleted = 1;
             }
         }
+        response.getWriter().print("<script>parent.callback(\""+ zipFileName +"\","+ isDeleted + ")</script>");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
