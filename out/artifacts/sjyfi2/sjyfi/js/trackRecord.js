@@ -304,7 +304,7 @@ $(document).ready(function () {
             url : web_prefix +  '/UploadFileServlet',
             //chunk_size: '1mb',
             max_retries: 3,
-            max_file_size: '4gb',
+            chunk_size: '1024kb',
             filters : {
                 // Maximum file size
                 max_file_size : '1000mb',

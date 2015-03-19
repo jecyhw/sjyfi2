@@ -11,7 +11,7 @@ public final class Config {
     static final public String zipFileDir = fileUploadDir;
 
     public class KMZFileInfo{
-        static final public String routeRecordFileName = "RouteRecord.kml";
+        static final public String routeRecordFileName = "PlaceMarkDataSet.kml";
         static final public String trackDetailFileName = "TrackDetail.xml";
         static final public String videoDirectoryName = "video/";
         static final public String photoDirectoryName = "photo/";

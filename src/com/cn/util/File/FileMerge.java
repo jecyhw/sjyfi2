@@ -3,6 +3,8 @@ package com.cn.util.File;
 import com.cn.test.TestOutput;
 import org.dom4j.DocumentException;
 
+import javax.xml.transform.Result;
+import javax.xml.transform.stream.StreamResult;
 import java.io.*;
 import java.util.List;
 
@@ -76,6 +78,13 @@ public class FileMerge {
 
     private void kmlAppend(File source, File dest) {
         try {
+            Result resultXml = new StreamResult(new FileOutputStream(new File("")));
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        try {
             new KmlParser(dest.getAbsolutePath()).append(new KmlParser(source.getAbsolutePath()));
         } catch (DocumentException e) {
             TestOutput.println(e.getMessage());
@@ -85,6 +94,7 @@ public class FileMerge {
 
     private void xmlAppend(File source, File dest) {
         try {
+
             new XmlParser(dest.getAbsolutePath()).append(new XmlParser(source.getAbsolutePath()));
         } catch (DocumentException e) {
             TestOutput.println(e.getMessage());

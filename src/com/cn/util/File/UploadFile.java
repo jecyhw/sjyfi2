@@ -32,7 +32,7 @@ public class UploadFile {
     public void work(HttpServletRequest request) {
         upload = new ServletFileUpload(factory);
         try {
-            int chunk = 0, chunks = 0;
+            int chunk = -1, chunks = -1;
             String fileName = null;
             List<FileItem> fileItems = upload.parseRequest(request);
             Iterator<FileItem> it = fileItems.iterator();
@@ -47,10 +47,15 @@ public class UploadFile {
                     else
                         fileName = fileItem.getString();
                 } else {
-                    fileItem.write(new File(Config.fileUploadDir + chunk + fileName));
+                    if (chunks == -1) {//没有分割文件
+                        fileItem.write(new File(Config.fileUploadDir + fileName));
+                        JFile.addUploadFilePath(Config.fileUploadDir + fileName);//上传成功加入到上传文件路径列表,以便解压
+                    } else {
+                        fileItem.write(new File(Config.fileUploadDir + chunk + fileName));
+                    }
                 }
             }
-            if (chunks != 0 && chunks == chunk + 1) {
+            if (chunks == chunk + 1) {//合并文件
                 BufferedOutputStream outputStream = new BufferedOutputStream(new FileOutputStream(new File(Config.fileUploadDir + fileName)));
                 for (chunk = 0; chunk < chunks; chunk++) {
                     File tempFile = new File(Config.fileUploadDir + chunk + fileName);

@@ -28,7 +28,6 @@ public class KmlParser extends FileParser{
         if (root != null) {
             String xPath = "Folder/Placemark/LineString/coordinates";
             List<Node> coordinates = root.selectNodes(xPath);
-            String s = root.getPath();
             for (Node node : coordinates) {
                 List<TTracksPointsEntity> entityList = new ArrayList<TTracksPointsEntity>();
                 StringTokenizer tokenizer = new StringTokenizer(node.getText(), " ", false);
@@ -95,10 +94,5 @@ public class KmlParser extends FileParser{
     }
 
     static public void main(String[] args) {
-        try {
-            new KmlParser("C:\\Users\\SNNU\\Desktop\\routeRecord_20140723_052810\\RouteRecord.kml").getMapInfo();
-        } catch (DocumentException e) {
-            e.printStackTrace();
-        }
     }
 }
