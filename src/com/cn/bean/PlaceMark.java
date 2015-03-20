@@ -8,11 +8,31 @@ import java.util.StringTokenizer;
  * Created by SNNU on 2015/3/19.
  */
 public class PlaceMark {
-    String name;//两者都有
-    List desc;//关键点的描述
-    TTracksPointsEntity coordinate;//关键点的坐标
-    List<TTracksPointsEntity> route;//轨迹的坐标
-    RouteStyle routeStyle;//轨迹的样式
+    private String name;//两者都有
+    private List desc;//关键点的描述
+    private TTracksPointsEntity coordinate;//关键点的坐标
+    private List<TTracksPointsEntity> route;//轨迹的坐标
+    private RouteStyle routeStyle = new RouteStyle();;//轨迹的样式
+
+    public String getName() {
+        return name;
+    }
+
+    public List getDesc() {
+        return desc;
+    }
+
+    public TTracksPointsEntity getCoordinate() {
+        return coordinate;
+    }
+
+    public RouteStyle getRouteStyle() {
+        return routeStyle;
+    }
+
+    public List<TTracksPointsEntity> getRoute() {
+        return route;
+    }
 
     public void setName(String name) {
         this.name = name;
@@ -51,12 +71,6 @@ public class PlaceMark {
                 desc.add(dir + tokenizer.nextToken());
             }
         }
-    }
-
-    public RouteStyle getPathStyle() {
-        if (routeStyle == null)
-            routeStyle = new RouteStyle();
-        return routeStyle;
     }
 
     public void setRouteStyle(RouteStyle routeStyle) {

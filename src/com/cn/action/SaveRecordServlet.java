@@ -6,16 +6,15 @@ import com.cn.dao.DBHelper;
 import com.cn.dao.TTracksDao;
 import com.cn.test.TestOutput;
 import com.cn.util.*;
-import com.cn.util.File.FileMerge;
-import com.cn.util.File.FileUtil;
-import com.cn.util.File.JZipFile;
-import com.cn.util.File.XmlParser;
+import com.cn.util.File.*;
 import org.dom4j.DocumentException;
+import org.xml.sax.SAXException;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -55,15 +54,17 @@ public class SaveRecordServlet extends HttpServlet {
         new JZipFile().work(mergeFileName, zipFileName);
         Map<String, String> result = new Hashtable<String, String>();
         try {
-            TTracksEntity entity = new XmlParser(FileUtil.getNestDir(mergeFileName) + Config.KMZFileInfo.trackDetailFileName).getTrackEntity();
+            TrackDetailFileParse fileParse = new TrackDetailFileParse();
+            new JSAXParser().parse(FileUtil.getNestDir(mergeFileName) + Config.KMZFileInfo.trackDetailFileName, fileParse);
+            TTracksEntity entity = (TTracksEntity) fileParse.getParseObject();
             entity.setFilesize(mergeFileSize);
             entity.setPath(mergeFileName);
             DBUtil.insert(DBHelper.getInsertSql(TableName.tracks, entity), DBHelper.getSqlValues(entity));
             result.put("result", "true");
-        } catch (DocumentException e) {
-            TestOutput.println(e.getMessage());
+        } catch (ParserConfigurationException e) {
             e.printStackTrace();
-            result.put("result", "false");
+        } catch (SAXException e) {
+            e.printStackTrace();
         }
         Out out = new Out(response);
         out.printJson(result);

@@ -5,6 +5,7 @@ import org.codehaus.jackson.map.ObjectMapper;
 import org.codehaus.jackson.map.SerializationConfig;
 
 import java.io.IOException;
+import java.io.OutputStream;
 import java.io.Writer;
 import java.text.SimpleDateFormat;
 import java.util.List;
@@ -30,6 +31,16 @@ public class Json {
             e.printStackTrace();
         }
     }
+
+    public static void write(OutputStream outputStream, Object value) {
+        try {
+            objectMapper.writeValue(outputStream, value);
+        } catch (IOException e) {
+            TestOutput.println(e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
     public static Object read(String jsonString, Class clsName)
     {
         Object obj = null;

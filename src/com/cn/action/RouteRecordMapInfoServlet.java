@@ -7,14 +7,19 @@ import com.cn.test.TestOutput;
 import com.cn.util.Config;
 import com.cn.util.DBUtil;
 import com.cn.util.File.FileUtil;
-import com.cn.util.File.KmlParser;
+import com.cn.util.File.JSAXParser;
+import com.cn.util.File.PlaceMarkFileParse;
 import com.cn.util.Out;
 import org.dom4j.DocumentException;
+import org.xml.sax.SAXException;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.parsers.SAXParser;
+import javax.xml.parsers.SAXParserFactory;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Hashtable;
@@ -35,15 +40,18 @@ public class RouteRecordMapInfoServlet extends HttpServlet {
         TTracksEntity entity = (TTracksEntity) DBUtil.query(dao, sql, values);
 
         Out out = new Out(response);
-        Map<String, Object> result = new Hashtable<String, Object>();
+        Object result = new ArrayList();
         if (entity != null)
         {
             String path = entity.getPath();
             String fileName = FileUtil.getNestDir(path) + Config.KMZFileInfo.routeRecordFileName;
             try {
-                result = new KmlParser(fileName).getMapInfo();
-            } catch (DocumentException e) {
-                TestOutput.println(e.getMessage());
+                PlaceMarkFileParse fileParse = new PlaceMarkFileParse();
+                new JSAXParser().parse(fileName, fileParse);
+                result = fileParse.getParseObject();
+            }  catch (ParserConfigurationException e) {
+                e.printStackTrace();
+            } catch (SAXException e) {
                 e.printStackTrace();
             }
         }

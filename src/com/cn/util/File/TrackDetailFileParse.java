@@ -2,31 +2,26 @@ package com.cn.util.File;
 
 import com.cn.bean.TTracksEntity;
 import com.cn.util.DateUtil;
-import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
-import org.xml.sax.helpers.DefaultHandler;
 
 import java.sql.Date;
 
-/**
- * Created by SNNU on 2015/3/19.
- */
-public class TrackDetailSaxParse extends DefaultSaxParse{
-    TTracksEntity track = new TTracksEntity();
 
-    @Override
+/**
+ * Created by SNNU on 2015/3/20.
+ */
+public class TrackDetailFileParse extends BaseFileParse{
+    TTracksEntity track = new TTracksEntity();
+    StringBuilder builder = new StringBuilder();
+    String text;
+
     public Object getParseObject() {
         return track;
     }
 
-    @Override
-    public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {
-
-    }
-
-    @Override
     public void endElement(String uri, String localName, String qName) throws SAXException {
-        super.endElement(uri, localName, qName);
+        text = builder.toString().trim();
+        builder.delete(0, builder.length());
         if ("name".equals(qName)) {
             track.setName(text);
         } else if ("author".equals(qName)) {
@@ -45,4 +40,9 @@ public class TrackDetailSaxParse extends DefaultSaxParse{
             track.setAnnotation(text);
         }
     }
+
+    public void characters(char[] ch, int start, int length) throws SAXException {
+        builder.append(ch, start, length);
+    }
+
 }

@@ -1,43 +1,54 @@
 package com.cn.util.File;
 
-import com.cn.bean.PlaceMark;
-import com.cn.bean.RouteStyle;
+import com.cn.bean.*;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
-import org.xml.sax.helpers.DefaultHandler;
 
-import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.parsers.SAXParser;
-import javax.xml.parsers.SAXParserFactory;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by SNNU on 2015/3/19.
  */
-public class PlaceMarkSaxParse extends DefaultSaxParse {
+public class PlaceMarkFileParse extends BaseFileParse {
     List<PlaceMark> placeMarkList = new ArrayList<PlaceMark>();
     PlaceMark placeMark;
     List<RouteStyle> routeStyleList = new ArrayList<RouteStyle>();//用来记录Style
     RouteStyle routeStyle;
     boolean isRoute = false;
-    String parseFileUri;
+    StringBuilder builder = new StringBuilder();
+    String text;
 
-    public String getParseFileUri() {
-        return parseFileUri;
-    }
-
-    public PlaceMarkSaxParse(String parseFileUri) {
-        this.parseFileUri = parseFileUri;
-    }
-
-    @Override
     public Object getParseObject() {
-        return placeMarkList ;
+        List result = new ArrayList();
+        for (PlaceMark mark : placeMarkList) {
+            if (mark.getRoute() != null)
+            {
+                RoutePlaceMark routePlaceMark = new RoutePlaceMark();
+                routePlaceMark.setName(mark.getName());
+                routePlaceMark.setRoute(mark.getRoute());
+                routePlaceMark.setRouteStyle(mark.getRouteStyle());
+                result.add(routePlaceMark);
+            } else {
+                KeyPointPlaceMark keyPointPlaceMark = new KeyPointPlaceMark();
+                keyPointPlaceMark.setName(mark.getName());
+                keyPointPlaceMark.setCoordinate(mark.getCoordinate());
+                keyPointPlaceMark.setDesc(mark.getDesc());
+                result.add(keyPointPlaceMark);
+            }
+        }
+        return result;
     }
 
-    @Override
+    public List<List<TTracksPointsEntity>> getPoints() {
+        List<List<TTracksPointsEntity>> lists = new ArrayList<List<TTracksPointsEntity>>();
+        for (PlaceMark routePlaceMark : placeMarkList) {
+            if (routePlaceMark.getRoute() != null)
+                lists.add(routePlaceMark.getRoute());
+        }
+        return lists;
+    }
+
     public void startElement(String uri, String localName, String qName, Attributes attrs) throws SAXException {
         if (qName.equals("Placemark")) {
             placeMark = new PlaceMark();
@@ -49,9 +60,9 @@ public class PlaceMarkSaxParse extends DefaultSaxParse {
         }
     }
 
-    @Override
     public void endElement(String uri, String localName, String qName) throws SAXException {
-        super.endElement(uri, localName, qName);
+        text = builder.toString().trim();
+        builder.delete(0, builder.length());
         if (qName.equals("Placemark")) {//一个Placemark解析完
             placeMarkList.add(placeMark);
             isRoute = false;
@@ -69,12 +80,12 @@ public class PlaceMarkSaxParse extends DefaultSaxParse {
             placeMark.setDescription(text, parseFileUri);
         }  else if (qName.equals("color")) {//路线样式颜色
             if (null == routeStyle)//有两种情况，一种路线是引用的样式，另一种是直接设置的样式
-                placeMark.getPathStyle().setColor(text);
+                placeMark.getRouteStyle().setColor(text);
             else
                 routeStyle.setColor(text);
         } else if (qName.equals("width")) {//路线样式宽度，
             if (null == routeStyle)
-                placeMark.getPathStyle().setWidth(text);
+                placeMark.getRouteStyle().setWidth(text);
             else
                 routeStyle.setWidth(text);
         } else if (qName.equals("styleUrl")) {//说明:引用的样式要在该路线之前设置才能获取到
@@ -88,16 +99,8 @@ public class PlaceMarkSaxParse extends DefaultSaxParse {
         }
     }
 
-    @Override
     public void characters(char[] ch, int start, int length) throws SAXException {
          builder.append(ch, start, length);
-    }
-
-    static public void main(String[] args) throws ParserConfigurationException, SAXException, IOException {
-        SAXParserFactory factory = SAXParserFactory.newInstance();
-        SAXParser parser = factory.newSAXParser();
-        PlaceMarkSaxParse handler = new PlaceMarkSaxParse("C:\\Users\\SNNU\\Desktop\\RouteRecord.kml");
-        parser.parse(handler.getParseFileUri(), handler);
     }
 }
 

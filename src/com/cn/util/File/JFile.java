@@ -9,7 +9,9 @@ import com.cn.util.Config;
 import com.cn.util.DBUtil;
 import com.cn.util.TableName;
 import org.dom4j.DocumentException;
+import org.xml.sax.SAXException;
 
+import javax.xml.parsers.ParserConfigurationException;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -44,13 +46,14 @@ public class JFile extends Thread {
         while (true) {
             //解压文件
             String kmzFileName = uploadFilePathQueue.poll();
-            TestOutput.println("jfile:" + kmzFileName);
             String unZipFileName = FileUtil.getDirFromKmzName(kmzFileName);
             try {
                 long upZipFileSize = new JUnZipFile().workAndReturnUnZipFileSize(kmzFileName, unZipFileName);
                 try {
                     String nestDir = FileUtil.getNestDir(unZipFileName);
-                    TTracksEntity tracksEntity = new XmlParser(nestDir + Config.KMZFileInfo.trackDetailFileName).getTrackEntity();
+                    BaseFileParse fileParse = new TrackDetailFileParse();
+                    new JSAXParser().parse(nestDir + Config.KMZFileInfo.trackDetailFileName, fileParse);
+                    TTracksEntity tracksEntity = (TTracksEntity) fileParse.getParseObject();
                     tracksEntity.setPath(FileUtil.removeLastSeparator(unZipFileName));
                     tracksEntity.setFilesize((int) upZipFileSize);
                     tracksEntity.setTrackid(DBUtil.insertAndReturnAutoIncreaseId(
@@ -59,7 +62,9 @@ public class JFile extends Thread {
 
                     String sql = null;
                     List sqlValueList = new ArrayList();
-                    List<List<TTracksPointsEntity>> pointList = new KmlParser(nestDir + Config.KMZFileInfo.routeRecordFileName).getPoints();
+                    fileParse = new PlaceMarkFileParse();
+                    new JSAXParser().parse(nestDir + Config.KMZFileInfo.routeRecordFileName, fileParse);
+                    List<List<TTracksPointsEntity>> pointList = ((PlaceMarkFileParse)fileParse).getPoints();
                     for (List<TTracksPointsEntity> pointsList : pointList) {
                         for (TTracksPointsEntity point : pointsList) {
                             point.setTrackid(tracksEntity.getTrackid());
@@ -75,14 +80,14 @@ public class JFile extends Thread {
                     if (sql != null) {
                         DBUtil.insertBatch(sql, sqlValueList);
                     }
-                } catch (DocumentException e) {
-                    TestOutput.println(e.getMessage());
+                }  catch (ParserConfigurationException e) {
                     e.printStackTrace();
-                    new File(kmzFileName).delete();
+                } catch (SAXException e) {
+                    e.printStackTrace();
                 }
             } catch (IOException e) {
-                TestOutput.println(e.getMessage());
                 e.printStackTrace();
+            } finally {
                 new File(kmzFileName).delete();
             }
 
