@@ -1,12 +1,12 @@
 package com.cn.util.File;
 
 import com.cn.bean.TTracksEntity;
+import com.cn.test.TestOutput;
 import com.cn.util.DateUtil;
 import org.xml.sax.SAXException;
 
-import java.io.BufferedOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import java.io.*;
+import java.nio.charset.Charset;
 import java.sql.Date;
 
 /**
@@ -97,8 +97,9 @@ public class TrackDetailFileParseAndMerge extends BaseFileParse {
         if (!track.getAnnotation().isEmpty()) {
             track.setAnnotation(track.getAnnotation().substring(2));
         }
+        //OutputStreamWriter writer = new OutputStreamWriter(new FileOutputStream(destUri + fileName), "UTF-8");
         BufferedOutputStream outputStream = new BufferedOutputStream(new FileOutputStream(destUri + fileName));
-        builder.append("<trackdetail><name>")
+        builder.append("<?xml version='1.0' encoding='UTF-8' standalone='yes' ?><trackdetail><name>")
                 .append(track.getName())
                 .append("</name><author>")
                 .append(track.getAuthor())
@@ -115,8 +116,11 @@ public class TrackDetailFileParseAndMerge extends BaseFileParse {
                 .append("</keysiteslist><annotation>")
                 .append(track.getAnnotation())
                 .append("</annotation></trackdetail>");
-        outputStream.write(builder.toString().getBytes());
+        TestOutput.println(builder.toString());
+        outputStream.write(builder.toString().getBytes("utf-8"));
         outputStream.close();
+        //writer.write(builder.toString());
+        //writer.close();
         builder.delete(0, builder.length());
     }
 

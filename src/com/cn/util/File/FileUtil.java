@@ -51,14 +51,8 @@ public final class FileUtil {
                 }
             }
         }
-        try {
-            new JUnZipFile().workAndReturnUnZipFileSize(dir + ".kmz", dir);//当文件不存在时，看是否存在该名字的压缩文件，是进行解压，在获取目录
-            return getNestDir(dir);
-        } catch (IOException e) {
-            TestOutput.println(e.getMessage());
-            e.printStackTrace();
-            return dir;
-        }
+        //new JUnZipFile().work(dir + ".kmz", dir);//当文件不存在时，看是否存在该名字的压缩文件，是进行解压，在获取目录
+        return null;
     }
 
     /**

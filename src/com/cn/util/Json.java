@@ -55,7 +55,6 @@ public class Json {
 
     public static void main(String[] args)
     {
-        List list = (List<Integer>)Json.read("[1,3]", List.class);
-        TestOutput.println(list.get(1));
+       ;
     }
 }

@@ -121,6 +121,7 @@ public class DBUtil {
             }
         } catch (SQLException e) {
             rollbackTrans();
+            TestOutput.println(e.getMessage());
         } finally {
             closePreparedStatement(stat);
         }
@@ -188,6 +189,7 @@ public class DBUtil {
             commitTrans();
         } catch (SQLException e) {
             rollbackTrans();
+            TestOutput.println(e.getMessage());
         } finally {
             closePreparedStatement(stat);
         }
@@ -208,6 +210,7 @@ public class DBUtil {
             commitTrans();
         } catch (SQLException e) {
             rollbackTrans();
+            TestOutput.println(e.getMessage());
         } finally {
             closePreparedStatement(stat);
         }

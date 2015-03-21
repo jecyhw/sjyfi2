@@ -13,6 +13,9 @@ public class RouteStyle {
     }
 
     public void setColor(String color) {
+        if (color.length() > 6) {
+            color = color.substring(0, 6);
+        }
         this.color = "#" + color;
     }
 

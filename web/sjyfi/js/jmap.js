@@ -110,33 +110,44 @@
             overlay = [];
 
         this.work = function() {
-            if (data.points.length > 0)
+            if (data.routePlaceMarks.length > 0)
                 polyLine();
             else {
                showFail();
             }
         }
 
-        function polyLine() {//由于路线存在多条，坐标转换需要一条一条转换，也就是第一组gsp坐标转换完成百度坐标，才能进行后一组转换
-            var pointsArray = data.points;
+        function polyLine() {//由于路线存在多条，坐标转换需要一条一条转换，也就是第一组gsp坐标转换完成百度坐标，才能进行后一组转换,并且先对路线解析完，再解析关键点
+            var routePlaceMark, routePlaceMarks = data.routePlaceMarks;
             callback();
             function callback(baiDuPoints){
                 if (baiDuPoints && baiDuPoints.length > 0) {
-                    overlay.push(new BMap.Polyline(baiDuPoints, lineStyle));
+                    if (routePlaceMark.routeStyle) {
+                        var routeStyle = routePlaceMark.routeStyle;
+                        overlay.push(new BMap.Polyline(baiDuPoints, {
+                            strokeColor: routeStyle.color,
+                            fillColor: "",
+                            strokeWeight: routeStyle.width,
+                            strokeOpacity: 0,
+                            fillOpacity: 0
+                        }));
+                    } else {
+                        overlay.push(new BMap.Polyline(baiDuPoints, lineStyle));
+                    }
                     overlay.push(marker(baiDuPoints[0], 0, 0));//起点
                     overlay.push(marker(baiDuPoints[baiDuPoints.length - 1], 0, -34));
                 }
-                if (pointsArray.length > 0) {
-                    var tPoints = pointsArray.pop(), gpsPoints = [];
-                    for (var i in tPoints) {
-                        gpsPoints.push(tPoints[i].longitude + "," + tPoints[i].latitude);
+                if (routePlaceMarks.length > 0) {
+                    routePlaceMark = routePlaceMarks.pop();
+                    var gpsPoints = [], route = routePlaceMark.route;
+                    for (var i in route) {
+                        gpsPoints.push(route[i].longitude + "," + route[i].latitude);
                     }
                     gps2BaiDuPoints(gpsPoints, callback);
                 } else {
                     placeMark();//对应折线中的点描述(标注)
                 }
             }
-
 
             //生成折线的起点终点覆盖物
             function marker(point, x, y) {//x,y表示图片偏移
@@ -152,10 +163,10 @@
         }
 
         function placeMark() {//对应折线中的点描述
-            var gpsPoints = [], placeMarks = data.placemark;
-            if (placeMarks.length > 0) {
-                $.each(placeMarks, function (index, placeMark) {
-                    gpsPoints.push(placeMark.coordinates.longitude + "," + placeMark.coordinates.latitude);
+            var gpsPoints = [], keyPointPlaceMarks = data.keyPointPlaceMarks;
+            if (keyPointPlaceMarks.length > 0) {
+                $.each(keyPointPlaceMarks, function (index, keyPointPlaceMark) {
+                    gpsPoints.push(keyPointPlaceMark.coordinate.longitude + "," + keyPointPlaceMark.coordinate.latitude);
                 });
                 gps2BaiDuPoints(gpsPoints, callback);
             } else {
@@ -164,13 +175,13 @@
 
             function callback(baiDuPoints){
                 for(var index in baiDuPoints){
-                    (function(placeMark){
+                    (function(keyPointPlaceMark){
                         var marker = new BMap.Marker(baiDuPoints[index]);
                         overlay.push(marker);
                         marker.addEventListener("click", function () {
-                            this.openInfoWindow(slide(placeMark.description, placeMark.name));//图片，视频展示
+                            this.openInfoWindow(slide(keyPointPlaceMark.desc, keyPointPlaceMark.name));//图片，视频展示
                         });
-                    })(placeMarks[index]);
+                    })(keyPointPlaceMarks[index]);
                 }
                 showInMap();
             }

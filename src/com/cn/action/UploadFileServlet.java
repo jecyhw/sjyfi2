@@ -15,7 +15,6 @@ import java.io.IOException;
  */
 public class UploadFileServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        //response.addCookie(new Cookie("JSESSIONID", request.getParameter("JSESSIONID")));
         new UploadFile().work(request);
     }
 

@@ -320,12 +320,11 @@ $(document).ready(function () {
             // Silverlight settings
             silverlight_xap_url : 'js/plupload/Moxie.xap',
             // Post init events, bound after the internal events
-            init : {
-                Error: function(up, args) {
-                    // Called when error occurs
-                    alert(args.code);
-                }
-            }
+            //init : {
+            //    Error: function(up, args) {
+            //
+            //    }
+            //}
         });
 
         plupload.addFileFilter("checkExisting", function(checkUrl, file, cb) {
@@ -388,8 +387,15 @@ $(document).ready(function () {
     });
 
     $("#exit").click(function() {
-        $.get(web_prefix + "/UserLogOutServlet");
-        window.location.href = "../index.html";
+        $.ajax({
+            url: web_prefix + "/UserLogOutServlet",
+            type: "post",
+            dataType: "json",
+            async:false,
+            complete: function() {
+                window.location.href = "../index.html";
+            }
+        });
     });
 
     //导出选中轨迹
@@ -405,7 +411,7 @@ $(document).ready(function () {
         var $export_track_record = $("#export_track_record");
         $export_track_record.attr({"disabled":"disabled"});
         var val = $export_track_record.html()
-        $export_track_record.html("正在导出");
+        $export_track_record.html("正在导出...");
         var form = $("<form method='post' style='display: none;' action= '"
         + web_prefix
         +"/sjyfi/download.jsp' target='_blank'><input type='hidden' name='ids' value='"
@@ -423,13 +429,13 @@ $(document).ready(function () {
         if (ids.length > 1) {
             $it.attr({"disabled":"disabled"});
             var val = $it.html();
-            $it.html("正在保存");
+            $it.html("正在保存...");
             $.getJSON(web_prefix + "/SaveRecordServlet",
                 {
                     ids: $.toJSON(ids)
                 },
                 function(data) {
-                    if (data.result == "true") {
+                    if (data.result) {
                         $.fancybox('<div class="text-info">提示!<hr/><div class="text-center"><strong>保存成功。</strong></div></div>', {
                             modal: true
                         });

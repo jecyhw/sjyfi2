@@ -43,16 +43,20 @@ public class RouteRecordMapInfoServlet extends HttpServlet {
         Object result = new ArrayList();
         if (entity != null)
         {
-            String path = entity.getPath();
-            String fileName = FileUtil.getNestDir(path) + Config.KMZFileInfo.routeRecordFileName;
-            try {
-                PlaceMarkFileParse fileParse = new PlaceMarkFileParse();
-                new JSAXParser().parse(fileName, fileParse);
-                result = fileParse.getParseObject();
-            }  catch (ParserConfigurationException e) {
-                e.printStackTrace();
-            } catch (SAXException e) {
-                e.printStackTrace();
+            String path = FileUtil.getNestDir(entity.getPath());
+            if(path != null) {
+                String fileName = path + Config.KMZFileInfo.routeRecordFileName;
+                try {
+                    PlaceMarkFileParse fileParse = new PlaceMarkFileParse();
+                    new JSAXParser().parse(fileName, fileParse);
+                    result = fileParse.getParseObject();
+                } catch (ParserConfigurationException e) {
+                    e.printStackTrace();
+                    TestOutput.println(e.getMessage());
+                } catch (SAXException e) {
+                    e.printStackTrace();
+                    TestOutput.println(e.getMessage());
+                }
             }
         }
         out.printJson(result);

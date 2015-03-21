@@ -1,6 +1,7 @@
 package com.cn.util.File;
 
 import com.cn.bean.TTracksEntity;
+import com.cn.test.TestOutput;
 import com.cn.util.DateUtil;
 import org.xml.sax.SAXException;
 
@@ -16,6 +17,7 @@ public class TrackDetailFileParse extends BaseFileParse{
     String text;
 
     public Object getParseObject() {
+        TestOutput.println(builder.toString() + track.toString());
         return track;
     }
 

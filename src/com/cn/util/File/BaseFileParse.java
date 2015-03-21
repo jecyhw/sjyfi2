@@ -10,7 +10,10 @@ import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 import javax.xml.transform.TransformerConfigurationException;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by SNNU on 2015/3/20.
@@ -55,9 +58,8 @@ public abstract class BaseFileParse {
     }
 
     static public void main(String[] args) throws ParserConfigurationException, SAXException, IOException, TransformerConfigurationException {
-
-        PlaceMarkFileParse handler = new PlaceMarkFileParse();
-        new JSAXParser().parse("C:\\Users\\SNNU\\Desktop\\routeRecord_20140331_172138\\" + Config.KMZFileInfo.routeRecordFileName, handler);
-         Json.write(System.out, handler.getParseObject());
+        TrackDetailFileParse trackDetailFileParse = new TrackDetailFileParse();
+        new JSAXParser().parse("C:\\Users\\SNNU\\Desktop\\routeRecord_20140331_172138\\TrackDetail.xml", trackDetailFileParse);
+        System.out.println(trackDetailFileParse.getParseObject());
     }
 }

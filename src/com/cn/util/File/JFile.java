@@ -32,6 +32,7 @@ public class JFile extends Thread {
     static public void addUploadFilePath(String filePath)
     {
         uploadFilePathQueue.add(filePath);
+        TestOutput.println(filePath + "has added the queue");
         synchronized (isQueueEmpty) {
             if (isQueueEmpty) {
                 isQueueEmpty = false;
@@ -48,47 +49,50 @@ public class JFile extends Thread {
             String kmzFileName = uploadFilePathQueue.poll();
             String unZipFileName = FileUtil.getDirFromKmzName(kmzFileName);
             try {
-                long upZipFileSize = new JUnZipFile().workAndReturnUnZipFileSize(kmzFileName, unZipFileName);
+                TestOutput.println(kmzFileName + " is unzip start, and the unzippath is " + unZipFileName);
+                new JUnZipFile().work(kmzFileName, unZipFileName);
+                TestOutput.println(kmzFileName + " is unzip end");
                 try {
                     String nestDir = FileUtil.getNestDir(unZipFileName);
-                    BaseFileParse fileParse = new TrackDetailFileParse();
-                    new JSAXParser().parse(nestDir + Config.KMZFileInfo.trackDetailFileName, fileParse);
-                    TTracksEntity tracksEntity = (TTracksEntity) fileParse.getParseObject();
-                    tracksEntity.setPath(FileUtil.removeLastSeparator(unZipFileName));
-                    tracksEntity.setFilesize((int) upZipFileSize);
-                    tracksEntity.setTrackid(DBUtil.insertAndReturnAutoIncreaseId(
-                            DBHelper.getInsertSql(TableName.tracks, tracksEntity),
-                            DBHelper.getSqlValues(tracksEntity)));
-
-                    String sql = null;
-                    List sqlValueList = new ArrayList();
-                    fileParse = new PlaceMarkFileParse();
-                    new JSAXParser().parse(nestDir + Config.KMZFileInfo.routeRecordFileName, fileParse);
-                    List<List<TTracksPointsEntity>> pointList = ((PlaceMarkFileParse)fileParse).getPoints();
-                    for (List<TTracksPointsEntity> pointsList : pointList) {
-                        for (TTracksPointsEntity point : pointsList) {
-                            point.setTrackid(tracksEntity.getTrackid());
-                            sqlValueList.add(DBHelper.getSqlValues(point));
-                            TestOutput.println(point);
-                            if (sql == null) {
-                                sql = DBHelper.getInsertSql(TableName.trackPoint, point);
-                            }
-                        }
-                    }
-
-                    TestOutput.println(sql);
-                    if (sql != null) {
-                        DBUtil.insertBatch(sql, sqlValueList);
+                    if (nestDir != null) {
+                        BaseFileParse fileParse = new TrackDetailFileParse();
+                        new JSAXParser().parse(nestDir + Config.KMZFileInfo.trackDetailFileName, fileParse);
+                        TTracksEntity tracksEntity = (TTracksEntity) fileParse.getParseObject();
+                        tracksEntity.setPath(FileUtil.removeLastSeparator(unZipFileName));
+                        tracksEntity.setFilesize((int) new File(kmzFileName).length());
+                        TestOutput.println(tracksEntity.toString());
+//                        tracksEntity.setTrackid(DBUtil.insertAndReturnAutoIncreaseId(
+//                                DBHelper.getInsertSql(TableName.tracks, tracksEntity),
+//                                DBHelper.getSqlValues(tracksEntity)));
+//                        String sql = null;
+//                        List sqlValueList = new ArrayList();
+//                        fileParse = new PlaceMarkFileParse();
+//                        new JSAXParser().parse(nestDir + Config.KMZFileInfo.routeRecordFileName, fileParse);
+//                        List<List<TTracksPointsEntity>> pointList = ((PlaceMarkFileParse) fileParse).getPoints();
+//                        for (List<TTracksPointsEntity> pointsList : pointList) {
+//                            for (TTracksPointsEntity point : pointsList) {
+//                                point.setTrackid(tracksEntity.getTrackid());
+//                                sqlValueList.add(DBHelper.getSqlValues(point));
+//                                TestOutput.println(point);
+//                                if (sql == null) {
+//                                    sql = DBHelper.getInsertSql(TableName.trackPoint, point);
+//                                }
+//                            }
+//                        }
+//                        if (sql != null) {
+//                            DBUtil.insertBatch(sql, sqlValueList);
+//                        }
                     }
                 }  catch (ParserConfigurationException e) {
                     e.printStackTrace();
+                    TestOutput.println(e.getMessage());
                 } catch (SAXException e) {
                     e.printStackTrace();
+                    TestOutput.println(e.getMessage());
                 }
             } catch (IOException e) {
                 e.printStackTrace();
-            } finally {
-                new File(kmzFileName).delete();
+                TestOutput.println(e.getMessage());
             }
 
             synchronized (isQueueEmpty) {

@@ -13,9 +13,11 @@
     <link rel="stylesheet" type="text/css" href="js/bootstrap/css/bootstrap.css" media="screen"/>
 </head>
 <body>
-<div class="alert alert-success text-center" role="alert" id="downloadTip">
-    <strong>正在努力合并要下载的文件，请耐心等待</strong>
-    <img src="js/fancybox/fancybox_loading.gif"/>
+<div id="downloadTip">
+    <div class="alert alert-success text-center" role="alert">
+        <strong>正在努力合并要下载的文件，请耐心等待</strong>
+        <img src="js/fancybox/fancybox_loading.gif"/>
+    </div>
 </div>
 <iframe name="fileMerge" style="display: none" id="fileMerge"></iframe>
 <form name="frm" id="frm" target="fileMerge" method="post" action="/sjyfi2/ExportRecordServlet">
@@ -39,13 +41,12 @@
 
     function callback(downloadFileName, isDeleted) {//iframe回调函数
         if (downloadFileName != "") {
-            document.getElementById("downloadTip").innerHTML = "<strong>合并完成,正在下载</strong>";
+            document.getElementById("downloadTip").innerHTML =  '<div class="alert alert-success text-center" role="alert"><strong>合并完成,正在下载</strong></div>';
             document.getElementById("downloadFile").value = downloadFileName;
             document.getElementById("isDeleted").value = isDeleted;
             document.getElementById("frmFile").submit();
         } else {
-            alert("该文件不存在");
-            window.close();
+            document.getElementById("downloadTip").innerHTML = '<div class="alert alert-danger text-center" role="alert"><strong>合并文件出错,无法进行下载</strong></div>';
         }
     }
 </script>

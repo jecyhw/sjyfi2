@@ -33,4 +33,13 @@ public class KeyPointPlaceMark {
     public void setDesc(List desc) {
         this.desc = desc;
     }
+
+    @Override
+    public String toString() {
+        return "KeyPointPlaceMark{" +
+                "name='" + name + '\'' +
+                ", desc=" + desc +
+                ", coordinate=" + coordinate +
+                '}';
+    }
 }

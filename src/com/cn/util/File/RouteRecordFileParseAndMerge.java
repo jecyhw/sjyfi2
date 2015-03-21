@@ -1,5 +1,6 @@
 package com.cn.util.File;
 
+import com.cn.test.TestOutput;
 import org.apache.commons.io.FileUtils;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
@@ -70,6 +71,7 @@ public class RouteRecordFileParseAndMerge extends BaseFileParse{
             transformerHandle.setResult(xmlStream);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
+            TestOutput.println(e.getMessage());
         }
     }
 
@@ -87,6 +89,7 @@ public class RouteRecordFileParseAndMerge extends BaseFileParse{
             }
         } catch (IOException e) {
             e.printStackTrace();
+            TestOutput.println(e.getMessage());
         }
     }
 
@@ -134,17 +137,19 @@ public class RouteRecordFileParseAndMerge extends BaseFileParse{
     public void mergeAndCreateNewTrackRecord(String fileName) {
         try {
             BufferedOutputStream outputStream = new BufferedOutputStream(new FileOutputStream(destUri + fileName));
-            outputStream.write("<?xml version='1.0' encoding='UTF-8' standalone='yes' ?><Document>".getBytes());
+            outputStream.write("<?xml version='1.0' encoding='UTF-8' standalone='yes' ?><Document>".getBytes("utf-8"));
             outputStream.flush();
             mergeKeyPointPlaceMark(outputStream);
-            outputStream.write("<Folder>".getBytes());
+            outputStream.write("<Folder>".getBytes("utf-8"));
             mergeRoutePlaceMark(outputStream);
-            outputStream.write("</Folder></Document>".getBytes());
+            outputStream.write("</Folder></Document>".getBytes("utf-8"));
             outputStream.close();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
+            TestOutput.println(e.getMessage());
         } catch (IOException e) {
             e.printStackTrace();
+            TestOutput.println(e.getMessage());
         }
     }
 

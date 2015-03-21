@@ -1,5 +1,7 @@
 package com.cn.dao;
 
+import com.cn.test.TestOutput;
+
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
@@ -51,6 +53,7 @@ public class DBHelper {
             fieldValue = field.get(src);
         } catch (IllegalAccessException e) {
             e.printStackTrace();
+            TestOutput.println(e.getMessage());
         }
         return fieldValue;
     }

@@ -1,5 +1,6 @@
 package com.cn.util.File;
 
+import com.cn.test.TestOutput;
 import com.cn.util.Config;
 import org.apache.commons.io.FileUtils;
 import org.xml.sax.SAXException;
@@ -26,6 +27,7 @@ public class FileMerge {
      */
     public void work(List<String> fileNameList, String mergeFileName) throws IOException {
         try {
+            mergeFileName = FileUtil.addSeparator(mergeFileName);
             RouteRecordFileParseAndMerge routeRecordFile = new RouteRecordFileParseAndMerge(mergeFileName);
             TrackDetailFileParseAndMerge trackDetailFile = new TrackDetailFileParseAndMerge(mergeFileName);
             for (String fileName : fileNameList) {
@@ -52,10 +54,13 @@ public class FileMerge {
             trackDetailFile.createNewTrackDetail(Config.KMZFileInfo.trackDetailFileName);
         }  catch (ParserConfigurationException e) {
             e.printStackTrace();
+            TestOutput.println(e.getMessage());
         } catch (SAXException e) {
             e.printStackTrace();
+            TestOutput.println(e.getMessage());
         } catch (TransformerConfigurationException e) {
             e.printStackTrace();
+            TestOutput.println(e.getMessage());
         }
     }
 }

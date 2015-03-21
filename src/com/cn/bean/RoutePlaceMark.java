@@ -23,7 +23,8 @@ public class RoutePlaceMark {
     }
 
     public void setRouteStyle(RouteStyle routeStyle) {
-        this.routeStyle = routeStyle;
+        if (routeStyle.getColor() != null)
+            this.routeStyle = routeStyle;
     }
 
     public List<TTracksPointsEntity> getRoute() {
@@ -32,5 +33,14 @@ public class RoutePlaceMark {
 
     public void setRoute(List<TTracksPointsEntity> route) {
         this.route = route;
+    }
+
+    @Override
+    public String toString() {
+        return "RoutePlaceMark{" +
+                "name='" + name + '\'' +
+                ", route=" + route +
+                ", routeStyle=" + routeStyle +
+                '}';
     }
 }

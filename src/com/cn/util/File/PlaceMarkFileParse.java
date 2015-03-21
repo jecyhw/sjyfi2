@@ -5,7 +5,9 @@ import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by SNNU on 2015/3/19.
@@ -20,7 +22,9 @@ public class PlaceMarkFileParse extends BaseFileParse {
     String text;
 
     public Object getParseObject() {
-        List result = new ArrayList();
+        Map<String, Object> map = new HashMap<String, Object>();
+        List keyPointList = new ArrayList();
+        List routeList = new ArrayList();
         for (PlaceMark mark : placeMarkList) {
             if (mark.getRoute() != null)
             {
@@ -28,16 +32,18 @@ public class PlaceMarkFileParse extends BaseFileParse {
                 routePlaceMark.setName(mark.getName());
                 routePlaceMark.setRoute(mark.getRoute());
                 routePlaceMark.setRouteStyle(mark.getRouteStyle());
-                result.add(routePlaceMark);
+                routeList.add(routePlaceMark);
             } else {
                 KeyPointPlaceMark keyPointPlaceMark = new KeyPointPlaceMark();
                 keyPointPlaceMark.setName(mark.getName());
                 keyPointPlaceMark.setCoordinate(mark.getCoordinate());
                 keyPointPlaceMark.setDesc(mark.getDesc());
-                result.add(keyPointPlaceMark);
+                keyPointList.add(keyPointPlaceMark);
             }
         }
-        return result;
+        map.put("keyPointPlaceMarks", keyPointList);
+        map.put("routePlaceMarks", routeList);
+        return map;
     }
 
     public List<List<TTracksPointsEntity>> getPoints() {
@@ -55,8 +61,12 @@ public class PlaceMarkFileParse extends BaseFileParse {
         } else if (qName.equals("LineString")) {//  LineString/coordinates
             isRoute = true;
         } else if (qName.equals("Style")) {
-            routeStyle = new RouteStyle();
-            routeStyle.setId(attrs.getValue("id"));//获取Style的id值
+            String id = attrs.getValue("id");
+            if (id != null) {
+                routeStyle = new RouteStyle();
+                routeStyle.setId(id);//获取Style的id值
+                routeStyleList.add(routeStyle);
+            }
         }
     }
 
@@ -91,7 +101,7 @@ public class PlaceMarkFileParse extends BaseFileParse {
         } else if (qName.equals("styleUrl")) {//说明:引用的样式要在该路线之前设置才能获取到
             text = text.substring(1);//获取该styleUrl的id，去掉开头的#
             for (RouteStyle style : routeStyleList) {
-                if (routeStyle.getId().equals(text)) {
+                if (style.getId().equals(text)) {
                     placeMark.setRouteStyle(style);
                     break;
                 }

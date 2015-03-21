@@ -19,10 +19,8 @@ import java.util.Enumeration;
 public class CheckFileExistServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String fileName = request.getParameter("filename");
-        File file = new File(Config.zipFileDir + fileName);
-        TestOutput.println(file.getAbsoluteFile());
         Out out = new Out(response);
-        if (file.exists()) {
+        if (new File(Config.zipFileDir + fileName).exists() || new File(Config.oldFileDir + fileName).exists()) {
             out.printText("1");
         } else {
             out.printText("0");

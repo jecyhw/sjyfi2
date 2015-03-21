@@ -5,10 +5,11 @@ package com.cn.util;
  */
 public final class Config {
     //static final public String fileUploadDir = "http://159.226.15.215/var/gpstracks/";
-    static final public String fileUploadDir = "/var/gpstracks/";
+    static final public String fileUploadDir = "/var/gpstracks/jecyhw/";
     static final public String fileUploadTempDir = fileUploadDir;
     static final public String unZipFileDir = fileUploadDir;
     static final public String zipFileDir = fileUploadDir;
+    static final public String oldFileDir = "/var/gpstracks/";
 
     public class KMZFileInfo{
         static final public String routeRecordFileName = "RouteRecord.kml";

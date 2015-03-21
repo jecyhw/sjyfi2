@@ -48,15 +48,20 @@ public class UploadFile {
                         fileName = fileItem.getString();
                 } else {
                     if (chunks == -1) {//没有分割文件
-                        fileItem.write(new File(Config.fileUploadDir + fileName));
-                        JFile.addUploadFilePath(Config.fileUploadDir + fileName);//上传成功加入到上传文件路径列表,以便解压
+                        String uploadFileName = Config.fileUploadDir + fileName;
+                        File uploadFile = new File(uploadFileName);
+                        fileItem.write(uploadFile);
+                        JFile.addUploadFilePath(uploadFileName);//上传成功加入到上传文件路径列表,以便解压
+                        TestOutput.println("you upload a file:" + uploadFile.getAbsolutePath());
                     } else {
                         fileItem.write(new File(Config.fileUploadDir + chunk + fileName));
                     }
                 }
             }
             if (chunks == chunk + 1) {//合并文件
-                BufferedOutputStream outputStream = new BufferedOutputStream(new FileOutputStream(new File(Config.fileUploadDir + fileName)));
+                String uploadFileName = Config.fileUploadDir + fileName;
+                File uploadFile = new File(uploadFileName);
+                BufferedOutputStream outputStream = new BufferedOutputStream(new FileOutputStream(uploadFile));
                 for (chunk = 0; chunk < chunks; chunk++) {
                     File tempFile = new File(Config.fileUploadDir + chunk + fileName);
                     outputStream.write(FileUtils.readFileToByteArray(tempFile));
@@ -64,7 +69,8 @@ public class UploadFile {
                     tempFile.delete();
                 }
                 outputStream.close();
-                JFile.addUploadFilePath(Config.fileUploadDir + fileName);//上传成功加入到上传文件路径列表,以便解压
+                JFile.addUploadFilePath(uploadFileName);//上传成功加入到上传文件路径列表,以便解压
+                TestOutput.println("you upload a file:" + uploadFile.getAbsolutePath() + "-" + uploadFile.length());
             }
         } catch (Exception e) {
             TestOutput.println(e.getMessage());

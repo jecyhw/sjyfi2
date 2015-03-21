@@ -11,6 +11,7 @@ import java.io.IOException;
  */
 public class UserLogOutServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.getSession().setAttribute("userName", null);
         request.getSession().invalidate();
     }
 
