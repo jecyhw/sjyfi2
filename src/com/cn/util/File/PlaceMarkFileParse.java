@@ -1,6 +1,7 @@
 package com.cn.util.File;
 
 import com.cn.bean.*;
+import com.cn.test.TestOutput;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 
@@ -43,6 +44,7 @@ public class PlaceMarkFileParse extends BaseFileParse {
         }
         map.put("keyPointPlaceMarks", keyPointList);
         map.put("routePlaceMarks", routeList);
+        TestOutput.println(parseFileUri + " parse success");
         return map;
     }
 

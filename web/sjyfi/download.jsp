@@ -43,7 +43,9 @@
         if (downloadFileName != "") {
             document.getElementById("downloadTip").innerHTML =  '<div class="alert alert-success text-center" role="alert"><strong>合并完成,正在下载</strong></div>';
             document.getElementById("downloadFile").value = downloadFileName;
-            document.getElementById("isDeleted").value = isDeleted;
+            if (isDeleted == "1") {
+                document.getElementById("isDeleted").value = isDeleted;
+            }
             document.getElementById("frmFile").submit();
         } else {
             document.getElementById("downloadTip").innerHTML = '<div class="alert alert-danger text-center" role="alert"><strong>合并文件出错,无法进行下载</strong></div>';

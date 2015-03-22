@@ -50,13 +50,9 @@ public abstract class BaseFileParse {
     }
 
     static public void main(String[] args) throws ParserConfigurationException, SAXException, IOException, TransformerConfigurationException {
-        TrackDetailFileParseAndMerge trackDetailFileParse = new TrackDetailFileParseAndMerge("C:\\Users\\SNNU\\Desktop\\test\\1\\");
-        new JSAXParser().parse("C:\\Users\\SNNU\\Desktop\\routeRecord_20140331_172138\\TrackDetail.xml", trackDetailFileParse);
-        new JSAXParser().parse("C:\\Users\\SNNU\\Desktop\\routeRecord_20140408_122844\\TrackDetail.xml", trackDetailFileParse);
-        trackDetailFileParse.createNewTrackDetail("Trackdetail.xml");
+        PlaceMarkFileParse trackDetailFileParse = new PlaceMarkFileParse();
+        new JSAXParser().parse("C:\\Users\\SNNU\\Desktop\\test\\RouteRecord.kml", trackDetailFileParse);
 
-        TrackDetailFileParse fileParse = new TrackDetailFileParse();
-        new JSAXParser().parse("C:\\Users\\SNNU\\Desktop\\test\\1\\TrackDetail.xml", fileParse);
-        System.out.println(fileParse.getParseObject());
+        System.out.println(trackDetailFileParse.getParseObject());
     }
 }

@@ -206,11 +206,12 @@
                         + '<span class="text-danger"><strong>该视频无法播放,请点击下面按钮进行下载</strong></span>'
                         + '</object>'
                         + '</video>'
-                        + '<p><a class="btn btn-primary btn-sm" href="' +val + '">'
-                        + '点击下载<span class="glyphicon glyphicon-download"></span></a></p>';
+                        + '<p><button class="btn btn-primary btn-sm" onclick="videoDownLoad(\''+ val + '\')">'
+                        + '点击下载<span class="glyphicon glyphicon-download"></span></button></p>';
                     }
                     msg.push(child);
                 });
+
                 $.fancybox(msg, {
                     title: name,
                     loop: false,

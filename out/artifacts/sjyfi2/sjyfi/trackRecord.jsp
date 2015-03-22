@@ -12,6 +12,9 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1" />
     <title>轨迹管理</title>
+    <script>
+        web_prefix = '/sjyfi2';
+    </script>
 
     <link rel="stylesheet" type="text/css" href="css/imgareaselect-default.css">
     <link rel="stylesheet" type="text/css" href="js/jquery-ui/jquery-ui.css" />

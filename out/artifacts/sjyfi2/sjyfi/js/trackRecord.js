@@ -79,19 +79,29 @@ $(document).ready(function () {
                 }
             });
 
+            var inFocus = false;
+            $('input').focus(function() {
+                inFocus = true;
+            });
+
+            $('input').blur(function() {
+                inFocus = false;
+            });
+
+            $(document).keydown(function(e) {
+                if (e.keyCode == 13) {
+                    if (inFocus) {
+                        $("#search_submit" + $tabSelf.tabs("option", "active")).click();
+                    }
+                }
+            });
+
 			$("button[name='search_submit']").each(function(index, btn) {
                 $(btn).click(function () {
                     var tabsIndex = $tabSelf.tabs("option", "active"),
                         panel = $tabSelf.find("#stabs-" + tabsIndex),
-                        regionCapture = $tabSelf.find("#region_capture" + tabsIndex),
                         count = 0,
                         cons = {};
-                    if (regionCapture.length > 0 && regionCapture.html().indexOf("选择区域") == -1) {
-                        regionCapture.children().eq(0).html('选择区域');
-                        mp.setDefaultCursor("-moz-grab");
-                        mp.enableDragging();
-                        clipMap.setOptions({ hide: true, disable: true });
-                    }
 
 					panel.find("input[type='text']").each(function (_index, text) {
 						if (!isNullOrEmpty(text.value)) {
@@ -100,6 +110,13 @@ $(document).ready(function () {
 						}
 					});
 					if (count > 0) {
+                        var regionCapture = $tabSelf.find("#region_capture" + tabsIndex);
+                        if (regionCapture.length > 0 && regionCapture.html().indexOf("选择区域") == -1) {
+                            regionCapture.children().eq(0).html('选择区域');
+                            mp.setDefaultCursor("-moz-grab");
+                            mp.enableDragging();
+                            clipMap.setOptions({ hide: true, disable: true });
+                        }
 						query($.toJSON(cons));
 					}
         		});

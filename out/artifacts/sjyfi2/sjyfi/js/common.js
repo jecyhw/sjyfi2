@@ -39,3 +39,12 @@ function bsAlertDanger($parent, id, msg) {
 		$parent.append(text);
 	}
 }
+
+function videoDownLoad(href) {
+    var form = $("<form method='post' style='display: none;' action='"
+    +"/sjyfi2/DownloadFileServlet'><input type='hidden' name='downloadFile' value='"
+    + href +"'/></form>");   //定义一个form表单
+    $(document.body).append(form);  //将表单放置在web中
+    form.submit();
+    form.remove();
+}

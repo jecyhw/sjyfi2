@@ -14,7 +14,8 @@ import java.io.IOException;
 public class DownloadFileServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         boolean isDeleted = false;
-        if (request.getParameter("isDeleted").equals("1")) {
+        String isDeletedStr = request.getParameter("isDeleted");
+        if (isDeletedStr != null && isDeletedStr.equals("1")) {
             isDeleted = true;
         }
         new DownloadFile().work(response, request.getParameter("downloadFile"), isDeleted);
