@@ -26,7 +26,6 @@ public class ConditionEntity {
         select b.* from (select t_tracks.* from t_tracks, (SELECT DISTINCT t_tracks_points.trackid FROM t_tracks_points WHERE
 (( longitude>='-100.198368' and longitude<'181.461679' )
 and( latitude>='-1.209283' and latitude<'180.959893' )))a where t_tracks.trackid = a.trackid)b;
-
         * */
         if (sql == null) {
             get();

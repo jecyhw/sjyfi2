@@ -32,6 +32,17 @@ public class DBUtil {
     }
 
     /**
+     * 查询结果返回一条数据
+     * @param sql 查询的sql语句
+     * @param values 对应参数的值列表
+     * @return 返回一个Object对象,查询数据为空时返回null
+     */
+    static public Object query(AEntityDao dao, String sql, List values) {
+        List result = queryMulti(dao, sql, values);
+        return result.size() > 0 ? result.get(0) : null;
+    }
+
+    /**
      * 查询多条数据
      * @param sql 查询的sql语句
      * @param values 对应参数的值列表
@@ -51,17 +62,6 @@ public class DBUtil {
             closePreparedStatement(stat);
         }
         return result;
-    }
-
-    /**
-     * 查询结果返回一条数据
-     * @param sql 查询的sql语句
-     * @param values 对应参数的值列表
-     * @return 返回一个Object对象,查询数据为空时返回null
-     */
-    static public Object query(AEntityDao dao, String sql, List values) {
-        List result = queryMulti(dao, sql, values);
-        return result.size() > 0 ? result.get(0) : null;
     }
 
     /**
@@ -219,7 +219,12 @@ public class DBUtil {
 
     static protected void setParametersForStatement(List values, PreparedStatement stat) throws SQLException {
         for (int i = values.size(); i > 0; i--) {
-            stat.setObject(i, values.get(i - 1));
+            Object obj = values.get(i - 1);
+            if (obj instanceof Date) {
+                stat.setTimestamp(i, new Timestamp(((Date)obj).getTime()));
+            } else {
+                stat.setObject(i, values.get(i - 1));
+            }
         }
     }
 

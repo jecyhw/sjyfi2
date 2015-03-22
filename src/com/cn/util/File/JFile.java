@@ -8,7 +8,6 @@ import com.cn.test.TestOutput;
 import com.cn.util.Config;
 import com.cn.util.DBUtil;
 import com.cn.util.TableName;
-import org.dom4j.DocumentException;
 import org.xml.sax.SAXException;
 
 import javax.xml.parsers.ParserConfigurationException;
@@ -60,28 +59,27 @@ public class JFile extends Thread {
                         TTracksEntity tracksEntity = (TTracksEntity) fileParse.getParseObject();
                         tracksEntity.setPath(FileUtil.removeLastSeparator(unZipFileName));
                         tracksEntity.setFilesize((int) new File(kmzFileName).length());
-                        TestOutput.println(tracksEntity.toString());
-//                        tracksEntity.setTrackid(DBUtil.insertAndReturnAutoIncreaseId(
-//                                DBHelper.getInsertSql(TableName.tracks, tracksEntity),
-//                                DBHelper.getSqlValues(tracksEntity)));
-//                        String sql = null;
-//                        List sqlValueList = new ArrayList();
-//                        fileParse = new PlaceMarkFileParse();
-//                        new JSAXParser().parse(nestDir + Config.KMZFileInfo.routeRecordFileName, fileParse);
-//                        List<List<TTracksPointsEntity>> pointList = ((PlaceMarkFileParse) fileParse).getPoints();
-//                        for (List<TTracksPointsEntity> pointsList : pointList) {
-//                            for (TTracksPointsEntity point : pointsList) {
-//                                point.setTrackid(tracksEntity.getTrackid());
-//                                sqlValueList.add(DBHelper.getSqlValues(point));
-//                                TestOutput.println(point);
-//                                if (sql == null) {
-//                                    sql = DBHelper.getInsertSql(TableName.trackPoint, point);
-//                                }
-//                            }
-//                        }
-//                        if (sql != null) {
-//                            DBUtil.insertBatch(sql, sqlValueList);
-//                        }
+                        tracksEntity.setTrackid(DBUtil.insertAndReturnAutoIncreaseId(
+                                DBHelper.getInsertSql(TableName.tracks, tracksEntity),
+                                DBHelper.getSqlValues(tracksEntity)));
+                        String sql = null;
+                        List sqlValueList = new ArrayList();
+                        fileParse = new PlaceMarkFileParse();
+                        new JSAXParser().parse(nestDir + Config.KMZFileInfo.routeRecordFileName, fileParse);
+                        List<List<TTracksPointsEntity>> pointList = ((PlaceMarkFileParse) fileParse).getPoints();
+                        for (List<TTracksPointsEntity> pointsList : pointList) {
+                            for (TTracksPointsEntity point : pointsList) {
+                                point.setTrackid(tracksEntity.getTrackid());
+                                sqlValueList.add(DBHelper.getSqlValues(point));
+                                TestOutput.println(point);
+                                if (sql == null) {
+                                    sql = DBHelper.getInsertSql(TableName.trackPoint, point);
+                                }
+                            }
+                        }
+                        if (sql != null) {
+                            DBUtil.insertBatch(sql, sqlValueList);
+                        }
                     }
                 }  catch (ParserConfigurationException e) {
                     e.printStackTrace();

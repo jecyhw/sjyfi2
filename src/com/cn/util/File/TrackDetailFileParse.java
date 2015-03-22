@@ -17,7 +17,7 @@ public class TrackDetailFileParse extends BaseFileParse{
     String text;
 
     public Object getParseObject() {
-        TestOutput.println(builder.toString() + track.toString());
+        TestOutput.println("TrackDetailFileParse: " + track);
         return track;
     }
 

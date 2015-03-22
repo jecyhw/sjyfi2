@@ -15,7 +15,7 @@ import java.util.List;
 public abstract class AEntityDao{
     public String tableName = null;
     /**
-     * 得到一个javabean对象，不判断当前set是否有记录
+     * 得到一个javabean对象，不判断当前set是否有记录,供getEntityList方法调用，所以无需判断
      * @param set
      * @return
      */

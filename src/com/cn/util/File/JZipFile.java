@@ -31,8 +31,4 @@ public class JZipFile {
             zip.execute();
         }
     }
-
-    static public void main(String[] args) {
-        new JZipFile().work("C:\\Users\\SNNU\\Desktop\\test\\1", "C:\\Users\\SNNU\\Desktop\\test\\1\\audio\\1.zip");
-    }
 }

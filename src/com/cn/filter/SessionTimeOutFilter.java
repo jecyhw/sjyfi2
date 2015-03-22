@@ -1,13 +1,9 @@
 package com.cn.filter;
 
-import com.cn.test.TestOutput;
-import com.cn.util.Out;
-
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
 
 /**
  * Created by jecyhw on 2015/1/4.

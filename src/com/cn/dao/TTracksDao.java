@@ -3,6 +3,7 @@ package com.cn.dao;
 import com.cn.bean.TTracksEntity;
 import com.cn.util.TableName;
 
+import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -22,8 +23,8 @@ public class TTracksDao extends AEntityDao {
         entity.setAnnotation(set.getString("annotation"));
         entity.setAuthor(set.getString("author"));
         entity.setFilesize(set.getInt("filesize"));
-        entity.setEndtime(set.getDate("endtime"));
-        entity.setStarttime(set.getDate("starttime"));
+        entity.setEndtime(new Date(set.getDate("endtime").getTime()));
+        entity.setStarttime(new Date(set.getDate("starttime").getTime()));
         entity.setName(set.getString("name"));
         entity.setLength(set.getDouble("length"));
         entity.setMaxaltitude(set.getDouble("maxaltitude"));

@@ -10,7 +10,6 @@ import com.cn.util.File.FileUtil;
 import com.cn.util.File.JSAXParser;
 import com.cn.util.File.PlaceMarkFileParse;
 import com.cn.util.Out;
-import org.dom4j.DocumentException;
 import org.xml.sax.SAXException;
 
 import javax.servlet.ServletException;
@@ -18,13 +17,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.parsers.SAXParser;
-import javax.xml.parsers.SAXParserFactory;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Hashtable;
 import java.util.List;
-import java.util.Map;
 
 /**
  * Created by acm on 11/27/14.

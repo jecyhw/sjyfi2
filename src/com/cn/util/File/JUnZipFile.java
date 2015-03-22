@@ -23,7 +23,6 @@ public class JUnZipFile {
         ZipInputStream zin = new ZipInputStream(in);
         ZipEntry entry;
             while ((entry = zin.getNextEntry()) != null) {
-                TestOutput.println(unZipFileName + entry.getName() + " isDirectory:" + entry.isDirectory());
                 if (entry.isDirectory()) {
                     FileUtil.CreateDirIFNotExist(unZipFileName + entry.getName());
                 } else {
@@ -46,20 +45,4 @@ public class JUnZipFile {
         }
         out.close();
     }
-
-    static public void main(String[] args) throws IOException {
-        BufferedOutputStream outputStream = new BufferedOutputStream(new FileOutputStream("\1.xml"));
-        outputStream.write(("<trackdetail>\n" +
-                "<name>玛多到了。</name>\n" +
-                "<author>王吉祥</author>\n" +
-                "<starttime>2014-05-22 17:58:24</starttime>\n" +
-                "<endtime>2014-05-22 18:12:23</endtime>\n" +
-                "<length>143845.39759596568</length>\n" +
-                "<maxaltitude>4409.157513681916</maxaltitude>\n" +
-                "<keysiteslist></keysiteslist>\n" +
-                "<annotation></annotation>\n" +
-                "</trackdetail>\n").getBytes());
-        outputStream.close();
-    }
-
 }

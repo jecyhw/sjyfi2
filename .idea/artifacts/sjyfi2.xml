@@ -8,7 +8,6 @@
           <element id="library" level="project" name="json" />
           <element id="library" level="project" name="jdbc" />
           <element id="library" level="project" name="ant" />
-          <element id="library" level="project" name="dom4j" />
         </element>
         <element id="directory" name="classes">
           <element id="module-output" name="sjyfi2" />

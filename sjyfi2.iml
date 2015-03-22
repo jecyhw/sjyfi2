@@ -21,7 +21,6 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" scope="PROVIDED" name="Tomcat 7.0.40" level="application_server_libraries" />
     <orderEntry type="library" name="ant" level="project" />
-    <orderEntry type="library" name="dom4j" level="project" />
     <orderEntry type="library" name="file-upload" level="project" />
     <orderEntry type="library" name="jdbc" level="project" />
     <orderEntry type="library" name="json" level="project" />

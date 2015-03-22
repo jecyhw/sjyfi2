@@ -7,14 +7,12 @@ import com.cn.dao.TTracksDao;
 import com.cn.test.TestOutput;
 import com.cn.util.*;
 import com.cn.util.File.*;
-import org.dom4j.DocumentException;
-import org.xml.sax.SAXException;
+import org.apache.commons.io.FileUtils;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.xml.parsers.ParserConfigurationException;
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -48,10 +46,10 @@ public class SaveRecordServlet extends HttpServlet {
 
         Map<String, String> result = new Hashtable<String, String>();
         String mergeFileName = Config.unZipFileDir + fileName;//合并的文件全路径
+        String zipFileName = Config.zipFileDir + fileName + ".kmz";//压缩的文件名
         FileMerge merge = new FileMerge();
         try {
             merge.work(paths, mergeFileName);//合并文件
-            String zipFileName = Config.zipFileDir + fileName + ".kmz";//压缩的文件名
             new JZipFile().work(mergeFileName, zipFileName);//进行压缩
             TrackDetailFileParse fileParse = new TrackDetailFileParse();
 
@@ -61,14 +59,10 @@ public class SaveRecordServlet extends HttpServlet {
             entity.setPath(mergeFileName);//设置文件存放路径
             DBUtil.insert(DBHelper.getInsertSql(TableName.tracks, entity), DBHelper.getSqlValues(entity));//保存到数据库
             result.put("result", "true");//返回结果
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
-            TestOutput.println(e.getMessage());
-        } catch (ParserConfigurationException e) {
-            e.printStackTrace();
-            TestOutput.println(e.getMessage());
-        } catch (SAXException e) {
-            e.printStackTrace();
+            FileUtils.deleteQuietly(new File(mergeFileName));//出现异常删除合并文件以及压缩文件
+            FileUtils.deleteQuietly(new File(zipFileName));
             TestOutput.println(e.getMessage());
         }
         Out out = new Out(response);

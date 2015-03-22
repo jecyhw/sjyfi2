@@ -7,7 +7,7 @@ import java.util.Date;
  * Created by jecyhw on 2014/10/16.
  */
 public class TestOutput {
-    static private String outPutFileName = "/usr/local/apache-tomcat/webapps/sjyfi2/log.txt";//System.getProperty("user.dir") + "/log.txt";
+    static private String outPutFileName = System.getProperty("user.dir") + "/log.txt";
     static private Boolean isOutPutFile = true;
     static private String lineSeparator = System.getProperty("line.separator");
     static {
@@ -25,7 +25,7 @@ public class TestOutput {
     {
         if (isOutPutFile) {
             try {
-                FileWriter writer = new FileWriter(outPutFileName, true);
+                OutputStreamWriter writer = new OutputStreamWriter(new FileOutputStream(outPutFileName, true), "utf-8");
                 writer.write(new Date().toString() + "::" + object + lineSeparator);
                 writer.close();
             } catch (FileNotFoundException e) {

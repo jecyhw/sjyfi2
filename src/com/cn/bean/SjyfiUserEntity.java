@@ -1,9 +1,6 @@
 package com.cn.bean;
 
-import java.lang.reflect.Field;
 import java.sql.Timestamp;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by jecyhw on 2014/10/12.

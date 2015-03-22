@@ -115,8 +115,8 @@ public class TTracksEntity {
                 "trackid=" + trackid +
                 ", name='" + name + '\'' +
                 ", author='" + author + '\'' +
-                ", starttime=" + starttime +
-                ", endtime=" + endtime +
+                ", starttime=" + DateUtil.date2String(starttime) +
+                ", endtime=" + DateUtil.date2String(endtime) +
                 ", length=" + length +
                 ", maxaltitude=" + maxaltitude +
                 ", keysiteslist='" + keysiteslist + '\'' +

@@ -1,19 +1,11 @@
 package com.cn.util.File;
 
-import com.cn.util.Config;
-import com.cn.util.Json;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 
 import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.parsers.SAXParser;
-import javax.xml.parsers.SAXParserFactory;
 import javax.xml.transform.TransformerConfigurationException;
-import java.io.BufferedWriter;
-import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by SNNU on 2015/3/20.
@@ -58,8 +50,13 @@ public abstract class BaseFileParse {
     }
 
     static public void main(String[] args) throws ParserConfigurationException, SAXException, IOException, TransformerConfigurationException {
-        TrackDetailFileParse trackDetailFileParse = new TrackDetailFileParse();
+        TrackDetailFileParseAndMerge trackDetailFileParse = new TrackDetailFileParseAndMerge("C:\\Users\\SNNU\\Desktop\\test\\1\\");
         new JSAXParser().parse("C:\\Users\\SNNU\\Desktop\\routeRecord_20140331_172138\\TrackDetail.xml", trackDetailFileParse);
-        System.out.println(trackDetailFileParse.getParseObject());
+        new JSAXParser().parse("C:\\Users\\SNNU\\Desktop\\routeRecord_20140408_122844\\TrackDetail.xml", trackDetailFileParse);
+        trackDetailFileParse.createNewTrackDetail("Trackdetail.xml");
+
+        TrackDetailFileParse fileParse = new TrackDetailFileParse();
+        new JSAXParser().parse("C:\\Users\\SNNU\\Desktop\\test\\1\\TrackDetail.xml", fileParse);
+        System.out.println(fileParse.getParseObject());
     }
 }

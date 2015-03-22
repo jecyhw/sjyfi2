@@ -117,8 +117,9 @@ public class RouteRecordFileParseAndMerge extends BaseFileParse{
     }
 
     public void characters(char[] ch, int start, int length) throws SAXException {
-        if (isTransform)
+        if (isTransform) {
             transformerHandle.characters(ch, start, length);
+        }
     }
 
     /**
