@@ -36,7 +36,7 @@ public class ExportRecordServlet extends HttpServlet {
         }
         sbSql.append(");");
 
-        List entityList = DBUtil.queryBatch(dao, sbSql.toString(), ids);//查询
+        List entityList = DBUtil.queryMulti(dao, sbSql.toString(), ids);//查询
         String zipFileName = "";
         int isDeleted = 0;
         if (entityList.size() > 0) {

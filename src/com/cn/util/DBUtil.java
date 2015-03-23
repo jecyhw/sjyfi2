@@ -55,6 +55,7 @@ public class DBUtil {
             stat = getPreparedStatement(sql);
             setParametersForStatement(values, stat);
             result = dao.getEntityList(stat.executeQuery());
+            TestOutput.println(stat.toString());
         } catch (SQLException e) {
             TestOutput.println(e.getMessage());
             e.printStackTrace();
@@ -81,6 +82,7 @@ public class DBUtil {
                 ResultSet set = stat.getResultSet();
                 result.addAll(dao.getEntityList(set));
             } while (stat.getMoreResults());
+            TestOutput.println(stat.toString());
         } catch (SQLException e) {
             TestOutput.println(e.getMessage());
             e.printStackTrace();

@@ -187,42 +187,49 @@
             }
 
             function slide(desc, name) {
-                var msg = [];
-                $.each(desc, function (index, val) {
-                    var child = {};
-                    if (val.indexOf('photo') > -1) {
-                        child.type = 'image';
-                        child.href = val;
-                    } else {
-                        child.type = 'html';
-                        child.scrolling = "no";
-                        child.href = '<video controls="controls" width="640" height="360">'
-                        + '<source src="'+ val + '" type="video/mp4" />'
-                        + '<object type="application/x-shockwave-flash" data="http://player.longtailvideo.com/player.swf" width="640" height="360">'
-                        + '<param name="movie" value="http://player.longtailvideo.com/player.swf" />'
-                        + '<param name="allowFullScreen" value="true" />'
-                        + '<param name="wmode" value="transparent" />'
-                        + '<param name="flashVars" value="controlbar=over&amp;file='+ val + '" />'
-                        + '<span class="text-danger"><strong>该视频无法播放,请点击下面按钮进行下载</strong></span>'
-                        + '</object>'
-                        + '</video>'
-                        + '<p><button class="btn btn-primary btn-sm" onclick="videoDownLoad(\''+ val + '\')">'
-                        + '点击下载<span class="glyphicon glyphicon-download"></span></button></p>';
-                    }
-                    msg.push(child);
-                });
-
-                $.fancybox(msg, {
-                    title: name,
-                    loop: false,
-                    closeBtn: false ,
-                    modal: true,
-                    helpers:  {
-                        title	: { type : 'inside' },
-                        buttons : {
+                if (desc && desc.length > 0) {
+                    var msg = [];
+                    $.each(desc, function (index, val) {
+                        var child = {};
+                        if (val.indexOf('photo') > -1) {
+                            child.type = 'image';
+                            child.href = val;
+                        } else {
+                            child.type = 'html';
+                            child.scrolling = "no";
+                            child.href = '<video controls="controls" width="640" height="360">'
+                            + '<source src="' + val + '" type="video/mp4" />'
+                            + '<object type="application/x-shockwave-flash" data="http://player.longtailvideo.com/player.swf" width="640" height="360">'
+                            + '<param name="movie" value="http://player.longtailvideo.com/player.swf" />'
+                            + '<param name="allowFullScreen" value="true" />'
+                            + '<param name="wmode" value="transparent" />'
+                            + '<param name="flashVars" value="controlbar=over&amp;file=' + val + '" />'
+                            + '<span class="text-danger"><strong>该视频无法播放,请点击下面按钮进行下载</strong></span>'
+                            + '</object>'
+                            + '</video>'
+                            + '<p><button class="btn btn-primary btn-sm" onclick="videoDownLoad(\'' + val + '\')">'
+                            + '点击下载<span class="glyphicon glyphicon-download"></span></button></p>';
                         }
-                    }
-                });
+                        msg.push(child);
+                        $.fancybox(msg, {
+                            title: name,
+                            loop: false,
+                            closeBtn: false ,
+                            modal: true,
+                            helpers:  {
+                                title	: { type : 'inside' },
+                                buttons : {
+                                }
+                            }
+                        });
+                    });
+                } else {
+                    $.fancybox(name, {
+                        autoCenter: true
+                    })
+                }
+
+
             }
         }
 

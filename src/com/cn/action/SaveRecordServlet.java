@@ -33,7 +33,7 @@ public class SaveRecordServlet extends HttpServlet {
         }
         sbSql.append(")");
 
-        List entityList = DBUtil.queryBatch(dao, sbSql.toString(), ids);//查询
+        List entityList = DBUtil.queryMulti(dao, sbSql.toString(), ids);//查询
         List<String> paths = new ArrayList<String>();
         for (Object entity : entityList) {
             String temp = FileUtil.getNestDir(((TTracksEntity) entity).getPath());

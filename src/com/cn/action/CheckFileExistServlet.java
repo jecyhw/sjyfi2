@@ -20,8 +20,8 @@ public class CheckFileExistServlet extends HttpServlet {
         CheckFileExistDao dao = new CheckFileExistDao();
         List list = new ArrayList();
         String fileName = request.getParameter("filename");
-        list.add(fileName.substring(0, fileName.length() - 4));//去电后缀 .kmz
-        String sql = "select count(*) from t_tracks where path LIKE '%?%'";
+        list.add("?" + fileName.substring(0, fileName.length() - 4) + "?");//去电后缀 .kmz
+        String sql = "select count(*) from t_tracks where path like ?";
         Out out = new Out(response);
         if (null != DBUtil.query(dao, sql, list)) {
             out.printText("1");
