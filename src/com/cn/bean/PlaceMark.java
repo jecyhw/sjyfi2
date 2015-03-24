@@ -14,7 +14,7 @@ import java.util.regex.Pattern;
  * Created by SNNU on 2015/3/19.
  */
 public class PlaceMark {
-    static Pattern descPatten = Pattern.compile("(img|video|audio) src=\"(.+?)\"");
+    static Pattern descPatten = Pattern.compile("(img|video|audio)\\s+src=\"(?:[^/]+/)?(.+?)\"");
     private String name;//两者都有
     private List desc;//关键点的描述
     private TTracksPointsEntity coordinate;//关键点的坐标
@@ -98,7 +98,7 @@ public class PlaceMark {
     }
 
     public static void main(String[] args) {
-        Pattern descPatten = Pattern.compile("(img|video|audio) src=\"(.+?)\"");
+        Pattern descPatten = Pattern.compile("(img|video|audio) src=\"(?:[^/]+/)?(.+?)\"");
         Matcher matcher = descPatten.matcher("<description>img src=\"20140723061827_0.png,20140723061827_1.png,20140723061827_2.png,20140723061827_3.png,20140723061827_5.png,20140723061827_4.png,\";video src=\"20140723061827.mp4\";audio src=\"20140723061827.aac\"</description>\n" +
                 "\t\t\t<Point>");
         while (matcher.find()) {
