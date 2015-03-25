@@ -110,16 +110,16 @@
             overlay = [];
 
         this.work = function() {
-            if (data.routePlaceMarks.length > 0)
-                polyLine();
-            else {
-               showFail();
-            }
+            polyLine();
         }
 
         function polyLine() {//由于路线存在多条，坐标转换需要一条一条转换，也就是第一组gsp坐标转换完成百度坐标，才能进行后一组转换,并且先对路线解析完，再解析关键点
             var routePlaceMark, routePlaceMarks = data.routePlaceMarks;
-            callback();
+            if (routePlaceMarks && routePlaceMarks.length > 0) {
+                callback();
+            } else {
+                showFail();
+            }
             function callback(baiDuPoints){
                 if (baiDuPoints && baiDuPoints.length > 0) {
                     if (routePlaceMark.routeStyle) {
@@ -164,7 +164,7 @@
 
         function placeMark() {//对应折线中的点描述
             var gpsPoints = [], keyPointPlaceMarks = data.keyPointPlaceMarks;
-            if (keyPointPlaceMarks.length > 0) {
+            if (keyPointPlaceMarks && keyPointPlaceMarks.length > 0) {
                 $.each(keyPointPlaceMarks, function (index, keyPointPlaceMark) {
                     gpsPoints.push(keyPointPlaceMark.coordinate.longitude + "," + keyPointPlaceMark.coordinate.latitude);
                 });
