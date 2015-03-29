@@ -234,10 +234,19 @@ $(document).ready(function () {
             //先查看之前是否已经查询过
             if (!jmap(id).show()) {
                 $('.table-overlay').show();
-                $.getJSON(web_prefix + '/RouteRecordMapInfoServlet',
-                    { id: id },//获取tr的id
-                    function (data) { jmap.loadData(id, data); }
-                );
+                $.ajax({
+                    url: web_prefix + '/RouteRecordMapInfoServlet',
+                    data: { id: id },//获取tr的id
+                    type: "post",
+                    dataType: "json",
+                    success: function (data) {
+                        jmap.loadData(id, data);
+                    },
+                    error: function () {
+                        $('.table-overlay').hide();
+                        $('#' + id).addClass('danger');
+                    }
+                });
             } else {
                 jmap(id).setViewPort();
             }
@@ -452,16 +461,14 @@ $(document).ready(function () {
                     ids: $.toJSON(ids)
                 },
                 function(data) {
+                    var msg;
                     if (data.result) {
-                        $.fancybox('<div class="text-info">提示!<hr/><div class="text-center"><strong>保存成功。</strong></div></div>', {
-                            modal: true
-                        });
+                        msg = '<div class="text-info">提示!<hr/><div class="text-center"><strong>保存成功。</strong></div></div>';
                     }
                     else {
-                        $.fancybox('<div class="text-info"><strong>提示!</strong><hr/><div class="text-center"><strong>保存失败。</strong></div></div>', {
-                            modal: true
-                        });
+                        msg = '<div class="text-info"><strong>提示!</strong><hr/><div class="text-center"><strong>保存失败。</strong></div></div>';
                     }
+                    $.fancybox(msg);
                     //查询完后，恢复提交按钮
                     $it.removeAttr("disabled");
                     $it.html(val);
