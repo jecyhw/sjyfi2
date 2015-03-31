@@ -2,17 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d7a41360-4d0c-4b87-b9da-713a255d31fc" name="Default" comment="">
-      <change type="DELETED" beforePath="C:\Users\SNNU\Documents\GitHub\sjyfi2\毕设文档\TrackRecordProject\jsdocs.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\SNNU\Documents\GitHub\sjyfi2\毕设文档\TrackRecordProject\基于Android终端的GIS野外数据采集系统设计与实现_田政.caj" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\SNNU\Documents\GitHub\sjyfi2\毕设文档\TrackRecordProject\基于Android终端的GIS野外数据采集系统设计与实现_田政.doc" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\SNNU\Documents\GitHub\sjyfi2\毕设文档\TrackRecordProject\基于Web的轨迹管理系统功能说明20141009.docx" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\SNNU\Documents\GitHub\sjyfi2\毕设文档\TrackRecordProject\基于移动终端的三江源野外调查应用数据库设计v1.6.docx" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\SNNU\Documents\GitHub\sjyfi2\毕设文档\TrackRecordProject\对于基于Web的轨迹管理系统功能说明的一些问题20141012.doc" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\SNNU\Documents\GitHub\sjyfi2\毕设文档\TrackRecordProject\说明.txt" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\SNNU\Documents\GitHub\sjyfi2\毕设文档\TrackRecordProject\轨迹kml格式.txt" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\SNNU\Documents\GitHub\sjyfi2\毕设文档\TrackRecordProject\野外采集系统开发文档_2014-5-1v1.0.pdf" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\SNNU\Documents\GitHub\sjyfi2\毕设文档\开题报告\开题报告(杨慧伟).doc" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/毕设文档/开题报告/毕业论文修改稿-胡国平 .doc" afterPath="$PROJECT_DIR$/毕设文档/开题报告/毕业论文修改稿-胡国平 .doc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/毕设文档/开题报告/开题报告(杨慧伟2015-3-30-16-34).doc" afterPath="$PROJECT_DIR$/毕设文档/开题报告/开题报告(杨慧伟2015-3-30-16-34).doc" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="sjyfi2.iws" />
@@ -42,8 +32,8 @@
       <file leaf-file-name="trackRecord.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web/sjyfi/js/trackRecord.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.61072904" vertical-offset="5750" max-vertical-offset="9880">
-              <caret line="326" column="28" selection-start-line="326" selection-start-column="28" selection-end-line="326" selection-end-column="28" />
+            <state vertical-scroll-proportion="-0.17331499" vertical-offset="6092" max-vertical-offset="9880">
+              <caret line="314" column="17" selection-start-line="314" selection-start-column="17" selection-end-line="314" selection-end-column="17" />
               <folding>
                 <marker date="1427636685586" expanded="true" signature="12166:12189" placeholder="..." />
               </folding>
@@ -167,6 +157,8 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -175,10 +167,72 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sjyfi2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sjyfi2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sjyfi2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sjyfi2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sjyfi2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sjyfi2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sjyfi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sjyfi2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sjyfi2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sjyfi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -805,11 +859,13 @@
       <workItem from="1427273061158" duration="67000" />
       <workItem from="1427632598667" duration="2710000" />
       <workItem from="1427707169807" duration="716000" />
+      <workItem from="1427777608248" duration="33000" />
+      <workItem from="1427781930645" duration="644000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="282487000" />
+    <option name="totallyTimeSpent" value="283164000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1456" height="876" extended-state="6" />
@@ -828,7 +884,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24444444" sideWeight="0.69753087" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24444444" sideWeight="0.69753087" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2638889" sideWeight="0.30246913" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.329429" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -936,6 +992,22 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/web/sjyfi/test.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="266" max-vertical-offset="456">
+          <caret line="14" column="8" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/sjyfi/trackRecord.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="2736" max-vertical-offset="7904">
+          <caret line="38" column="0" selection-start-line="14" selection-start-column="4" selection-end-line="38" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/cn/test/testServlet.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.16761905" vertical-offset="45" max-vertical-offset="627">
@@ -1032,13 +1104,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files (x86)/Java/jdk1.7.0_67/src.zip!/java/sql/Date.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.93333334" vertical-offset="3150" max-vertical-offset="4161">
-          <caret line="165" column="47" selection-start-line="165" selection-start-column="47" selection-end-line="165" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/cn/bean/TTracksEntity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.18095239" vertical-offset="855" max-vertical-offset="1710">
@@ -1062,13 +1127,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.40945947" vertical-offset="324" max-vertical-offset="1064">
           <caret line="33" column="33" selection-start-line="33" selection-start-column="33" selection-end-line="33" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files (x86)/Java/jdk1.7.0_67/src.zip!/java/util/regex/Pattern.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="18773" max-vertical-offset="104690">
-          <caret line="1020" column="26" selection-start-line="1020" selection-start-column="26" selection-end-line="1020" selection-end-column="26" />
         </state>
       </provider>
     </entry>
@@ -1289,8 +1347,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/web/sjyfi/js/trackRecord.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.61072904" vertical-offset="5750" max-vertical-offset="9880">
-          <caret line="326" column="28" selection-start-line="326" selection-start-column="28" selection-end-line="326" selection-end-column="28" />
+        <state vertical-scroll-proportion="-0.17331499" vertical-offset="6092" max-vertical-offset="9880">
+          <caret line="314" column="17" selection-start-line="314" selection-start-column="17" selection-end-line="314" selection-end-column="17" />
           <folding>
             <marker date="1427636685586" expanded="true" signature="12166:12189" placeholder="..." />
           </folding>
