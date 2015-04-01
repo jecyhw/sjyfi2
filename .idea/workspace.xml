@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d7a41360-4d0c-4b87-b9da-713a255d31fc" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/毕设文档/开题报告/开题报告(杨慧伟2015-3-30-16-34).doc" afterPath="$PROJECT_DIR$/毕设文档/开题报告/开题报告(杨慧伟2015-3-30-16-34).doc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/毕设文档/开题报告/Web端轨迹管理系统开发环境的搭建.docx" afterPath="$PROJECT_DIR$/毕设文档/开题报告/Web端轨迹管理系统开发环境的搭建.docx" />
     </list>
     <ignored path="sjyfi2.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -32,8 +31,8 @@
       <file leaf-file-name="trackRecord.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web/sjyfi/js/trackRecord.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.17331499" vertical-offset="6092" max-vertical-offset="9880">
-              <caret line="314" column="17" selection-start-line="314" selection-start-column="17" selection-end-line="314" selection-end-column="17" />
+            <state vertical-scroll-proportion="0.33116037" vertical-offset="6092" max-vertical-offset="9880">
+              <caret line="334" column="36" selection-start-line="334" selection-start-column="36" selection-end-line="334" selection-end-column="36" />
               <folding>
                 <marker date="1427636685586" expanded="true" signature="12166:12189" placeholder="..." />
               </folding>
@@ -127,10 +126,10 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
+    <option name="x" value="53" />
+    <option name="y" value="372" />
     <option name="width" value="1456" />
-    <option name="height" value="876" />
+    <option name="height" value="916" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -157,8 +156,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -191,48 +188,10 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sjyfi2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sjyfi2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sjyfi" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sjyfi2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sjyfi2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sjyfi" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -861,15 +820,16 @@
       <workItem from="1427707169807" duration="716000" />
       <workItem from="1427777608248" duration="33000" />
       <workItem from="1427781930645" duration="644000" />
+      <workItem from="1427893309058" duration="200000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="283164000" />
+    <option name="totallyTimeSpent" value="283364000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1456" height="876" extended-state="6" />
-    <editor active="false" />
+    <frame x="53" y="372" width="1456" height="916" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -884,7 +844,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24444444" sideWeight="0.69753087" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24444444" sideWeight="0.69753087" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2638889" sideWeight="0.30246913" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.329429" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1347,8 +1307,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/web/sjyfi/js/trackRecord.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.17331499" vertical-offset="6092" max-vertical-offset="9880">
-          <caret line="314" column="17" selection-start-line="314" selection-start-column="17" selection-end-line="314" selection-end-column="17" />
+        <state vertical-scroll-proportion="0.33116037" vertical-offset="6092" max-vertical-offset="9880">
+          <caret line="334" column="36" selection-start-line="334" selection-start-column="36" selection-end-line="334" selection-end-column="36" />
           <folding>
             <marker date="1427636685586" expanded="true" signature="12166:12189" placeholder="..." />
           </folding>
