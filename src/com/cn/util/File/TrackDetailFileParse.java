@@ -5,7 +5,7 @@ import com.cn.test.TestOutput;
 import com.cn.util.DateUtil;
 import org.xml.sax.SAXException;
 
-import java.sql.Date;
+import java.sql.Timestamp;
 
 
 /**
@@ -29,9 +29,9 @@ public class TrackDetailFileParse extends BaseFileParse{
         } else if ("author".equals(qName)) {
             track.setAuthor(text);
         } else if ("starttime".equals(qName)) {
-            track.setStarttime(new Date(DateUtil.string2Date(text).getTime()));
+            track.setStarttime(Timestamp.valueOf(text));
         } else if ("endtime".equals(qName)) {
-            track.setEndtime(new Date(DateUtil.string2Date(text).getTime()));
+            track.setEndtime(Timestamp.valueOf(text));
         } else if ("length".equals(qName)) {
             track.setLength(Double.parseDouble(text));
         } else if ("maxaltitude".equals(qName)) {

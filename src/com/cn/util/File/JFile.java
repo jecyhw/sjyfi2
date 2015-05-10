@@ -48,20 +48,20 @@ public class JFile extends Thread {
             String kmzFileName = uploadFilePathQueue.poll();
             String unZipFileName = FileUtil.getDirFromKmzName(kmzFileName);
             try {
-                TestOutput.println(kmzFileName + " is unzip start, and the unzippath is " + unZipFileName);
                 new JUnZipFile().work(kmzFileName, unZipFileName);
-                TestOutput.println(kmzFileName + " is unzip end");
                 try {
                     String nestDir = FileUtil.getNestDir(unZipFileName);
                     if (nestDir != null) {
                         BaseFileParse fileParse = new TrackDetailFileParse();
                         new JSAXParser().parse(nestDir + Config.KMZFileInfo.trackDetailFileName, fileParse);
+
                         TTracksEntity tracksEntity = (TTracksEntity) fileParse.getParseObject();
                         tracksEntity.setPath(FileUtil.removeLastSeparator(unZipFileName));
                         tracksEntity.setFilesize((int) new File(kmzFileName).length());
                         tracksEntity.setTrackid(DBUtil.insertAndReturnAutoIncreaseId(
                                 DBHelper.getInsertSql(TableName.tracks, tracksEntity),
                                 DBHelper.getSqlValues(tracksEntity)));
+
                         String sql = null;
                         List sqlValueList = new ArrayList();
                         fileParse = new PlaceMarkFileParse();

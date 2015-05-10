@@ -28,7 +28,7 @@ public class UserLoginServlet extends HttpServlet {
         values.add(request.getParameter("pwd"));
 
         AEntityDao dao = new SjyfiUserDao();
-        String sql = "select * from " + dao.tableName + " where account = ? and password = ?";
+        String sql = "select name, role from " + dao.tableName + " where account = ? and password = ?";
 
         SjyfiUserEntity entity = (SjyfiUserEntity) DBUtil.query(dao, sql, values);
 

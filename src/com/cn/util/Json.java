@@ -1,24 +1,25 @@
 package com.cn.util;
 
+import com.cn.bean.ConditionEntity;
 import com.cn.test.TestOutput;
-import org.codehaus.jackson.map.ObjectMapper;
-import org.codehaus.jackson.map.SerializationConfig;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.Writer;
-import java.text.SimpleDateFormat;
 
 /**
  * Created by jecyhw on 2014/10/18.
  */
 public class Json {
     private static ObjectMapper objectMapper;
-    private static SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy年MM月dd日");
+
     static {
         objectMapper = new ObjectMapper();
-        objectMapper.getSerializationConfig().setDateFormat(dateFormat);
-        objectMapper.configure(SerializationConfig.Feature.WRITE_NULL_PROPERTIES, false);
+        objectMapper.setDateFormat(DateUtil.dateFormat);
+        objectMapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
     }
 
     public static void write(Writer writer, Object value)
@@ -34,14 +35,27 @@ public class Json {
     public static void write(OutputStream outputStream, Object value) {
         try {
             objectMapper.writeValue(outputStream, value);
+
         } catch (IOException e) {
             TestOutput.println(e.getMessage());
             e.printStackTrace();
         }
     }
 
+
+    public static String writeAsString(Object value) {
+        String result = "[]";
+        try {
+            result = objectMapper.writeValueAsString(value);
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+
     public static Object read(String jsonString, Class clsName)
     {
+
         Object obj = null;
         try {
             obj = objectMapper.readValue(jsonString, clsName);
@@ -52,8 +66,9 @@ public class Json {
         return obj;
     }
 
-    public static void main(String[] args)
-    {
-       ;
+    public static void main(String[] args) throws IOException {
+        ConditionEntity conditionEntity = (ConditionEntity) Json.read("{\"startTime\":\"2015-04-09 11:11:11\",\"endTime\":\"2015-04-17 11:11:11\"}", ConditionEntity.class);
+        System.out.println(objectMapper.writeValueAsString(conditionEntity));
+       // String s = objectMapper.writeValueAsString(DBUtil.queryMulti(new TTracksDao(), conditionEntity.getSql(), conditionEntity.getSqlValues()));
     }
 }

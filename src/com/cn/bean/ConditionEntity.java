@@ -1,8 +1,12 @@
 package com.cn.bean;
 
-import com.cn.util.DateUtil;
+import com.cn.util.JsonTimestampDeserialize;
+import com.cn.util.JsonTimestampSerializer;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
-import java.sql.Date;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,8 +15,14 @@ import java.util.List;
  */
 public class ConditionEntity {
     String recorder;
-    Date startTime;
-    Date endTime;
+
+    @JsonDeserialize(using = JsonTimestampDeserialize.class)
+    @JsonSerialize(using = JsonTimestampSerializer.class)
+    Timestamp startTime;
+
+    @JsonDeserialize(using = JsonTimestampDeserialize.class)
+    @JsonSerialize(using = JsonTimestampSerializer.class)
+    Timestamp endTime;
     String address;
     Double left;
     Double top;
@@ -114,14 +124,14 @@ and( latitude>='-1.209283' and latitude<'180.959893' )))a where t_tracks.trackid
             if (startTime != null) {
                 flag = true;
                 sb.append(" starttime >= ? ");
-                sqlValues.add(DateUtil.date2String(startTime));
+                sqlValues.add(startTime.toString());
                 //sb.append(SqlAssist.addGreatEqual("starttime", DateUtil.date2String(startTime)));
             }
             if (endTime != null) {
                 if (flag)
                     sb.append("and");
                 sb.append(" endtime <= ? ");
-                sqlValues.add(DateUtil.date2String(endTime));
+                sqlValues.add(endTime.toString());
                 //sb.append(SqlAssist.addLessEqual("endtime", DateUtil.date2String(endTime)));
             }
             sb.append(")");
@@ -152,27 +162,19 @@ and( latitude>='-1.209283' and latitude<'180.959893' )))a where t_tracks.trackid
         this.recorder = recorder;
     }
 
-    public double getBottom() {
-        return bottom;
-    }
-
-    public void setBottom(double bottom) {
-        this.bottom = bottom;
-    }
-
-    public Date getStartTime() {
+    public Timestamp getStartTime() {
         return startTime;
     }
 
-    public void setStartTime(Date startTime) {
+    public void setStartTime(Timestamp startTime) {
         this.startTime = startTime;
     }
 
-    public Date getEndTime() {
+    public Timestamp getEndTime() {
         return endTime;
     }
 
-    public void setEndTime(Date endTime) {
+    public void setEndTime(Timestamp endTime) {
         this.endTime = endTime;
     }
 
@@ -184,28 +186,36 @@ and( latitude>='-1.209283' and latitude<'180.959893' )))a where t_tracks.trackid
         this.address = address;
     }
 
-    public double getLeft() {
+    public Double getLeft() {
         return left;
     }
 
-    public void setLeft(double left) {
+    public void setLeft(Double left) {
         this.left = left;
     }
 
-    public double getTop() {
+    public Double getTop() {
         return top;
     }
 
-    public void setTop(double top) {
+    public void setTop(Double top) {
         this.top = top;
     }
 
-    public double getRight() {
+    public Double getRight() {
         return right;
     }
 
-    public void setRight(double right) {
+    public void setRight(Double right) {
         this.right = right;
+    }
+
+    public Double getBottom() {
+        return bottom;
+    }
+
+    public void setBottom(Double bottom) {
+        this.bottom = bottom;
     }
 
     @Override

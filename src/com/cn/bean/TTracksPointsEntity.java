@@ -4,18 +4,17 @@ package com.cn.bean;
  * Created by jecyhw on 2014/10/12.
  */
 public class TTracksPointsEntity {
-    private Integer id;
-    private Integer trackid;
-    private Double longitude;
-    private Double latitude;
-    private Double altitude;
+    Integer trackid;
+    Double longitude;
+    Double latitude;
+    Double altitude;
 
-    public Double getAltitude() {
-        return altitude;
+    public Double getLongitude() {
+        return longitude;
     }
 
-    public void setAltitude(Double altitude) {
-        this.altitude = altitude;
+    public void setLongitude(Double longitude) {
+        this.longitude = longitude;
     }
 
     public Double getLatitude() {
@@ -26,20 +25,12 @@ public class TTracksPointsEntity {
         this.latitude = latitude;
     }
 
-    public Integer getId() {
-        return id;
+    public Double getAltitude() {
+        return altitude;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public Double getLongitude() {
-        return longitude;
-    }
-
-    public void setLongitude(Double longitude) {
-        this.longitude = longitude;
+    public void setAltitude(Double altitude) {
+        this.altitude = altitude;
     }
 
     public Integer getTrackid() {
@@ -53,7 +44,6 @@ public class TTracksPointsEntity {
     @Override
     public String toString() {
         return "TTracksPointsEntity{" +
-                "id=" + id +
                 ", trackid=" + trackid +
                 ", longitude=" + longitude +
                 ", latitude=" + latitude +

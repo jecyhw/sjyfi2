@@ -9,6 +9,7 @@ import java.io.BufferedOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.sql.Date;
+import java.sql.Timestamp;
 
 /**
  * Created by SNNU on 2015/3/19.
@@ -24,8 +25,8 @@ public class TrackDetailFileParseAndMerge extends BaseFileParse {
         FileUtil.CreateDirIFNotExist(this.destUri);
         track.setName("");
         track.setAuthor("");
-        track.setStarttime(new Date(new java.util.Date().getTime()));
-        track.setEndtime(new Date(0));
+        track.setStarttime(new Timestamp(new java.util.Date().getTime()));
+        track.setEndtime(new Timestamp(0));
         track.setLength(0.0);
         track.setMaxaltitude(0.0);
         track.setKeysiteslist("");
@@ -53,12 +54,12 @@ public class TrackDetailFileParseAndMerge extends BaseFileParse {
             } else if ("starttime".equals(qName)) {
                 Date date = new Date(DateUtil.string2Date(text).getTime());
                 if (track.getStarttime().after(date)) {
-                    track.setStarttime(new Date(DateUtil.string2Date(text).getTime()));
+                    track.setStarttime(Timestamp.valueOf(text));
                 }
             } else if ("endtime".equals(qName)) {
                 Date date = new Date(DateUtil.string2Date(text).getTime());
                 if (track.getEndtime().before(date)) {
-                    track.setEndtime(new Date(DateUtil.string2Date(text).getTime()));
+                    track.setEndtime(Timestamp.valueOf(text));
                 }
             } else if ("length".equals(qName)) {
                 track.setLength(track.getLength() + Double.parseDouble(text));

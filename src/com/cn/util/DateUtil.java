@@ -2,18 +2,20 @@ package com.cn.util;
 
 import com.cn.test.TestOutput;
 
+import java.sql.Timestamp;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.regex.Pattern;
 
 /**
  * Created by SNNU on 2014/11/15.
  */
 public class DateUtil {
-    static private SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    static public SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
     static public Date string2Date(String dateString) {
-        Date date = new Date();
+        Date date = null;
         try {
              date = dateFormat.parse(dateString);
         } catch (ParseException e) {
@@ -24,7 +26,7 @@ public class DateUtil {
     }
 
     static public Date string2Date(String dateString, SimpleDateFormat dateFormat) {
-        Date date = new Date();
+        Date date = null;
         try {
             date = dateFormat.parse(dateString);
         } catch (ParseException e) {

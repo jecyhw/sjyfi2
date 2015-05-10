@@ -4,10 +4,7 @@
       <root url="file://$PROJECT_DIR$/lib/file-upload" />
     </CLASSES>
     <JAVADOC />
-    <SOURCES>
-      <root url="file://$PROJECT_DIR$/lib/file-upload/src/main/java" />
-      <root url="file://$PROJECT_DIR$/lib/file-upload/src/test/java" />
-    </SOURCES>
+    <SOURCES />
     <jarDirectory url="file://$PROJECT_DIR$/lib/file-upload" recursive="false" />
   </library>
 </component>

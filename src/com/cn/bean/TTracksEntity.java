@@ -1,8 +1,11 @@
 package com.cn.bean;
 
 import com.cn.util.DateUtil;
+import com.cn.util.JsonTimestampSerializer;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 import java.sql.Date;
+import java.sql.Timestamp;
 
 /**
  * Created by jecyhw on 2014/10/12.
@@ -12,8 +15,10 @@ public class TTracksEntity {
     private Integer trackid;
     private String name;
     private String author;
-    private Date starttime;
-    private Date endtime;
+    @JsonSerialize(using = JsonTimestampSerializer.class)
+    private Timestamp starttime;
+    @JsonSerialize(using = JsonTimestampSerializer.class)
+    private Timestamp endtime;
     private Double length;
     private Double maxaltitude;
     private String keysiteslist;
@@ -45,19 +50,19 @@ public class TTracksEntity {
         this.author = author;
     }
 
-    public Date getStarttime() {
+    public Timestamp getStarttime() {
         return starttime;
     }
 
-    public void setStarttime(Date starttime) {
+    public void setStarttime(Timestamp starttime) {
         this.starttime = starttime;
     }
 
-    public Date getEndtime() {
+    public Timestamp getEndtime() {
         return endtime;
     }
 
-    public void setEndtime(Date endtime) {
+    public void setEndtime(Timestamp endtime) {
         this.endtime = endtime;
     }
 

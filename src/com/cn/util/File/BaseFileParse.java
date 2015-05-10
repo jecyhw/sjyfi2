@@ -1,11 +1,13 @@
 package com.cn.util.File;
 
+import com.cn.util.DateUtil;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.TransformerConfigurationException;
 import java.io.IOException;
+import java.util.Date;
 
 /**
  * Created by SNNU on 2015/3/20.
@@ -50,9 +52,6 @@ public abstract class BaseFileParse {
     }
 
     static public void main(String[] args) throws ParserConfigurationException, SAXException, IOException, TransformerConfigurationException {
-        PlaceMarkFileParse trackDetailFileParse = new PlaceMarkFileParse();
-        new JSAXParser().parse("C:\\Users\\SNNU\\Desktop\\test\\RouteRecord.kml", trackDetailFileParse);
-
-        System.out.println(trackDetailFileParse.getParseObject());
+        System.out.println(new Date());
     }
 }

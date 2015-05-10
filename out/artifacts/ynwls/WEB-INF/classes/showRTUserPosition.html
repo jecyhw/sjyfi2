@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>用户实时位置显示</title>
+
+    <link rel="stylesheet" type="text/css" href="js/bootstrap/css/bootstrap.css" media="screen"/>
+    <link rel="stylesheet" type="text/css" href="js/fancybox/jquery.fancybox.css"  media="screen">
+    <link rel="stylesheet" type="text/css" href="js/fancybox/helpers/jquery.fancybox-buttons.css"  media="screen">
+<style>
+    html, body {
+        width: 100%;
+        height: 100%;
+        padding: 0;
+        margin: 0;
+        position: relative;
+    }
+
+    .header {
+        position: absolute;
+        width: 100%;
+        height: 100px;
+    }
+
+    .content {
+        position: absolute;
+        width: 100%;
+        top: 100px;
+        bottom: 0;
+    }
+
+    .left {
+        float: left;
+        width: 350px;
+        position: relative;
+        height: 100%;
+    }
+
+    #map {
+        height: 100%;
+
+    }
+
+    .pr0 {
+        padding-right: 0px;
+        padding-left: 5px;
+    }
+</style>
+
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/fancybox/jquery.mousewheel-3.0.6.pack.js"></script>
+    <script type="text/javascript" src="js/fancybox/jquery.fancybox.js"></script>
+    <script type="text/javascript" src="js/fancybox/helpers/jquery.fancybox-buttons.js"></script>
+    <script type="text/javascript" src="js/jquery.json.js"></script>
+    <script type="text/javascript" src="js/color.js"></script>
+    <script type="text/javascript" src="js/web_prefix.js"></script>
+    <script type="text/javascript" src="js/bootstrap/js/bootstrap.js"></script>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=QT9ntk6IBtEHGSy4BG7zOXoU"></script>
+    <script type="text/javascript" src="js/gps_bd.js"></script>
+    <script>
+        $(document).ready(function(){
+            var rt = {//存放用户的相关信息
+                gps: [],//gps坐标
+                bd: [],//转换的百度坐标
+                mk: [],//地图上的marker
+                lb: [],//对应marker的label标签
+                ci: [],//对应mk使用的图标颜色
+                color_index : -1,
+                lpt: 5000,//默认每五秒更新一次，如果某次请求未获取到更新数据,更新时间将会逐渐增加，如有数据更新，更新时间
+                maxLpt: 60000,//最长的更新时间为1分钟
+                minLpt: 5000,//最短的更新时间为5秒
+                upc: 0,//每次更新的人数
+                update: function (urt, bd) {
+                    var uid = urt.uid;
+                    rt.gps[uid] = new gps.point(urt.longitude, urt.latitude);
+                    rt.bd[uid] = bd;
+                    rt.mk[uid].setPosition(bd);
+                    rt.lb[uid].setPosition(bd);
+                },
+                add: function (urt, bd) {
+                    var uid = urt.uid;
+                    rt.gps[uid] = new gps.point(urt.longitude, urt.latitude);;
+                    rt.bd[uid] = bd;
+                    createMk();
+                    createLabel();
+
+                    function createMk() {//创建图标
+                        if (rt.color_index >= color_list.length) {
+                            rt.color_index = 0;
+                        }
+                        rt.ci[uid] = ++rt.color_index;
+
+                        var mk =  new BMap.Marker(bd, {
+                            // 指定Marker的icon属性为Symbol
+                            icon: new BMap.Symbol(BMap_Symbol_SHAPE_POINT, {
+                                //scale: 1,//图标缩放大小
+                                fillColor: color_list[rt.color_index],//填充颜色
+                                fillOpacity: 0.8//填充透明度
+                            })
+                        });
+                        rt.mk[uid] = mk;
+                        mp.addOverlay(mk);//添加到地图
+                        addEventOnMk();
+
+                        //给marker添加事件
+                        function addEventOnMk() {
+                            mk.addEventListener("click", function (e) {
+                                console.log(e);
+                            });
+                            mk.addEventListener("mouseover", function (e) {
+                                console.log(e);
+                            });
+                            mk.addEventListener("mouseout", function (e) {
+                                console.log(e);
+                            });
+                        }
+                    }
+
+                    function createLabel() {
+                        var lb = new BMap.Label("<span class='label label-primary'>" + urt.name + "</span>", {
+                            position: bd,
+                            offset: new BMap.Size(10, 10)
+                        });
+                        rt.lb[uid] = lb;
+                        mp.addOverlay(lb);
+                    }
+                }
+            }, mp = new BMap.Map('map'),//地图实例
+               gps = {};//gps的命名空间
+            gps.point = function(j, w){//gps点坐标
+                this.j = j;
+                this.w = w;
+                this.equals = function (a) {
+                    return a.j == this.j && a.w == this.w;
+                };
+            };
+
+            mp.centerAndZoom(new BMap.Point(116.331398,39.897445),12);
+            new BMap.LocalCity().get(function(result) {//根据ip来定位
+                mp.setCenter(result.name);
+            });
+            mp.addControl(new BMap.MapTypeControl({mapTypes: [BMAP_NORMAL_MAP,BMAP_SATELLITE_MAP ]}));   //添加地图类型控件
+            mp.addControl(new BMap.ScaleControl({anchor: BMAP_ANCHOR_TOP_LEFT}));// 左上角，添加比例尺
+            mp.addControl(new BMap.NavigationControl());  //左上角，添加默认缩放平移控件
+
+            mp.enableScrollWheelZoom();
+            mp.enableContinuousZoom();
+
+            var webSocket = window.WebSocket || window.MozWebSocket;
+            if (webSocket){
+
+                var wsUrl = "ws://" + window.location.host + web_prefix + "/ShowUserByRealTime";
+                var ws = new webSocket(wsUrl);
+                ws.onerror = function() {
+                    console.log("onerror");
+                };
+                ws.onopen = function () {
+                    console.log("onopen");
+                };
+                ws.onmessage = function (event) {
+                    if (event.data) {
+                        var urt = eval(event.data);//更新的用户列表
+                        gps2bd(resultToGpsPoints(urt), function (bdPoints) {
+                            updateMarkerPosition(urt, bdPoints);
+                        });
+                    }
+                    console.log(event);
+                };
+                ws.onclose = function () {
+                    console.log("onclose");
+                }
+            } else{
+                longPoll();
+            }
+
+            function longPoll() {
+                $.ajax({
+                    type: "post",
+                    url: web_prefix + "/QueryUserPosition.do",
+                    dataType: "json",
+                    success: function (data) {
+                        if (data.status == 0) {
+                            updateUserPosition(data.result);
+                        }
+                    },
+                    error: function() {
+                        setTimeout(longPoll, rt.lpt);
+                    }
+                });
+
+                function updateUserPosition(result) {
+                    gps2bd(resultToGpsPoints(result), function(bdPoints) {
+                        updateMarkerPosition( result, bdPoints)
+                        adjustUpdateLongPoolTime();
+                        setTimeout(longPoll, rt.lpt);
+                    });
+                }
+
+                //根据更新信息来动态调整轮回时间
+                function adjustUpdateLongPoolTime() {
+                    if (rt.updateUserCount == 0 && rt.lpt < rt.maxLpt) {//当前请求没有更新，并且小于最长更新时间
+                        rt.lpt++;
+                    } else {
+                        rt.updateUserCount = 0;
+                        if (rt.lpt > rt.minLpt) {
+                            rt.lpt--;
+                        }
+                    }
+                }
+            }
+
+
+
+            //获取gps转换百度坐标的的请求参数形式,并且过滤掉在地图上已显示但坐标未更新的用户数据
+            function resultToGpsPoints(urt) {
+                var gpsPoints = [];
+                if (urt) {
+                    var len = urt.length, _urt;
+                    for (var i = 0; i < len; i++) {
+                        _urt = urt[i];
+                        if (rt.gps[_urt.uid] && rt.gps[_urt.uid].equals(new gps.point(_urt.longitude, _urt.latitude))) {
+                            continue;//如果该用户已显示,并且坐标未变
+                        }
+                        gpsPoints.push(_urt.longitude + "," + _urt.latitude);
+                    }
+                }
+                return gpsPoints;
+            }
+
+            //根据用户的坐标来更新的Marker的位置
+            function updateMarkerPosition(urt, bdPoints) {
+                if (!bdPoints || bdPoints.length == 0)//没有需要更新的用户
+                    return;
+                var len = bdPoints.length;
+                for (var i = 0; i < len; i++) {
+                    var _urt = urt[i],
+                            bdPoint = bdPoints[i];
+                    if ( rt.gps[_urt.uid]) {//该用户已显示,更新用户坐标
+                        rt.update(_urt, bdPoint);
+                    } else {
+                        rt.add(_urt, bdPoint);
+                    }
+                    rt.updateUserCount++;//更新数加1
+                }
+                mp.setViewport(rt.bd);//重新设置最佳视野
+            }
+        });
+    </script>
+</head>
+<body>
+<div class="header">
+
+</div>
+<div class="content">
+    <div class="left container">
+
+        <div style="height: 200px"></div>
+        <div class="row">
+            <div class="text-center">
+                <h4>查找用户当前地理位置信息</h4>
+            </div>
+            <div class="col-xs-2 pr0 text-right">
+                <label for="upi">用户名</label>
+            </div>
+            <div class="col-xs-7 pr0">
+                <input type="text" class="form-control" id="upi">
+            </div>
+            <div class="col-xs-3 pr0">
+                <button type="submit" class="btn btn-primary">查找</button>
+            </div>
+        </div>
+        <div style="height: 50px"></div>
+        <div class="row">
+            <div class="text-center">
+                <h4>查找用户历史地理位置信息</h4>
+            </div>
+            <div class="col-xs-2 pr0 text-right">
+                <label for="uhi">用户名</label>
+            </div>
+            <div class="col-xs-7 pr0">
+                <input type="text" class="form-control" id="uhi">
+            </div>
+            <div class="col-xs-3 pr0">
+                <button type="submit" class="btn btn-primary">查找</button>
+            </div>
+        </div>
+
+    </div>
+    <div id="map">
+    </div>
+</div>
+</body>
+</html>

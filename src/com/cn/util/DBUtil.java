@@ -15,9 +15,9 @@ public class DBUtil {
         try {
             Class.forName("com.mysql.jdbc.Driver");
             //connection = DriverManager.getConnection("jdbc:mysql://159.226.15" +
-            //".215:3306/sjyfi_db?zeroDateTimeBehavior=convertToNull&allowMultiQueries=true&characterEncoding=utf8&autoReconnect=true", "jecyhw", "yanghuiwei");
+            //".215:3306/ynwls_db?zeroDateTimeBehavior=convertToNull&allowMultiQueries=true&characterEncoding=utf8&autoReconnect=true", "jecyhw", "yanghuiwei");
             connection = DriverManager.getConnection("jdbc:mysql://localhost" +
-                    "/sjyfi_db?zeroDateTimeBehavior=convertToNull&allowMultiQueries=true&characterEncoding=utf8&autoReconnect=true", "jecyhw", "yanghuiwei");
+                   "/ynwls_db?zeroDateTimeBehavior=convertToNull&allowMultiQueries=true&characterEncoding=utf8&autoReconnect=true", "root", "123654");
             TestOutput.println("数据库连接正常");
         } catch (ClassNotFoundException e) {
             TestOutput.println("找不到数据库的驱动文件:");
@@ -55,7 +55,6 @@ public class DBUtil {
             stat = getPreparedStatement(sql);
             setParametersForStatement(values, stat);
             result = dao.getEntityList(stat.executeQuery());
-            TestOutput.println(stat.toString());
         } catch (SQLException e) {
             TestOutput.println(e.getMessage());
             e.printStackTrace();
@@ -82,7 +81,6 @@ public class DBUtil {
                 ResultSet set = stat.getResultSet();
                 result.addAll(dao.getEntityList(set));
             } while (stat.getMoreResults());
-            TestOutput.println(stat.toString());
         } catch (SQLException e) {
             TestOutput.println(e.getMessage());
             e.printStackTrace();
@@ -221,21 +219,11 @@ public class DBUtil {
 
     static protected void setParametersForStatement(List values, PreparedStatement stat) throws SQLException {
         for (int i = values.size(); i > 0; i--) {
-            Object obj = values.get(i - 1);
-            if (obj instanceof Date) {
-                stat.setTimestamp(i, new Timestamp(((Date)obj).getTime()));
-            } else {
-                stat.setObject(i, values.get(i - 1));
-            }
+            stat.setObject(i, values.get(i - 1));
         }
     }
 
     static public PreparedStatement getPreparedStatement(String sql) throws SQLException {
-        TestOutput.println(sql);
-        /*if (conn == null || conn.isClosed()) {
-            TestOutput.println("Connection closed, reconnection now");
-            conn = getConnection();
-        }*/
         return conn.prepareStatement(sql);
     }
 
@@ -258,8 +246,8 @@ public class DBUtil {
     static public void closePreparedStatement(PreparedStatement stat) {
         try {
             if (stat != null) {
+                TestOutput.println(stat.toString());
                 stat.close();
-                stat = null;
             }
         } catch (SQLException e) {
             TestOutput.println(e.getMessage());

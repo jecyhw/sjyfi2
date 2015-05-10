@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <link rel="stylesheet" type="text/css" href="js/bootstrap/css/bootstrap.css" media="screen"/>
+    <link rel="stylesheet" type="text/css" href="js/fancybox/jquery.fancybox.css"  media="screen">
+    <link rel="stylesheet" type="text/css" href="js/fancybox/helpers/jquery.fancybox-buttons.css"  media="screen">
+
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/fancybox/jquery.mousewheel-3.0.6.pack.js"></script>
+    <script type="text/javascript" src="js/fancybox/jquery.fancybox.js"></script>
+    <script type="text/javascript" src="js/fancybox/helpers/jquery.fancybox-buttons.js"></script>
+    <script type="text/javascript" src="js/jquery.json.js"></script>
+    <script type="text/javascript" src="js/color.js"></script>
+    <script type="text/javascript" src="js/web_prefix.js"></script>
+    <script type="text/javascript" src="js/bootstrap/js/bootstrap.js"></script>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=QT9ntk6IBtEHGSy4BG7zOXoU"></script>
+    <script type="text/javascript" src="js/gps_bd.js"></script>
+    <style>
+        html, body {
+            height: 100%;
+            width: 100%;
+            background-color: #999999;
+            margin: 0;
+            padding: 0;
+            position: relative;
+        }
+        .top {
+            position: relative;
+            height: 100px;
+            width: 100%;
+        }
+        .bottom {
+            position: absolute;
+            height: 100px;
+            width: 100%;
+        }
+        .stabs-hack {
+            padding-left: 0px !important;
+            padding-right: 0px !important;
+        }
+        .form-control-hack, .form-group-hack input[type="text"] {
+            display: inline !important;
+            width: 120px !important;
+            *height: 30px;
+            _height: 30px;
+            *width: 100px!important;
+            _width: 100px!important;
+        }
+
+        .input-xss {
+            display: inline !important;
+            width: 90px!important;
+            *height: 30px;
+            _height: 30px;
+            *width: 70px!important;
+            _width: 70px!important;
+        }
+        .float-left {
+            display: inline-block;
+
+        }
+    </style>
+</head>
+
+<body >
+<div style="margin: auto 0; width: 800px;">
+    <div id="stabs-0">
+        <label class="sr-only control-label" for="recorder0">相关记录人</label>
+        <div class="float-left" style="width: 90px;"><input class="form-control input-sm" type="text" name="recorder"
+                                       placeholder="相关记录人" title="相关记录人" id="recorder0"/></div>
+        <div class="float-left"><button class="btn btn-primary btn-sm" type="button" name="search_submit" id="search_submit0">
+            <span>搜索</span>
+            <span class="glyphicon glyphicon-search"></span>
+        </button></div>
+    </div>
+</div>
+</body>
+</html>
