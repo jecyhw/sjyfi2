@@ -12,10 +12,6 @@ import java.util.List;
  * Created by jecyhw on 2014/10/20.
  */
 public class SjyfiUserDao extends AEntityDao {
-    public SjyfiUserDao() {
-        tableName = TableName.sjyfiUser;
-    }
-
     @Override
     public Object getEntity(ResultSet set) throws SQLException {
         SjyfiUserEntity entity = new SjyfiUserEntity();

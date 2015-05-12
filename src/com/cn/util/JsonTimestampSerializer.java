@@ -16,7 +16,6 @@ public class JsonTimestampSerializer extends JsonSerializer<Timestamp> {
     private static SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy年MM月dd日HH时mm分ss秒");
     @Override
     public void serialize(Timestamp date, JsonGenerator jsonGenerator, SerializerProvider serializerProvider) throws IOException, JsonProcessingException {
-        System.out.println(dateFormat.format(date));
         jsonGenerator.writeString(dateFormat.format(date));
     }
 }

@@ -73,6 +73,15 @@
     </servlet-mapping>
 
     <servlet>
+        <servlet-name>QueryUserNameServlet</servlet-name>
+        <servlet-class>com.cn.action.QueryUserNameServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>QueryUserNameServlet</servlet-name>
+        <url-pattern>/QueryUserName.do</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
         <servlet-name>QueryUserPositionServlet</servlet-name>
         <servlet-class>com.cn.action.QueryUserPositionServlet</servlet-class>
     </servlet>

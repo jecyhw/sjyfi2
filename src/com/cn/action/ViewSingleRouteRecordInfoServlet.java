@@ -4,6 +4,7 @@ import com.cn.dao.AEntityDao;
 import com.cn.dao.TTracksDao;
 import com.cn.util.DBUtil;
 import com.cn.util.Out;
+import com.cn.util.TableName;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -22,7 +23,7 @@ public class ViewSingleRouteRecordInfoServlet extends HttpServlet {
         values.add(request.getParameter("id"));
 
         AEntityDao dao = new TTracksDao();
-        String sql ="select * from " + dao.tableName + " where trackid = ?";
+        String sql ="select * from " + TableName.tracks + " where trackid = ?";
 
         Out out = new Out(response);
         out.printJson(DBUtil.query(dao, sql, values));

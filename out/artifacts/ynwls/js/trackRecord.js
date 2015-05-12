@@ -136,6 +136,10 @@ $(document).ready(function () {
         		});
             });
 
+            function isNullOrEmpty(val) {
+                return  val == null || val == "";
+            }
+
             function query(conditions) {
                 var queryResult =  $("#query-result");
                 $.ajax({
@@ -333,6 +337,28 @@ $(document).ready(function () {
     $("body").on("click", "div.fancybox-inner table img", function() {
         exportTrackRecord("[" + this.id + "]")
     });
+
+    function calcFileSize(fileSize) {
+        if (!fileSize)
+            return fileSize;
+        var unit = "b";
+        fileSize = parseFloat(fileSize);
+        if (fileSize > 1023) {
+            fileSize /= 1024;
+            unit = "K";
+            if (fileSize > 1023) {
+                fileSize /= 1024;
+                unit = "M";
+                if (fileSize > 1023) {
+                    fileSize /= 1024;
+                    unit = "G";
+                }
+            }
+            fileSize = fileSize.toFixed(2);
+        }
+        return fileSize + unit;
+    }
+
 
     $(function() {
         var $fileList = $("#file-list"),

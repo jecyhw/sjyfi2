@@ -10,6 +10,7 @@ import com.cn.util.File.FileUtil;
 import com.cn.util.File.JSAXParser;
 import com.cn.util.File.PlaceMarkFileParse;
 import com.cn.util.Out;
+import com.cn.util.TableName;
 import org.xml.sax.SAXException;
 
 import javax.servlet.ServletException;
@@ -30,7 +31,7 @@ public class RouteRecordMapInfoServlet extends HttpServlet {
         values.add(request.getParameter("id"));
 
         AEntityDao dao = new TTracksDao();
-        String sql ="select * from " + dao.tableName + " where trackid = ?";
+        String sql ="select * from " + TableName.tracks + " where trackid = ?";
 
         TTracksEntity entity = (TTracksEntity) DBUtil.query(dao, sql, values);
 

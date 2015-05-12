@@ -11,9 +11,6 @@ import java.sql.SQLException;
  * Created by SNNU on 2014/11/16.
  */
 public class TTracksDao extends AEntityDao {
-    public TTracksDao() {
-        tableName = TableName.tracks;
-    }
 
     @Override
     public Object getEntity(ResultSet set) throws SQLException {

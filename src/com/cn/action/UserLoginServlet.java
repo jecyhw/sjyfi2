@@ -5,6 +5,7 @@ import com.cn.dao.AEntityDao;
 import com.cn.dao.SjyfiUserDao;
 import com.cn.util.DBUtil;
 import com.cn.util.Out;
+import com.cn.util.TableName;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -28,7 +29,7 @@ public class UserLoginServlet extends HttpServlet {
         values.add(request.getParameter("pwd"));
 
         AEntityDao dao = new SjyfiUserDao();
-        String sql = "select name, role from " + dao.tableName + " where account = ? and password = ?";
+        String sql = "select name, role from " + TableName.sjyfiUser + " where account = ? and password = ?";
 
         SjyfiUserEntity entity = (SjyfiUserEntity) DBUtil.query(dao, sql, values);
 

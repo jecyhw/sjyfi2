@@ -75,14 +75,26 @@
                 });
                 return false;
             }
+
 		});
+
+        function bsAlertDanger($parent, id, msg) {
+            var $error = $("#" + id);
+            if ($error.length == 0)
+            {
+                var text = '<div id="' + id + '" class="alert alert-danger">'
+                        + '<a href="#" class="close" data-dismiss="alert">&times;</a>'
+                        + '<strong>' + msg + '</strong>'
+                        + '</div>';
+                $parent.append(text);
+            }
+        }
+
 		$(document).keydown(function(e) {
 			if (e.keyCode == 13) {
 				$("button[type='submit']").click();
 			}
 		});
-		
-		
 	});
 </script>
 <style type="text/css">

@@ -1,22 +1,52 @@
 package com.cn.service;
 
+import com.cn.dao.TrtGpsPointDao;
+import com.cn.dao.UserHistoryDao;
+import com.cn.util.DBUtil;
+import com.cn.util.Out;
+import com.cn.util.TableName;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.*;
 
 /**
  * Created by SNNU on 2015/5/6.
  */
 public class UserHistoryService extends HttpServlet {
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        doPost(req, resp);
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        doPost(request, response);
     }
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String msg;
+        int msgCode = 0;
+        Map<String, Object> result = new Hashtable<String, Object>();
+        String name = request.getParameter("name");
+        if (name != null) {
+            String sql = "select " + TableName.tRtGpsPoint + ".*, " + TableName.sjyfiUser + ".name from " + TableName.tRtGpsPoint
+                    + "," + TableName.sjyfiUser + " where " + TableName.sjyfiUser + ".name like  ? and "
+                    + TableName.tRtGpsPoint + ".time >= curdate() and "
+                    + TableName.sjyfiUser + ".uid=" + TableName.tRtGpsPoint + ".uid"
+                    +" order by " + TableName.tRtGpsPoint + ".uid, " + TableName.tRtGpsPoint + ".time";
+            List uidList = new ArrayList();
+            uidList.add("%" + name + "%");
+            result.put("result", DBUtil.queryMulti(new UserHistoryDao(), sql, uidList));
+        }
+        else {
+            msg = "name参数不能为空";
+            msgCode = 1;
+            result.put("result", msg);
+        }
 
+        result.put("status", msgCode);
+        Out out = new Out(response);
+        out.printJson(result);
+        out.close();
     }
 }

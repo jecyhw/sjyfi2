@@ -49,7 +49,7 @@ public class TRtGPSPointService extends HttpServlet {
 
         if (msg == null) {
             SjyfiUserDao userDao = new SjyfiUserDao();
-            String sql = "select * from " + userDao.tableName + " where uid = ?";
+            String sql = "select * from " + TableName.sjyfiUser + " where uid = ?";
             List valList = new ArrayList();
             valList.add(entity.getUid());
             if (DBUtil.query(new SjyfiUserDao(), sql, valList) == null) {

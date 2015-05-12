@@ -11,7 +11,7 @@ import java.sql.Timestamp;
 public class TrtGpsPointEntity {
     private Integer uid;
 
-    @JsonSerialize(using = JsonTimestampSerializer.class)
+    //@JsonSerialize(using = JsonTimestampSerializer.class)
     private Timestamp time;
     private String name;
     private Double longitude;
@@ -69,7 +69,7 @@ public class TrtGpsPointEntity {
     @Override
     public String toString() {
         return "TrtGpsPointEntity{" +
-                ", uid=" + uid +
+                "uid=" + uid +
                 ", longitude=" + longitude +
                 ", latitude=" + latitude +
                 ", altitude=" + altitude +

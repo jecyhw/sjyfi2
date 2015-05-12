@@ -3,6 +3,7 @@ package com.cn.service;
 import com.cn.dao.TrtGpsPointDao;
 import com.cn.util.DBUtil;
 import com.cn.util.Out;
+import com.cn.util.TableName;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -21,13 +22,13 @@ public class UserRealTimePositionServlet extends HttpServlet {
         Map<String, Object> result = new Hashtable<String, Object>();
         String uid = request.getParameter("uid");
         TrtGpsPointDao dao = new TrtGpsPointDao();
-        String sql = "select * from " + dao.tableName;//默认获取全部用户的更新信息
+        String sql = "select * from " + TableName.tRtGpsPointNew;//默认获取全部用户的更新信息
         List uidList = new ArrayList();
         if (uid != null) {
             if (uid.matches("(?:[\\d]+,)*\\d+")) {
                 uidList = Arrays.asList(uid.split(","));
                 if (uidList.size() > 0) {
-                    sql += "where uid in (" + uid.replaceAll("[^,]+", "?") + ")";
+                    sql += " where uid in (" + uid.replaceAll("[^,]+", "?") + ")";
                 }
             } else {
                 msg = "uid必须为整数值,多个值用,分隔)";

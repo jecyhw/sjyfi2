@@ -1,6 +1,8 @@
 package com.cn.util;
 
 import com.cn.bean.ConditionEntity;
+import com.cn.dao.TrtGpsPointDao;
+import com.cn.dao.UserHistoryDao;
 import com.cn.test.TestOutput;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -9,6 +11,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.Writer;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by jecyhw on 2014/10/18.
@@ -67,8 +71,12 @@ public class Json {
     }
 
     public static void main(String[] args) throws IOException {
-        ConditionEntity conditionEntity = (ConditionEntity) Json.read("{\"startTime\":\"2015-04-09 11:11:11\",\"endTime\":\"2015-04-17 11:11:11\"}", ConditionEntity.class);
-        System.out.println(objectMapper.writeValueAsString(conditionEntity));
-       // String s = objectMapper.writeValueAsString(DBUtil.queryMulti(new TTracksDao(), conditionEntity.getSql(), conditionEntity.getSqlValues()));
+        String sql = "select " + TableName.tRtGpsPoint + ".*, " + TableName.sjyfiUser + ".name from " + TableName.tRtGpsPoint
+                + "," + TableName.sjyfiUser + " where " + TableName.sjyfiUser + ".name like  ? and "
+                + TableName.tRtGpsPoint + ".time >= \"1997-05-08\" and "
+                + TableName.sjyfiUser + ".uid=" + TableName.tRtGpsPoint + ".uid";
+        List uidList = new ArrayList();
+        uidList.add("%" + 1 + "%");
+        System.out.println(writeAsString(DBUtil.queryMulti(new UserHistoryDao(), sql, uidList)));
     }
 }

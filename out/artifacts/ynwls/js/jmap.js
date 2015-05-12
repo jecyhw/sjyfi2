@@ -93,14 +93,17 @@
     }
 
     function Draw(id, data) {
-        var lineStyle = {
+        function lineStyle(options) {
+            return $.extend({
                 strokeColor: "#8A2BE2",
                 fillColor: "",
                 strokeWeight: 3,
                 strokeOpacity: 0,
                 fillOpacity: 0
-            },
-            size = new BMap.Size(42, 34),//折线的起点和终点的图标大小
+            }, options);
+        }
+
+        var size = new BMap.Size(42, 34),//折线的起点和终点的图标大小
             overlay = [];
 
         this.work = function () {
@@ -128,15 +131,12 @@
                         } else {
                             if (routePlaceMark.routeStyle) {
                                 var routeStyle = routePlaceMark.routeStyle;
-                                overlay.push(new BMap.Polyline(baiDuPoints, {
+                                overlay.push(new BMap.Polyline(baiDuPoints, lineStyle({
                                     strokeColor: routeStyle.color,
-                                    fillColor: "",
-                                    strokeWeight: routeStyle.width,
-                                    strokeOpacity: 0,
-                                    fillOpacity: 0
-                                }));
+                                    strokeWeight: routeStyle.width
+                                })));
                             } else {
-                                overlay.push(new BMap.Polyline(bdPoints, lineStyle));
+                                overlay.push(new BMap.Polyline(bdPoints, lineStyle()));
                             }
                             overlay.push(marker(bdPoints[0], 0, 0));//起点
                             overlay.push(marker(bdPoints[bdPoints.length - 1], 0, -34));//终点
@@ -205,8 +205,8 @@
                             + '<span class="text-danger"><strong>该视频无法播放,请点击下面按钮进行下载</strong></span>'
                             + '</object>'
                             + '</video>'
-                            + '<p><button class="btn btn-primary btn-sm" onclick="videoDownLoad(\'' + val + '\')">'
-                            + '点击下载<span class="glyphicon glyphicon-download"></span></button></p>';
+                            + '<p><a class="btn btn-primary btn-sm" href="javascript:videoDownLoad('+ val + ')">'
+                            + '点击下载<span class="glyphicon glyphicon-download"></span></a></p>';
                         }
                         msg.push(child);
                         $.fancybox(msg, {
@@ -225,6 +225,15 @@
                         autoCenter: true
                     })
                 }
+            }
+
+            function videoDownLoad(href) {
+                var form = $("<form method='post' style='display: none;' action='"
+                + web_prefix + "/DownloadFile.do'><input type='hidden' name='downloadFile' value='"
+                + href +"'/></form>");   //定义一个form表单
+                $(document.body).append(form);  //将表单放置在web中
+                form.submit();
+                form.remove();
             }
         }
 
