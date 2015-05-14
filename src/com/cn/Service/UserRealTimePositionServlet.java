@@ -37,7 +37,7 @@ public class UserRealTimePositionServlet extends HttpServlet {
         } else {
             String name = request.getParameter("name");
             if (name != null) {
-                sql += "where name like ?";
+                sql += " where name like ?";
                 uidList.add("%" + name + "%");
             }
         }

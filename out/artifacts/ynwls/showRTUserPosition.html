@@ -69,48 +69,42 @@
 </div>
 <div class="content">
     <div class="left container">
-
-        <div style="height: 200px"></div>
-        <div class="row">
-            <div class="text-center">
-                <h4>查找用户当前地理位置信息</h4>
-            </div>
-            <div class="col-xs-2 pr0 text-right">
-                <label for="upi">用户名</label>
-            </div>
-            <div class="col-xs-7 pr0">
-                <div class="dropdown">
+        <div style="height: 100px"></div>
+        <div class="text-right">
+            <label class="btn-xs btn-primary">当前在线人数
+                <span class="badge online">0</span>
+            </label>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">查找用户当前地理位置信息</div>
+            <div class="panel-body">
+                <div class="form-group">
+                    <label for="upi">用户名</label>
                     <input type="text" class="form-control" id="upi" >
-                    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
 
-                    </ul>
                 </div>
-            </div>
-            <div class="col-xs-3 pr0">
-                <button type="submit" class="btn btn-primary" data-for="upi">查找</button>
-            </div>
-        </div>
-        <div style="height: 50px"></div>
-        <div class="row">
-            <div class="text-center">
-                <h4>查找用户历史地理位置信息</h4>
-            </div>
-            <div class="col-xs-2 pr0 text-right">
-                <label for="uhi">用户名</label>
-            </div>
-            <div class="col-xs-7 pr0">
-                <div class="dropdown">
-                    <input type="text" class="form-control" id="uhi" data-toggle="dropdown">
-                    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                <div>
+                    <button type="submit" class="btn btn-primary clear" data-for="upi">清除</button>
+                    <button type="submit" class="btn btn-primary search" data-for="upi">查找</button>
+                </div>
 
-                    </ul>
-                </div>
-            </div>
-            <div class="col-xs-3 pr0">
-                <button type="submit" class="btn btn-primary" data-for="uhi">查找</button>
             </div>
         </div>
 
+
+        <div class="panel panel-default">
+            <div class="panel-heading">查找用户历史地理位置信息</div>
+            <div class="panel-body">
+                <div class="form-group">
+                    <label for="uhi">用户名</label>
+                    <input type="text" class="form-control" id="uhi">
+                </div>
+                <div>
+                    <button type="submit" class="btn btn-primary clear" data-for="uhi">清除</button>
+                    <button type="submit" class="btn btn-primary search" data-for="uhi">查找</button>
+                </div>
+            </div>
+        </div>
     </div>
     <div id="map">
     </div>

@@ -4,54 +4,50 @@
 $(document).ready(function() {
     mp = new BMap.Map('map');//地图实例
     mp.centerAndZoom(new BMap.Point(116.331398,39.897445),12);
-    new BMap.LocalCity().get(function(result) {//根据ip来定位
-        mp.setCenter(result.name);
-    });
     mp.addControl(new BMap.MapTypeControl({mapTypes: [BMAP_NORMAL_MAP,BMAP_SATELLITE_MAP ]}));   //添加地图类型控件
     mp.addControl(new BMap.ScaleControl({anchor: BMAP_ANCHOR_TOP_LEFT}));// 左上角，添加比例尺
     mp.addControl(new BMap.NavigationControl());  //左上角，添加默认缩放平移控件
     mp.enableScrollWheelZoom();
     mp.enableContinuousZoom();
 
-/*    $('input').on('input propertychange',function(){
-        $("input[data-toggle=dropdown]").dropdown('hide');
-        var $this = $(this);
-        if ($this.val()  != "") {
-            $.getJSON(web_prefix + "/QueryUserName.do", { name: $this.val() }, function (data) {
-                var $next = $this.next("ul");
-                $next.html("");
-                if (data.status == 0) {
-                    var re = data.result;
-                    if (re.length > 0) {
-                        for (var i = re.length - 1; i >= 0; i--) {
-                            $next.append(getLi(upi, re[i]));
-                        }
-                        $this.attr('data-toggle', 'dropdown');//添加下拉菜单
-                        return;
-                    }
-                }
-                $this.attr('data-toggle', '');//去除下拉菜单
-            });
-        }
-    });*/
-
-    $("button").click(function () {
-        var id = $(this).attr("data-for");
-        var $in = $("#" + id);
-        if ($in.val() == "") {
-            tooltipShow($in, 1000, "用户名不能为空");
-        } else {
-            if (id == "upi") {
-                upi($(this), $in.val());
-            } else if (id == "uhi") {
-                uhi($(this), $in.val());
+    //根据ip来定位
+    $.ajax({
+        url: "http://api.map.baidu.com/location/ip?ak=QT9ntk6IBtEHGSy4BG7zOXoU&coor=bd09ll",
+        dataType: "jsonp",
+        success: function (data) {
+            if  (data.status == 0) {
+                var p = data.content.point;
+                mp.setCenter(new BMap.Point(p.x, p.y));
             }
-            eval(id + '("' + $in.val() +'")');//根据字符串来动态执行upi或者uhi函数
+        },
+        complete : function () {
+            if (window.WebSocket){
+                ws();
+            } else{
+                longPoll();//采用ajax长连接
+            }
+            rt.start();
         }
     });
 
-    longPoll();//采用ajax长连接
-    rt.start();
+    $(".panel").each(function(index, panel) {
+        var $bc = $(panel).find("button.clear"),
+            $bs = $(panel).find("button.search"),
+            id = $bc.attr("data-for");
+        $bs.click(function() {
+            var $in = $("#" + id);
+            if ($in.val() == "") {
+                tooltipShow($in, 1000, "用户名不能为空");
+            } else {
+                eval(id + '($bs,  $in)');//根据字符串来动态执行upi或者uhi函数
+            }
+        });
+
+        $bc.click(function() {
+            eval("c_" + id + "()");
+            $("#" + id).val("");
+        });
+    });
 });
 var mp;
 var rt = {
@@ -80,6 +76,10 @@ var rt = {
      */
     qd: [],
     /**
+     * 查询的历史轨迹
+     */
+    py: [],
+    /**
      * 颜色索引
      */
     color_index : -1,
@@ -106,12 +106,15 @@ var rt = {
     /**
      * 每个dit时间检查离线用户
      */
-    olt: 1000 * 60 * 5,
+    olt: 1000 * 5,
     /**
      * 离线用户检查的计时器
      */
     timer: undefined,
-
+    /**
+     * 在线人数
+     */
+    olc: 0,
     /**
      * 根据uid来删除用户相关的信息
      * @param uid
@@ -120,6 +123,7 @@ var rt = {
         mp.removeOverlay(rt.mk[uid]);
         mp.removeOverlay(rt.lb[uid]);
         rt.us[uid] = rt.bd[uid] = rt.mk[uid] = rt.lb[uid] = rt.ci[uid] = undefined;
+        rt.online(-1);
     },
     /**
      *
@@ -144,7 +148,7 @@ var rt = {
         rt.bd[uid] = bd;
         createMk();//创建marker
         createLabel();//创建label
-
+        rt.online(1);
         function createMk() {//创建图标
             rt.ci[uid] = rt.getci();
 
@@ -177,7 +181,12 @@ var rt = {
         function createLabel() {
             var lb = new BMap.Label(getLbs("primary", inf.n), {
                 position: bd,
-                offset: new BMap.Size(10, 10)
+                offset: new BMap.Size(5, -40)
+            });
+            lb.setStyle({
+                border: "0px",
+                margin: "0px",
+                padding: "0px"
             });
             rt.lb[uid] = lb;
             mp.addOverlay(lb);
@@ -188,7 +197,7 @@ var rt = {
         rt.color_index = -1;
     },
     exists: function (uid) {
-        return re.us[uid];
+        return rt.us[uid];
     },
     /**
      * 离线用户检查
@@ -226,6 +235,19 @@ var rt = {
             rt.color_index++;
         }
         return rt.color_index;
+    },
+    setViewport: function () {
+        var bd = [];
+        for (var i in rt.bd) {
+            bd.push(rt.bd[i]);
+        }
+        if (bd.length > 0) {
+            mp.setViewport(bd);
+        }
+    },
+    online: function (c) {
+        rt.olc += c;
+        $(".online").html(rt.olc);
     }
 };
 
@@ -280,7 +302,7 @@ us.inf = function(urt){
      * @returns {boolean}
      */
     this.comByT = function() {
-        return (new Date().getTime() - Date.parse(this.t)) / (1000 * 60) > rt.dit;
+        return (new Date().getTime() - Date.parse(this.t.replace(/-/g, '/'))) / (1000 * 60) > rt.dit;
     }
 };
 
@@ -308,7 +330,7 @@ function filterInf(urt) {
     if (urt) {
         for (var i = urt.length - 1; i >= 0; i--) {
             var inf = new us.inf(urt[i]);
-            if (rt.us[inf.i] && re.us[inf.i].eqGps(inf)) {
+            if (rt.us[inf.i] && rt.us[inf.i].eqGps(inf)) {
                 continue;
             }
             re.push(inf);
@@ -351,7 +373,7 @@ function updateMk(inf, bds) {
             rt.add(inf[i], bds[i]);
         }
     }
-    mp.setViewport(rt.bd);//重新设置最佳视野
+    rt.setViewport();//重新设置最佳视野
     return true;
 }
 
@@ -365,15 +387,6 @@ function getLbs(type, name) {
     return '<span class="label label-' + type + '">' + name + "</span>";
 }
 
-/**
- *
- * @param callback 点击的回调函数
- * @param name 要显示的标签值
- * @returns {string}
- */
-function getLi(callback, name) {
-    return '<li role="presentation"><a role="menuitem" tabindex="-1" href="javascript:'+ callback + '(' + name +')">' + name + '</a></li>';
-}
 
 /**
  *
@@ -381,7 +394,9 @@ function getLi(callback, name) {
  * @param st 显示时间
  */
 function tooltipShow($tag, st, msg) {
-    $tag.attr("data-original-title", msg).tooltip("show");
+    $tag.attr("data-original-title", msg).tooltip({
+        placement: 'auto'
+    }).tooltip("show");
     setTimeout(function () {
         $tag.tooltip("destroy");
     }, st);
@@ -408,25 +423,51 @@ function longPoll() {
 }
 
 /**
+ * webSocket
+ */
+function ws() {
+    $.getJSON(web_prefix + "/QueryUserPosition.do", function (data) {
+        if (data.status == 0) {
+            var inf = filterInf(data.result);
+            gps2bd(formatGps(inf), function(bds) {
+                updateMk(inf, bds);
+            });
+        }
+    });
+
+    var wsUrl = "ws://" + window.location.host + web_prefix + "/ShowUserByRealTime";
+    var ws = new window.WebSocket(wsUrl);
+    ws.onerror = function() {
+        longPoll();
+    };
+
+    ws.onmessage = function (event) {
+        var inf = filterInf(eval(event.data));
+        gps2bd(formatGps(inf), function(bds) {
+            updateMk(inf, bds);
+        });
+    };
+}
+
+/**
  * 查询用户的最新地理位置信息
  */
-function upi(name) {
-    $.getJSON( web_prefix + '/QueryUserPosition.do', {name: name}, function (data) {
+function upi($btn, $in) {
+    $.getJSON( web_prefix + '/QueryUserPosition.do', {name: $in.val()}, function (data) {
         if (data.status == 0) {
             //先清空rt.qd
-            rt.qd = [];
-            var urt = data.result;
+            c_upi();
+            var urt = data.result, i, uid;
             if (urt.length == 0) {
-                tooltipShow($(this), 2000, "未查找到相关人员的当前地理位置信息");
+                tooltipShow($btn, 2000, "未查找到相关人员的当前地理位置信息");
             } else {
                 var bds = [],
-                    uid,
                     inf = convertToInf(urt);
 
-                for (var i = 0; i < inf.length;) {//先过滤掉在地图上已显示的用户信息
+                for (i = 0; i < inf.length;) {//先过滤掉在地图上已显示的用户信息
                     uid = inf[i].i;//获取uid
                     if (rt.us[uid]) {//在地图上已显示
-                        rt.lb[uid].setContent(getLbs("success ", inf[i].n));//将lable标记
+                        rt.lb[uid].setContent(getLbs("success ", rt.us[uid].n));//将lable标记
                         bds.push(rt.bd[uid]);//添加百度坐标
                         rt.qd[uid] = uid;//添加查询用户的uid
                         inf.splice(i, 1);
@@ -441,7 +482,7 @@ function upi(name) {
                         for (var i = 0; i < inf.length; ) {
                             uid = inf[i].i;//获取uid
                             rt.qd[uid] = uid;
-                            if (!rt.us[uid]) {//在地图上已显示,因为是异步，还是还需要再次判断
+                            if (!rt.us[uid]) {//在地图上未显示,因为是异步，还是需要再次判断
                                 rt.add(inf[i], _bds[i]);
                             }
                             rt.lb[uid].setContent(getLbs("success ", inf[i].n));//将lable标记
@@ -451,24 +492,35 @@ function upi(name) {
                     mp.setViewport(bds);
                 });
 
-                tooltipShow($(this), 2000, "查找到" + bds.length + "个用户地理位置信息");
+                tooltipShow($btn, 2000, "查找到" + bds.length + "个用户地理位置信息");
             }
         }
     });
+}
+/**
+ * 清除查询的用户实时位置
+ */
+function c_upi() {
+    var uid, i;
+    for (i in rt.qd) {
+        uid = rt.qd[i];
+        rt.lb[uid].setContent(getLbs("primary ", rt.us[uid].n));
+    }
+    rt.qd = [];
 }
 
 /**
  * 查询用户的历史轨迹
  */
-function uhi() {
-    $.getJSON( web_prefix + '/QueryUserPosition.do', {name: name}, function (data) {
+function uhi($btn, $in) {
+    $.getJSON( web_prefix + '/QueryUserHistory.do', {name: $in.val()}, function (data) {
         if (data.status == 0) {
-
+            c_uhi();
             var uh = data.result;
             if (uh.length == 0) {
-                tooltipShow($(this), 2000, "未查找到相关人员的历史地理位置信息");
+                tooltipShow($btn, 2000, "未查找到相关人员的历史地理位置信息");
             } else {
-                var rc = 0, sc = 0;
+                var rc = 0, sc = 0, bdArr = [];
                 $.each(uh, function (index, uhi) {
                     (function(uhis) {
                         var gps = [];
@@ -479,54 +531,33 @@ function uhi() {
                             if (bds) {
                                 var options = {}, uid = uhis.uid;
                                 options.strokeColor = rt.ci[uid] ? color_list[rt.ci[uid]] : rt.getci();
-                                new BMap.Polyline(bds, lineStyle(options));
+                                rt.py.push(new BMap.Polyline(bds, lineStyle(options)));
+                                bdArr = bdArr.concat(bds);
                                 sc++;
                             }
-
                             rc++;
                             if (rc == uh.length) {//全部解析完
-                                tooltipShow($(this), 2000, "查找到" + bds.length + "个用户地理位置信息");
+                                for (var i = rt.py.length - 1; i >= 0; i--) {
+                                    mp.addOverlay(rt.py[i]);
+                                }
+                                mp.setViewport(bdArr);
+                                tooltipShow($btn, 2000, "查找到" + sc + "个用户地理位置信息");
                             }
                         });
                     })(uhi);
                 });
-
-                var bds = [],
-                    uid,
-                    inf = convertToInf(urt);
-
-                for (var i = 0; i < inf.length;) {//先过滤掉在地图上已显示的用户信息
-                    uid = inf[i].i;//获取uid
-                    if (rt.us[uid]) {//在地图上已显示
-                        rt.lb[uid].setContent(getLbs("success ", inf[i].n));//将lable标记
-                        bds.push(rt.bd[uid]);//添加百度坐标
-                        rt.qd[uid] = uid;//添加查询用户的uid
-                        inf.splice(i, 1);
-                    } else {
-                        i++;
-                    }
-                }
-
-                //下一步将未在地图上显示的用户信息显示出来
-                gps2bd(formatGps(inf), function (_bds) {
-                    if (_bds) {
-                        for (var i = 0; i < inf.length; ) {
-                            uid = inf[i].i;//获取uid
-                            rt.qd[uid] = uid;
-                            if (!rt.us[uid]) {//在地图上已显示,因为是异步，还是还需要再次判断
-                                rt.add(inf[i], _bds[i]);
-                            }
-                            rt.lb[uid].setContent(getLbs("success ", inf[i].n));//将lable标记
-                            bds.push(rt.bd[uid]);
-                        }
-                    }
-                    mp.setViewport(bds);
-                });
-
-                tooltipShow($(this), 2000, "查找到" + bds.length + "个用户地理位置信息");
             }
         }
     });
+}
+/**
+ * 移除查询的历史记录
+ */
+function c_uhi() {
+    for (var i = rt.py.length - 1; i >= 0; i--) {
+        mp.removeOverlay(rt.py[i]);
+    }
+    rt.py = [];
 }
 
 function lineStyle(options) {

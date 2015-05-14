@@ -35,7 +35,6 @@
     <script type="text/javascript" src="js/fancybox/jquery.fancybox.js"></script>
     <script type="text/javascript" src="js/fancybox/helpers/jquery.fancybox-buttons.js"></script>
     <script type="text/javascript" src="js/web_prefix.js"></script>
-    <script type="text/javascript" src="js/common.js"></script>
     <script type="text/javascript" src="js/jmap.js"></script>
     <script type="text/javascript" src="js/trackRecord.js"></script>
 
@@ -87,6 +86,12 @@
             top: 0px;
             bottom: 0px;
             text-align: center;
+        }
+        #show_rtup {
+            display: block;
+            position: absolute;
+            width: 100%;
+            height: 100%;
         }
         #show_rtup img {
             width: 100%;
@@ -323,7 +328,14 @@
             <div class="tabs-overlay"><div class="sjyfi-loading"></div></div>
         </div>
         <div class="top-right">
-            <a id="show_rtup" href="showRTUserPosition.html" title="点击查看用户实时位置"></a>
+            <a id="show_rtup" href="showRTUserPosition.html">
+                <div class="tooltip right" role="tooltip">
+                    <div class="tooltip-arrow"></div>
+                    <div class="tooltip-inner">
+                        点击查看用户实时位置
+                    </div>
+                </div>
+            </a>
             <div class="top-right-topright">
                 <button type="button" class="btn btn-info btn-sm disabled"
                         id="account"><%=session.getAttribute("userName")%></button>

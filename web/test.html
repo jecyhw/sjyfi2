@@ -3,6 +3,45 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title></title>
+    <style>
+        body {
+            padding: 0px;
+            margin: 0px;
+        }
+
+        .tri-box {
+            position: relative;
+
+        }
+        .tri-inner {
+            padding: 3px 8px;
+            border-radius: 4px;
+            max-width: 200px;
+            text-align: center;
+            background-color: blueviolet;
+            color: white;
+        }
+        .tri-arrow {
+            width: 0px;
+            height: 0px;
+            border: 5px solid transparent;
+            position: absolute;
+        }
+
+        .tri-box.tri-left {
+            margin-left: -3px;
+            padding: 0px 5px;
+        }
+
+        .tri-box.tri-left .tri-arrow {
+            top: 50%;
+            border-width: 5px 0px 5px 5px;
+            right: 0px;
+            border-left-color: red;
+            margin-top: -5px
+        ;
+        }
+    </style>
     <link rel="stylesheet" type="text/css" href="js/bootstrap/css/bootstrap.css" media="screen"/>
     <link rel="stylesheet" type="text/css" href="js/fancybox/jquery.fancybox.css"  media="screen">
     <link rel="stylesheet" type="text/css" href="js/fancybox/helpers/jquery.fancybox-buttons.css"  media="screen">
@@ -20,22 +59,55 @@
     <script type="text/javascript" src="js/gps_bd.js"></script>
     <script>
         $(document).ready(function() {
-            function aaa($this, a) {
-                alert($this.val() + ":" + a);
-            }
-            var a = "aaa";
-            eval(a + '($("input"), "aaa")')
+
+            var $show_rtup = $("a"),
+                    offset = $show_rtup.offset(),
+                    $tip = $show_rtup.find(".tooltip"),
+                    osTop = offset.top + $tip.height() / 2,
+                    osL = $show_rtup.width() - $tip.width() - 10,
+                    tipW = $tip.width() + 10;
+
+            $show_rtup.hover(function (e) {
+                $tip.addClass("in");
+            }, function () {
+                $tip.removeClass("in");
+            }).mousemove(function (e) {
+                var top = e.pageY - osTop,
+                        left = e.pageX - offset.left;
+                if (left > osL) {
+                    if ($tip.hasClass("right")) {
+                        $tip.removeClass("right").addClass("left");
+                    }
+                    left -= tipW;
+                } else {
+                    if ($tip.hasClass("left")) {
+                        $tip.removeClass("left").addClass("right");
+                    }
+                }
+                $tip.css({
+                    top: top,
+                    left: left
+                });
+            });
         });
 
     </script>
+
 </head>
 <body>
-<input class="form-control" type="text" id="dropdownMenu1" data-toggle="" aria-expanded="true" value="12321321">
-</input>
 
-<a class="btn btn-primary btn-sm" onclick="videoDownLoad()">
-    + '点击下载<span class="glyphicon glyphicon-download"></span></a>
+<div style="position: absolute; top:100px; left: 100px;">
+    <a href="javascript:void(0)" style="width: 400px; height: 400px; position: relative; display: block;">
+        <img src="image/top_bg0.jpg" style="height: 100%; width: 100%;">
+        <div class="tooltip left" role="tooltip">
+            <div class="tooltip-arrow"></div>
+            <div class="tooltip-inner">
+                点击查看用户实时位置
+            </div>
+        </div>
+    </a>
 
+</div>
 
 </body>
 </html>

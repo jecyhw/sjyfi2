@@ -12,12 +12,41 @@ $(document).ready(function () {
         img_bgs[i].onload = function() {
             img_bg_load_count++;
             if (img_bg_count == img_bg_load_count) {
-                var $show_rtup = $("#show_rtup");
+                var $show_rtup = $("#show_rtup"),
+                    offset = $show_rtup.offset(),
+                    $tip = $show_rtup.find(".tooltip"),
+                    osTop = offset.top + $tip.height() / 2,
+                    osL = $show_rtup.width() - $tip.width() - 10,
+                    tipW = $tip.width() + 10;
+
+                $show_rtup.hover(function (e) {
+                    $tip.addClass("in");
+                }, function () {
+                    $tip.removeClass("in");
+                }).mousemove(function (e) {
+                    var top = e.pageY - osTop,
+                        left = e.pageX - offset.left;
+                    if (left > osL) {
+                        if ($tip.hasClass("right")) {
+                            $tip.removeClass("right").addClass("left");
+                        }
+                        left -= tipW;
+                    } else {
+                        if ($tip.hasClass("left")) {
+                            $tip.removeClass("left").addClass("right");
+                        }
+                    }
+                    $tip.css({
+                        top: top,
+                        left: left
+                    });
+                });
+
                 $show_rtup.append($(this));
                 img_bg_load_count = 0;
                 window.setInterval(function() {
                     img_bg_load_count = (img_bg_load_count + 1) % img_bg_count;
-                    $show_rtup.children().replaceWith($(img_bgs[img_bg_count - img_bg_load_count - 1]));
+                    $show_rtup.children("img").replaceWith($(img_bgs[img_bg_count - img_bg_load_count - 1]));
                 }, 5000);
             }
         }

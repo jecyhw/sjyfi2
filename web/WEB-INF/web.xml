@@ -32,7 +32,8 @@
     <filter-mapping>
         <filter-name>SessionTimeOutFilter</filter-name>
         <url-pattern>*.jsp</url-pattern>
-        <url-pattern>*.do</url-pattern>
+       <!-- <url-pattern>*.do</url-pattern>
+        <url-pattern>showRTUserPosition.html</url-pattern>-->
     </filter-mapping>
 
     <servlet>
@@ -70,6 +71,15 @@
     <servlet-mapping>
         <servlet-name>QueryRecordServlet</servlet-name>
         <url-pattern>/QueryRecord.do</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>QueryUserHistoryServlet</servlet-name>
+        <servlet-class>com.cn.action.QueryUserHistoryServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>QueryUserHistoryServlet</servlet-name>
+        <url-pattern>/QueryUserHistory.do</url-pattern>
     </servlet-mapping>
 
     <servlet>
