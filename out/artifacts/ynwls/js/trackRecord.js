@@ -55,25 +55,8 @@ $(document).ready(function () {
     }
     //加载地图
     var clipMap;//地图区域选择实例
-    mp = new BMap.Map('map');
-    var point = new BMap.Point(116.331398,39.897445);
-    mp.centerAndZoom(point,12);
-
-    function myFun(result){
-        var cityName = result.name;
-        mp.setCenter(cityName);
-    }
-    var myCity = new BMap.LocalCity();
-    myCity.get(myFun);
-
-    mp.addControl(new BMap.MapTypeControl({mapTypes: [BMAP_NORMAL_MAP,BMAP_SATELLITE_MAP ]}));   //添加地图类型控件
-    mp.addControl(new BMap.ScaleControl({anchor: BMAP_ANCHOR_TOP_LEFT}));// 左上角，添加比例尺
-    mp.addControl(new BMap.NavigationControl());  //左上角，添加默认缩放平移控件
-
-    mp.enableScrollWheelZoom();
-    mp.enableContinuousZoom();
-
-    //
+    mp = createMap('map');
+    locateByIp(mp);
 
 	var $tabs = $("#stabs").tabs({
 		activate: function(e, ui) {
@@ -139,37 +122,50 @@ $(document).ready(function () {
                 }
             });
 
-			$("button[name='search_submit']").each(function(index, btn) {
-                $(btn).click(function () {
-                    var tabsIndex = $tabSelf.tabs("option", "active"),
-                        panel = $tabSelf.find("#stabs-" + tabsIndex),
-                        count = 0,
-                        cons = {};
+			$("button[name='search_submit']").click(function () {
+                var tabsIndex = $tabSelf.tabs("option", "active"),
+                    panel = $tabSelf.find("#stabs-" + tabsIndex),
+                    count = 0,
+                    cons = {},
+                    $this = $(this);
 
-					panel.find("input[type='text']").each(function (_index, text) {
-						if (!isNullOrEmpty(text.value)) {
-							cons[$(text).attr("name")] = text.value;
-							count++;
-						}
-					});
-					if (count > 0) {
-                        var regionCapture = $tabSelf.find("#region_capture" + tabsIndex);
-                        if (regionCapture.length > 0 && regionCapture.html().indexOf("选择区域") == -1) {
-                            regionCapture.children().eq(0).html('选择区域');
-                            mp.setDefaultCursor("-moz-grab");
-                            mp.enableDragging();
-                            clipMap.setOptions({ hide: true, disable: true });
-                        }
-						query($.toJSON(cons));
-					}
-        		});
+                panel.find("input[type='text']").each(function (_index, text) {
+                    if (!isNullOrEmpty(text.value)) {
+                        cons[$(text).attr("name")] = text.value;
+                        count++;
+                    }
+                });
+
+                if (count > 0) {
+                    var regionCapture = $tabSelf.find("#region_capture" + tabsIndex);
+                    if (regionCapture.length > 0 && regionCapture.html().indexOf("选择区域") == -1) {
+                        regionCapture.children().eq(0).html('选择区域');
+                        mp.setDefaultCursor("-moz-grab");
+                        mp.enableDragging();
+                        clipMap.setOptions({ hide: true, disable: true });
+                    }
+                    $this.addClass("disabled");
+                    query($.toJSON(cons), function () {
+                        $this.removeClass("disabled");
+                    });
+                } else {
+                    var msg;
+                    if (tabsIndex == 0) {
+                        msg = "请输入相关记录人";
+                    } else if (tabsIndex == 1) {
+                        msg = "请输入相关地址";
+                    } else {
+                        msg = "选项不能全部为空";
+                    }
+                    tooltipShow($this, 2000, msg);
+                }
             });
 
             function isNullOrEmpty(val) {
                 return  val == null || val == "";
             }
 
-            function query(conditions) {
+            function query(conditions, callback) {
                 var queryResult =  $("#query-result");
                 $.ajax({
                     url: web_prefix + "/QueryRecord.do",
@@ -195,20 +191,19 @@ $(document).ready(function () {
                             })
                             queryResult.html(body);
                         }
-                        $tabs.find(".tabs-overlay").hide();
-                        jmap.clear();
-                        mp.clearOverlays();
                     },
-                    error: function (a, b) {
+                    error: function () {
                         queryResult.html('<tr><td colspan="4" class="text-center">查询出错</td></tr>');
-                        if ($tabs)
-                            $tabs.find(".tabs-overlay").hide();
                     },
                     beforeSend: function () {
+                        jmap.clear();
+                        mp.clearOverlays();
                         queryResult.html('<tr><td colspan="4" class="text-center">正在查询中</td></tr>');
-                        if ($tabs) {
-                            $tabs.find(".tabs-overlay").show();
-                            $('.table-overlay').hide();
+                    },
+                    complete: function (xhr) {
+                        checkTimeout(xhr);
+                        if (callback) {
+                            callback();
                         }
                     }
                 });
@@ -281,17 +276,26 @@ $(document).ready(function () {
             //先查看之前是否已经查询过
             if (!jmap(id).show()) {
                 $('.table-overlay').show();
+                var $id = $('#' + id);
                 $.ajax({
                     url: web_prefix + '/RouteRecordMapInfo.do',
                     data: { id: id },//获取tr的id
                     type: "post",
                     dataType: "json",
                     success: function (data) {
-                        jmap.loadData(id, data);
+                        jmap.loadData(id, data, function(tag) {
+                            if (tag) {//表示加载成功
+                                $id.addClass('success');
+                            } else {
+                                $id.addClass("danger");
+                                tooltipShow($(it), 3000, "轨迹显示失败");
+                            }
+                            $('.table-overlay').hide();
+                        });
                     },
                     error: function () {
                         $('.table-overlay').hide();
-                        $('#' + id).addClass('danger');
+                        $id.addClass('danger');
                     }
                 });
             } else {
@@ -413,7 +417,7 @@ $(document).ready(function () {
             flash_swf_url : 'js/plupload/Moxie.swf',
 
             // Silverlight settings
-            silverlight_xap_url : 'js/plupload/Moxie.xap',
+            silverlight_xap_url : 'js/plupload/Moxie.xap'
             // Post init events, bound after the internal events
             //init : {
             //    Error: function(up, args) {
@@ -549,35 +553,42 @@ $(document).ready(function () {
     $.ajaxSetup({
         cache: false,
         complete: function (xhr, textStatus) {
-            var sessionstatus = xhr.getResponseHeader("sessionstatus"); // 通过XMLHttpRequest取得响应头，sessionstatus，
-            if (sessionstatus == "timeout") {// 如果超时就处理 ，指定要跳转的页面
-                var $timeOutMsg = $('<div class="text-danger"><strong>会话超时，请重新登陆!</strong><hr/><p><span class="text-primary">5</span>秒后自动跳转自登陆页面</p><p>也可点击<a class="btn  btn-danger btn-sm">此处</a>跳转</p></div>');
-                $.fancybox($timeOutMsg, {
-                    modal: true,
-                    closeBtn: false,
-                    afterShow: function() {
-                        var $spanSec = $timeOutMsg.find('span');
-                        var intervalId = setInterval(countDown, 1000);
-
-                        function countDown() {
-                            var num = parseInt($spanSec.html());
-                            if (num) {
-                                $spanSec.html(num - 1);
-                            } else {
-                                clearInterval(intervalId);
-                                window.location.href = "../index.html";
-                            }
-                        }
-
-                        $timeOutMsg.find('a').click(function () {
-                            window.location.href = "../index.html";
-                        });
-                    }
-                });
-            }
+            checkTimeout(xhr);
         }
     });
 });
+
+function checkTimeout(xhr) {
+    var sessionstatus = xhr.getResponseHeader("sessionstatus"); // 通过XMLHttpRequest取得响应头，sessionstatus，
+    if (sessionstatus == "timeout") {// 如果超时就处理 ，指定要跳转的页面
+        var i = 5;
+        var $timeOutMsg = $('<div class="text-danger"><strong>会话超时，请重新登陆!</strong><hr/><p><span class="text-primary">'
+            + i + '</span>秒后自动跳转自登陆页面</p><p>也可点击<a class="btn  btn-danger btn-sm">此处</a>跳转</p></div>');
+        $.fancybox($timeOutMsg, {
+            modal: true,
+            closeBtn: false,
+            afterShow: function() {
+                var $spanSec = $timeOutMsg.find('span');
+                var intervalId = setInterval(countDown, 1000);
+
+                function countDown() {
+                    if (i > 0) {
+                        $spanSec.html(--i);
+                    } else {
+                        clearInterval(intervalId);
+                        window.location.href = "../index.html";
+                    }
+                }
+
+                $timeOutMsg.find('a').click(function () {
+                    clearInterval(intervalId);
+                    window.location.href = "../index.html";
+                });
+            }
+        });
+    }
+}
+
 
 function log(msg) {
     console.log(msg);

@@ -10,3 +10,9 @@ rtol.prototype.initialize = function (map) {
     this._map = map;
 
 };
+
+rtol.prototype.draw = function () {
+    var map = this._map;
+    var pixel = map.pointToOverlayPixel(this._point);
+
+};

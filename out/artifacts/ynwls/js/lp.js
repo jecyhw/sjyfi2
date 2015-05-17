@@ -2,32 +2,14 @@
  * Created by SNNU on 2015/5/10.
  */
 $(document).ready(function() {
-    mp = new BMap.Map('map');//地图实例
-    mp.centerAndZoom(new BMap.Point(116.331398,39.897445),12);
-    mp.addControl(new BMap.MapTypeControl({mapTypes: [BMAP_NORMAL_MAP,BMAP_SATELLITE_MAP ]}));   //添加地图类型控件
-    mp.addControl(new BMap.ScaleControl({anchor: BMAP_ANCHOR_TOP_LEFT}));// 左上角，添加比例尺
-    mp.addControl(new BMap.NavigationControl());  //左上角，添加默认缩放平移控件
-    mp.enableScrollWheelZoom();
-    mp.enableContinuousZoom();
-
-    //根据ip来定位
-    $.ajax({
-        url: "http://api.map.baidu.com/location/ip?ak=QT9ntk6IBtEHGSy4BG7zOXoU&coor=bd09ll",
-        dataType: "jsonp",
-        success: function (data) {
-            if  (data.status == 0) {
-                var p = data.content.point;
-                mp.setCenter(new BMap.Point(p.x, p.y));
-            }
-        },
-        complete : function () {
-            if (window.WebSocket){
-                ws();
-            } else{
-                longPoll();//采用ajax长连接
-            }
-            rt.start();
+    mp = createMap("map");
+    locateByIp(mp, function () {
+        if (window.WebSocket){
+            ws();
+        } else{
+            longPoll();//采用ajax长连接
         }
+        rt.start();
     });
 
     $(".panel").each(function(index, panel) {
@@ -106,7 +88,7 @@ var rt = {
     /**
      * 每个dit时间检查离线用户
      */
-    olt: 1000 * 5,
+    olt: 1000 * 60 * 5,
     /**
      * 离线用户检查的计时器
      */
@@ -387,21 +369,6 @@ function getLbs(type, name) {
     return '<span class="label label-' + type + '">' + name + "</span>";
 }
 
-
-/**
- *
- * @param $tag 标签的jq对象
- * @param st 显示时间
- */
-function tooltipShow($tag, st, msg) {
-    $tag.attr("data-original-title", msg).tooltip({
-        placement: 'auto'
-    }).tooltip("show");
-    setTimeout(function () {
-        $tag.tooltip("destroy");
-    }, st);
-}
-
 function longPoll() {
     $.ajax({
         type: "post",
@@ -558,14 +525,4 @@ function c_uhi() {
         mp.removeOverlay(rt.py[i]);
     }
     rt.py = [];
-}
-
-function lineStyle(options) {
-    return $.extend({
-        strokeColor: "#8A2BE2",
-        fillColor: "",
-        strokeWeight: 3,
-        strokeOpacity: 0,
-        fillOpacity: 0
-    }, options);
 }

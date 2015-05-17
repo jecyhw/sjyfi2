@@ -71,8 +71,14 @@
         return this;
     };
 
-    jmap.loadData = function (id, data) {
-        new Draw(id, data).work();
+    /**
+     *
+     * @param id 要显示的id
+     * @param data 数据
+     * @param callback 处理完之后的回调函数
+     */
+    jmap.loadData = function (id, data, callback) {
+        new Draw(id, data, callback).work();
     };
 
     jmap.ids = function () {
@@ -92,17 +98,7 @@
         mapData = [];
     }
 
-    function Draw(id, data) {
-        function lineStyle(options) {
-            return $.extend({
-                strokeColor: "#8A2BE2",
-                fillColor: "",
-                strokeWeight: 3,
-                strokeOpacity: 0,
-                fillOpacity: 0
-            }, options);
-        }
-
+    function Draw(id, data, callback) {
         var size = new BMap.Size(42, 34),//折线的起点和终点的图标大小
             overlay = [];
 
@@ -115,7 +111,7 @@
             if (routePlaceMarks && routePlaceMarks.length > 0) {
                 getNextRoute();
             } else {//获取信息失败
-                showFail();
+               callback(false);
             }
 
             function getNextRoute() {
@@ -127,7 +123,7 @@
                     }
                     gps2bd(gpsPoints, function (bdPoints) {
                         if (!bdPoints || bdPoints.length == 0) {//路线解析失败,停止解析
-                            showFail();
+                            callback(false);
                         } else {
                             if (routePlaceMark.routeStyle) {
                                 var routeStyle = routePlaceMark.routeStyle;
@@ -243,13 +239,7 @@
                 mp.addOverlay(overlay[i]);
             }
             jmap(id).setViewPort();
-            $('.table-overlay').hide();
-            $('#' + id).addClass('success');
-        }
-
-        function showFail() {
-            $('.table-overlay').hide();
-            $('#' + id).addClass('danger');
+            callback(true);
         }
     };
 

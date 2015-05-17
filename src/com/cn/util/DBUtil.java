@@ -14,10 +14,10 @@ public class DBUtil {
         Connection connection = null;
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            //connection = DriverManager.getConnection("jdbc:mysql://159.226.15" +
-            //".215:3306/ynwls_db?zeroDateTimeBehavior=convertToNull&allowMultiQueries=true&characterEncoding=utf8&autoReconnect=true", "jecyhw", "yanghuiwei");
-            connection = DriverManager.getConnection("jdbc:mysql://localhost" +
-                  "/ynwls_db?zeroDateTimeBehavior=convertToNull&allowMultiQueries=true&characterEncoding=utf8&autoReconnect=true", "root", "123654");
+            connection = DriverManager.getConnection("jdbc:mysql://159.226.15" +
+            ".215:3306/ynwls_db?zeroDateTimeBehavior=convertToNull&allowMultiQueries=true&characterEncoding=utf8&autoReconnect=true", "jecyhw", "yanghuiwei");
+            //connection = DriverManager.getConnection("jdbc:mysql://localhost" +
+                  //"/ynwls_db?zeroDateTimeBehavior=convertToNull&allowMultiQueries=true&characterEncoding=utf8&autoReconnect=true", "root", "123654");
             TestOutput.println("数据库连接正常");
         } catch (ClassNotFoundException e) {
             TestOutput.println("找不到数据库的驱动文件:");

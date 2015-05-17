@@ -20,7 +20,7 @@
     <link rel="stylesheet" type="text/css" href="js/fancybox/helpers/jquery.fancybox-buttons.css"  media="screen">
 
     <script type="text/javascript" src="js/jquery.js"></script>
-    <script type="text/javascript" src="js/bootstrap/js/alert.js"></script>
+    <script type="text/javascript" src="js/bootstrap/js/tooltip.js"></script>
     <script type="text/javascript" src="js/jquery-ui/jquery-ui.js"></script>
     <script type="text/javascript" src="js/jquery-ui/i18n/jquery.ui.datepicker-zh-CN.js"></script>
     <script type="text/javascript" src="js/plupload/plupload.full.min.js"></script>
@@ -28,13 +28,13 @@
     <script type="text/javascript" src="js/plupload/zh_CN.js"></script>
     <script type="text/javascript" src="js/jquery.imgareaselect.js"></script>
     <script type="text/javascript" src="js/jquery.json.js"></script>
-    <%--<script type="text/javascript" src="js/jwplayer.js"></script>--%>
-    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=QT9ntk6IBtEHGSy4BG7zOXoU"></script>
-    <script type="text/javascript" src="js/gps_bd.js"></script>
     <script type="text/javascript" src="js/fancybox/jquery.mousewheel-3.0.6.pack.js"></script>
     <script type="text/javascript" src="js/fancybox/jquery.fancybox.js"></script>
     <script type="text/javascript" src="js/fancybox/helpers/jquery.fancybox-buttons.js"></script>
-    <script type="text/javascript" src="js/web_prefix.js"></script>
+
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=QT9ntk6IBtEHGSy4BG7zOXoU"></script>
+    <script type="text/javascript" src="js/all.js"></script>
+    <script type="text/javascript" src="js/gps_bd.js"></script>
     <script type="text/javascript" src="js/jmap.js"></script>
     <script type="text/javascript" src="js/trackRecord.js"></script>
 
@@ -371,8 +371,7 @@
     </div>
     <div class="bottom">
         <div class="bottom-left">
-            <table
-                    class="table table-bordered table-hover table-condensed table-striped">
+            <table class="table table-bordered table-hover table-condensed table-striped">
                 <thead>
                 <tr>
                     <th>显示</th>
@@ -382,7 +381,6 @@
                 </tr>
                 </thead>
                 <tbody id="query-result">
-
                 </tbody>
             </table>
             <div class="table-overlay"><div class="sjyfi-loading"></div></div>
