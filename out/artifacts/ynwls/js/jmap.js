@@ -125,15 +125,12 @@
                         if (!bdPoints || bdPoints.length == 0) {//路线解析失败,停止解析
                             callback(false);
                         } else {
-                            if (routePlaceMark.routeStyle) {
-                                var routeStyle = routePlaceMark.routeStyle;
-                                overlay.push(new BMap.Polyline(baiDuPoints, lineStyle({
-                                    strokeColor: routeStyle.color,
-                                    strokeWeight: routeStyle.width
-                                })));
-                            } else {
-                                overlay.push(new BMap.Polyline(bdPoints, lineStyle()));
-                            }
+                            var rs = routePlaceMark.routeStyle;
+                            var ls = rs ? lineStyle({
+                                strokeColor: rs.color,
+                                strokeWeight: rs.width
+                            }) : lineStyle();
+                            overlay.push(new BMap.Polyline(bdPoints, ls));
                             overlay.push(marker(bdPoints[0], 0, 0));//起点
                             overlay.push(marker(bdPoints[bdPoints.length - 1], 0, -34));//终点
 

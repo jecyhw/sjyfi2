@@ -316,7 +316,7 @@
         </div>
     </div>
     <div class="top-right">
-        <a id="show_rtup" href="showRTUserPosition.html">
+        <a id="show_rtup" href="showRTUserPosition.html" target="_blank">
             <div class="tooltip right" role="tooltip">
                 <div class="tooltip-arrow"></div>
                 <div class="tooltip-inner">

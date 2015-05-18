@@ -1,140 +1,91 @@
 /**
  * Created by SNNU on 2015/5/14.
  */
-function rtol(point, text) {
-    this._point = point;
-    this._text = text;
+function Rtol(point, inf) {
+    this.point = point;
+    this.inf = inf;
 }
 
-rtol.prototype = new Bmap.Overlay();
-rtol.prototype.initialize = function (map) {
-    this._map = map;
-
-};
-
-rtol.prototype.draw = function () {
-    var map = this._map,
-        pixel = map.pointToOverlayPixel(this._point),
-        $div = $(rtol.DEFAULTS.template);
-    this._div = $div[0];
+Rtol.prototype = new BMap.Overlay();
+Rtol.prototype.initialize = function (map) {
+    this.map = map;
+    var option = Rtol.DEFAULTS,
+        $div = $(option.template),
+        $inner = $div.find(".tooltip-inner"),
+        $arrow = $div.find(".tooltip-arrow"),
+        inf = this.inf,
+        div = this.div = $div[0];
     $div.css({
-        "z-index": BMap.Overlay.getZIndex(this._point.lat)
+        "z-index": BMap.Overlay.getZIndex(this.point.lat),
+        "white-space": "nowrap"
     });
-    div.style.position = "absolute";
-    div.style.zIndex = BMap.Overlay.getZIndex(this._point.lat);
-    div.style.backgroundColor = "#EE5D5B";
-    div.style.border = "1px solid #BC3B3A";
-    div.style.color = "white";
-    div.style.height = "18px";
-    div.style.padding = "2px";
-    div.style.lineHeight = "18px";
-    div.style.whiteSpace = "nowrap";
-    div.style.MozUserSelect = "none";
-    div.style.fontSize = "12px"
-    var span = this._span = document.createElement("span");
-    div.appendChild(span);
-    span.appendChild(document.createTextNode(this._text));
-    var that = this;
 
-    var arrow = this._arrow = document.createElement("div");
-    arrow.style.background = "url(http://map.baidu.com/fwmap/upload/r/map/fwmap/static/house/images/label.png) no-repeat";
-    arrow.style.position = "absolute";
-    arrow.style.width = "11px";
-    arrow.style.height = "10px";
-    arrow.style.top = "22px";
-    arrow.style.left = "10px";
-    arrow.style.overflow = "hidden";
-    div.appendChild(arrow);
-
-    div.onmouseover = function(){
-        this.style.backgroundColor = "#6BADCA";
-        this.style.borderColor = "#0000ff";
-        this.getElementsByTagName("span")[0].innerHTML = that._overText;
-        arrow.style.backgroundPosition = "0px -20px";
-    }
-
-    div.onmouseout = function(){
-        this.style.backgroundColor = "#EE5D5B";
-        this.style.borderColor = "#BC3B3A";
-        this.getElementsByTagName("span")[0].innerHTML = that._text;
-        arrow.style.backgroundPosition = "0px 0px";
-    }
-
+    $arrow.css({
+        "border-left-width": 0,
+        "left": option.al,
+        "margin-left": 0,
+        "border-top-color": inf.c
+    });
+    $inner
+        .html(inf.n)
+        .css({
+            "background-color": inf.c
+        }).hover(function () {
+            $inner.css({
+                cursor: "pointer",
+                "text-decoration": "underline"
+            }).html(inf.n + "(" + inf.t + ")");
+        }, function () {
+            $inner.css({
+                cursor: "default",
+                "text-decoration": "none"
+            }).html(inf.n);
+        }).click(function (ev) {
+            console.log(ev);
+        });
     mp.getPanes().labelPane.appendChild(div);
-
-    return this._div;
+    div.height = $div.outerHeight();
+    return div;
 };
 
-rtol.DEFAULTS = {
-    template: '<div class="tooltip in" role="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>'
+Rtol.prototype.draw = function () {
+    var map = this.map,
+        pixel = map.pointToOverlayPixel(this.point),
+        $div = $(this.div),
+        option = Rtol.DEFAULTS;
+    $div.css({
+        top: pixel.y - this.div.height,
+        left: pixel.x - option.al
+    });
 };
 
+Rtol.prototype.update = function (point, inf) {
+    this.point = point;
+    this.inf = inf;
+    $(this.div).find(".tooltip-inner").html(inf.n);
+};
+
+Rtol.prototype.highlight = function () {
+    $(this.div).find(".tooltip-inner").addClass("highlight");
+};
+
+Rtol.prototype.unHighlight = function () {
+    $(this.div).find(".tooltip-inner").removeClass("highlight");
+};
+
+Rtol.DEFAULTS = {
+    al: 4,
+    ah: 5,
+    template: '<div class="tooltip top in" role="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>'
+};
+
+/*
 // 百度地图API功能
-var mp = new BMap.Map("allmap");
+var mp = new BMap.Map("map");
 mp.centerAndZoom(new BMap.Point(116.3964,39.9093), 15);
 mp.enableScrollWheelZoom();
-// 复杂的自定义覆盖物
-function ComplexCustomOverlay(point, text, mouseoverText){
-    this._point = point;
-    this._text = text;
-    this._overText = mouseoverText;
-}
-ComplexCustomOverlay.prototype = new BMap.Overlay();
-ComplexCustomOverlay.prototype.initialize = function(map){
-    this._map = map;
-    var div = this._div = document.createElement("div");
-    div.style.position = "absolute";
-    div.style.zIndex = BMap.Overlay.getZIndex(this._point.lat);
-    div.style.backgroundColor = "#EE5D5B";
-    div.style.border = "1px solid #BC3B3A";
-    div.style.color = "white";
-    div.style.height = "18px";
-    div.style.padding = "2px";
-    div.style.lineHeight = "18px";
-    div.style.whiteSpace = "nowrap";
-    div.style.MozUserSelect = "none";
-    div.style.fontSize = "12px"
-    var span = this._span = document.createElement("span");
-    div.appendChild(span);
-    span.appendChild(document.createTextNode(this._text));
-    var that = this;
 
-    var arrow = this._arrow = document.createElement("div");
-    arrow.style.background = "url(http://map.baidu.com/fwmap/upload/r/map/fwmap/static/house/images/label.png) no-repeat";
-    arrow.style.position = "absolute";
-    arrow.style.width = "11px";
-    arrow.style.height = "10px";
-    arrow.style.top = "22px";
-    arrow.style.left = "10px";
-    arrow.style.overflow = "hidden";
-    div.appendChild(arrow);
-
-    div.onmouseover = function(){
-        this.style.backgroundColor = "#6BADCA";
-        this.style.borderColor = "#0000ff";
-        this.getElementsByTagName("span")[0].innerHTML = that._overText;
-        arrow.style.backgroundPosition = "0px -20px";
-    }
-
-    div.onmouseout = function(){
-        this.style.backgroundColor = "#EE5D5B";
-        this.style.borderColor = "#BC3B3A";
-        this.getElementsByTagName("span")[0].innerHTML = that._text;
-        arrow.style.backgroundPosition = "0px 0px";
-    }
-
-    mp.getPanes().labelPane.appendChild(div);
-
-    return div;
-}
-ComplexCustomOverlay.prototype.draw = function(){
-    var map = this._map;
-    var pixel = map.pointToOverlayPixel(this._point);
-    this._div.style.left = pixel.x - parseInt(this._arrow.style.left) + "px";
-    this._div.style.top  = pixel.y - 30 + "px";
-}
-var txt = "银湖海岸城", mouseoverTxt = txt + " " + parseInt(Math.random() * 1000,10) + "套" ;
-
-var myCompOverlay = new ComplexCustomOverlay(new BMap.Point(116.407845,39.914101), "银湖海岸城",mouseoverTxt);
-
-mp.addOverlay(myCompOverlay);
+var myCompOverlay = new Rtol(new BMap.Point(116.407845,39.914101), {n: "银湖海岸城",t: "2015-5-15 10:23:12", c: "red"
+});
+console.log(myCompOverlay);
+mp.addOverlay(myCompOverlay);*/

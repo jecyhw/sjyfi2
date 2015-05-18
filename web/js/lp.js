@@ -34,25 +34,9 @@ $(document).ready(function() {
 var mp;
 var rt = {
     /**
-     * 用户的跟新信息
-     */
-    us: [],
-    /**
-     * 转换的百度坐标
-     */
-    bd: [],
-    /**
      * 地图上的marker
      */
     mk: [],
-    /**
-     * 对应marker的label标签
-     */
-    lb: [],
-    /**
-     * 对应mk使用的图标颜色
-     */
-    ci: [],
     /**
      * 记录查询出来的的uid
      */
@@ -102,10 +86,11 @@ var rt = {
      * @param uid
      */
     del: function(uid) {
-        mp.removeOverlay(rt.mk[uid]);
-        mp.removeOverlay(rt.lb[uid]);
-        rt.us[uid] = rt.bd[uid] = rt.mk[uid] = rt.lb[uid] = rt.ci[uid] = undefined;
+        var t = rt.mk[uid];
+        mp.removeOverlay(t);
+        rt.qd[uid] = rt.py[uid] = rt.mk[uid]  = undefined;
         rt.online(-1);
+        tooltipShow($(".online"), 2000, t.inf.t + " " + t.inf.n + "用户下线了");
     },
     /**
      *
@@ -113,11 +98,8 @@ var rt = {
      * @param bd 百度地图坐标
      */
     update: function (inf, bd) {
-        var uid = inf.i;
-        rt.us[uid] = inf;
-        rt.bd[uid] = bd;
-        rt.mk[uid].setPosition(bd);
-        rt.lb[uid].setPosition(bd);
+        rt.mk[inf.i].update(bd, inf);
+        tooltipShow($(".online"), 2000, inf.t + " " + inf.n + "用户更新了");
     },
     /**
      *
@@ -125,61 +107,21 @@ var rt = {
      * @param bd 百度地图坐标
      */
     add: function (inf, bd) {
-        var uid = inf.i;
-        rt.us[uid] = inf;
-        rt.bd[uid] = bd;
-        createMk();//创建marker
-        createLabel();//创建label
+        var t = new Rtol(bd, inf);
+        rt.mk[inf.i] = t;
+            mp.addOverlay(t);//添加到地图
+        tooltipShow($(".online"), 2000, inf.t + " " + inf.n + "用户上线了");
         rt.online(1);
-        function createMk() {//创建图标
-            rt.ci[uid] = rt.getci();
-
-            var mk =  new BMap.Marker(bd, {
-                // 指定Marker的icon属性为Symbol
-                icon: new BMap.Symbol(BMap_Symbol_SHAPE_POINT, {
-                    //scale: 1,//图标缩放大小
-                    fillColor: color_list[rt.color_index],//填充颜色
-                    fillOpacity: 0.8//填充透明度
-                })
-            });
-            rt.mk[uid] = mk;
-            mp.addOverlay(mk);//添加到地图
-            addEventOnMk();
-
-            //给marker添加事件
-            function addEventOnMk() {
-                mk.addEventListener("click", function (e) {
-                    console.log(e);
-                });
-                mk.addEventListener("mouseover", function (e) {
-                    console.log(e);
-                });
-                mk.addEventListener("mouseout", function (e) {
-                    console.log(e);
-                });
-            }
-        }
-
-        function createLabel() {
-            var lb = new BMap.Label(getLbs("primary", inf.n), {
-                position: bd,
-                offset: new BMap.Size(5, -40)
-            });
-            lb.setStyle({
-                border: "0px",
-                margin: "0px",
-                padding: "0px"
-            });
-            rt.lb[uid] = lb;
-            mp.addOverlay(lb);
-        }
+        return t;
     },
     clear: function() {
-        rt.us = rt.bd = rt.ci = rt.li = rt.mk = [];
+        rt.qd = rt.py = rt.mk = [];
         rt.color_index = -1;
+        mp.clearOverlays();
     },
+
     exists: function (uid) {
-        return rt.us[uid];
+        return rt.mk[uid];
     },
     /**
      * 离线用户检查
@@ -187,10 +129,9 @@ var rt = {
     offline: function () {
         var di = [];
         //先获取离线用户
-        for (var i in rt.us) {
-            var uid = rt.us[i].i;
-            if (!rt.qd[uid] && rt.us[i].comByT()) {//当前uid不在查询的uid中，且时间和现在超过rt.olt分钟
-                di.push(uid);
+        for (var i in rt.mk) {
+            if (!rt.qd[i] && rt.mk[i].inf.comByT()) {//当前uid不在查询的uid中，且时间和现在超过rt.olt分钟
+                di.push(i);
             }
         }
         //执行删除
@@ -218,10 +159,11 @@ var rt = {
         }
         return rt.color_index;
     },
+
     setViewport: function () {
         var bd = [];
-        for (var i in rt.bd) {
-            bd.push(rt.bd[i]);
+        for (var i in rt.mk) {
+            bd.push(rt.mk[i].point);
         }
         if (bd.length > 0) {
             mp.setViewport(bd);
@@ -239,6 +181,7 @@ var us = {};
  * @param urt 用户的更新数据
  */
 us.inf = function(urt){
+    this.c = color_list[rt.getci()];
     /**
      * 用户的gps的经度
      * @type {Number}
@@ -303,7 +246,7 @@ function formatGps(inf) {
 }
 
 /**
- * 过滤已显示用户的信息且获取的更新数据未变 ,根据rt.us,并转换为us.inf对象集合
+ * 过滤已显示用户的信息且获取的更新数据未变 ,并转换为us.inf对象集合
  * @param urt 所有的用户更新信息
  * @returns {Array}
  */
@@ -312,7 +255,7 @@ function filterInf(urt) {
     if (urt) {
         for (var i = urt.length - 1; i >= 0; i--) {
             var inf = new us.inf(urt[i]);
-            if (rt.us[inf.i] && rt.us[inf.i].eqGps(inf)) {
+            if (rt.mk[inf.i] && rt.mk[inf.i].inf.eqGps(inf)) {
                 continue;
             }
             re.push(inf);
@@ -433,9 +376,10 @@ function upi($btn, $in) {
 
                 for (i = 0; i < inf.length;) {//先过滤掉在地图上已显示的用户信息
                     uid = inf[i].i;//获取uid
-                    if (rt.us[uid]) {//在地图上已显示
-                        rt.lb[uid].setContent(getLbs("success ", rt.us[uid].n));//将lable标记
-                        bds.push(rt.bd[uid]);//添加百度坐标
+                    var mk = rt.mk[uid];
+                    if (mk) {//在地图上已显示
+                        mk.highlight();
+                        bds.push(mk.point);//添加百度坐标
                         rt.qd[uid] = uid;//添加查询用户的uid
                         inf.splice(i, 1);
                     } else {
@@ -449,11 +393,12 @@ function upi($btn, $in) {
                         for (var i = 0; i < inf.length; ) {
                             uid = inf[i].i;//获取uid
                             rt.qd[uid] = uid;
-                            if (!rt.us[uid]) {//在地图上未显示,因为是异步，还是需要再次判断
-                                rt.add(inf[i], _bds[i]);
+                            var mk = rt.mk[uid];
+                            if (!mk) {//在地图上未显示,因为是异步，还是需要再次判断
+                                mk = rt.add(inf[i], _bds[i]);
                             }
-                            rt.lb[uid].setContent(getLbs("success ", inf[i].n));//将lable标记
-                            bds.push(rt.bd[uid]);
+                            mk.highlight();
+                            bds.push(mk.point);
                         }
                     }
                     mp.setViewport(bds);
@@ -468,10 +413,8 @@ function upi($btn, $in) {
  * 清除查询的用户实时位置
  */
 function c_upi() {
-    var uid, i;
-    for (i in rt.qd) {
-        uid = rt.qd[i];
-        rt.lb[uid].setContent(getLbs("primary ", rt.us[uid].n));
+    for (var i in rt.qd) {
+        rt.mk[rt.qd[i]].unHighlight();
     }
     rt.qd = [];
 }
@@ -497,7 +440,7 @@ function uhi($btn, $in) {
                         gps2bd(gps, function (bds) {
                             if (bds) {
                                 var options = {}, uid = uhis.uid;
-                                options.strokeColor = rt.ci[uid] ? color_list[rt.ci[uid]] : rt.getci();
+                                options.strokeColor = rt.mk[uid] ? rt.mk[uid].inf.c : color_list[rt.getci()];
                                 rt.py.push(new BMap.Polyline(bds, lineStyle(options)));
                                 bdArr = bdArr.concat(bds);
                                 sc++;

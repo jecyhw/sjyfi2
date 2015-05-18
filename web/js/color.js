@@ -141,5 +141,6 @@ var color_list =
         '#F5DEB3',
         '#F5F5F5',
         '#FFFF00',
-        '#9ACD32'
+        '#9ACD32',
+        '#1c94c4'
     ];
