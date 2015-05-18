@@ -16,7 +16,6 @@
     <script type="text/javascript" src="js/color.js"></script>
     <script type="text/javascript" src="js/all.js"></script>
     <script type="text/javascript" src="js/bootstrap/js/bootstrap.js"></script>
-    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=QT9ntk6IBtEHGSy4BG7zOXoU"></script>
     <script type="text/javascript" src="js/gps_bd.js"></script>
 
     <style>
@@ -30,11 +29,56 @@
         .pr0 {
             padding-left: 0px;
             padding-right: 0px;
+
         }
     </style>
 </head>
-
+<script>
+    $(document).ready(function () {
+        $('[data-toggle="tooltip"]').tooltip("show")
+    });
+</script>
 <body >
+<div style="position: relative;">
+
+<div class="par" style="position: absolute; right: 0px; left: 800px; text-align: right; top: 100px;">
+    <div class="btn-group">
+        <button type="button" class="btn btn-primary btn-sm"
+                id="file_upload">
+            <span>文件上传</span>
+            <span class="glyphicon glyphicon-upload"></span>
+        </button>
+
+        <button type="button" class="btn btn-primary btn-sm"
+                id="save_track_record" data-container=".par .btn-group" title="保存显示在地图上的轨迹" data-toggle="tooltip" data-placement="top">
+            <span >保存轨迹</span>
+
+        </button>
+
+        <button type="button" class="btn btn-primary btn-sm"
+                id="export_track_record" title="导出显示在地图上的轨迹"
+                >
+            <span>导出轨迹</span>
+            <span class="glyphicon glyphicon-export"></span>
+        </button>
+    </div>
+</div>
+</div>
+<button type="button" class="btn btn-default">Tooltip on left
+    <span data-toggle="tooltip" data-placement="auto" title="dsgfdsghfgsdghfsdf">导出轨迹</span>
+</button>
+
+<button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="top" data-original-title="Tooltip on top">Tooltip on top</button>
+
+<button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="bottom" data-original-title="Tooltip on bottom">Tooltip on bottom</button>
+
+<button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right" data-original-title="Tooltip on right">Tooltip on right</button>
+<div style="width: 200px; height: 200px; padding: 10px;">
+    <div style="padding: 10px; position: relative">
+        <div class="test">testsd</div>
+        <div></div>
+    </div>
+</div>
 <div class="container" style="width: 800px;">
     <div class="row">
 

@@ -32,11 +32,17 @@
         width: 350px;
         position: relative;
         height: 100%;
+        overflow-y: auto;
+        overflow-x: hidden;
     }
 
     #map {
         height: 100%;
 
+    }
+    .pr0 {
+        padding-top: 0px;
+        padding-bottom: 0px;
     }
 </style>
     <script type="text/javascript" src="js/jquery.js"></script>
@@ -45,21 +51,29 @@
     <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=QT9ntk6IBtEHGSy4BG7zOXoU"></script>
     <script type="text/javascript" src="js/all.js"></script>
     <script type="text/javascript" src="js/gps_bd.js"></script>
+    <script type="text/javascript" src="js/rtol.js"></script>
     <script type="text/javascript" src="js/lp.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            tooltipShow($(".online"), 50000, "2015-5-16 12:23:34 **上线了", {
+                placement: 'right'
+            });
+        });
+    </script>
 </head>
 <body>
 <div class="header">
 </div>
 <div class="content">
     <div class="left container">
-        <div style="height: 100px"></div>
-        <div class="text-right">
-            <label class="btn-xs btn-primary">当前在线人数
-                <span class="badge online">0</span>
-            </label>
-        </div>
+            <div class="">
+                <label class="btn-xs btn-primary">当前在线人数
+                    <span class="badge online">0</span>
+                </label>
+            </div>
         <div class="panel panel-default">
-            <div class="panel-heading">查找用户当前地理位置信息</div>
+            <div class="panel-heading"><h3 class="panel-title">查找用户当前地理位置信息</h3></div>
             <div class="panel-body">
                 <div class="form-group">
                     <label for="upi">用户名</label>
@@ -76,7 +90,7 @@
 
 
         <div class="panel panel-default">
-            <div class="panel-heading">查找用户历史地理位置信息</div>
+            <div class="panel-heading"><h3 class="panel-title">查找用户历史地理位置信息</h3></div>
             <div class="panel-body">
                 <div class="form-group">
                     <label for="uhi">用户名</label>

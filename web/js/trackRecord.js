@@ -10,8 +10,9 @@ $(document).ready(function () {
     var clipMap;//地图区域选择实例
 	$("#stabs").tabs({
 		activate: function(e, ui) {
-            var height = ($(".top").outerHeight() - 1) + "px"
+            var height = $("#stabs").outerHeight();
 			$(".bottom").css("top", height);
+            $(".top-right").height(height);
             $('.table-overlay').css("top", height);
             var regionCapture =  ui.oldPanel.find("button[name='region_capture']");
             if (regionCapture.length > 0 && regionCapture.html().indexOf("选择区域") == -1) {
@@ -22,9 +23,10 @@ $(document).ready(function () {
             }
 		},
 		create: function(e, ui) {
-            var $tabSelf = $(this);
-            var height = ($(".top").outerHeight() - 1) + "px"
+            var $tabSelf = $(this),
+                height = $("#stabs").outerHeight();
             $(".bottom").css("top", height);
+            $(".top-right").height(height);
             $('.table-overlay').css("top", height);
             query($.toJSON({recorder: $("#account").html()}));
 
@@ -95,19 +97,27 @@ $(document).ready(function () {
                         clipMap.setOptions({ hide: true, disable: true });
                     }
                     $this.addClass("disabled");
+                    var html = $this.html();
+                    $this.html("正在查询...");
                     query($.toJSON(cons), function () {
+                        $this.html(html);
                         $this.removeClass("disabled");
                     });
                 } else {
-                    var msg;
+                    var msg, option = {placement: 'right'};
                     if (tabsIndex == 0) {
                         msg = "请输入相关记录人";
                     } else if (tabsIndex == 1) {
                         msg = "请输入相关地址";
+                    } else if (tabsIndex == 2) {
+                        msg = "请先选择时间段";
+                    }else if (tabsIndex == 3) {
+                        msg = "请先选择区域";
                     } else {
                         msg = "选项不能全部为空";
+
                     }
-                    tooltipShow($this, 2000, msg);
+                    tooltipShow($this, 2000, msg, option);
                 }
             });
 
@@ -132,8 +142,8 @@ $(document).ready(function () {
                             var body = "";
                             $.each(data, function (k, v) {
                                 if (v.trackid) {
-                                    body += "<tr id='" + v.trackid + "'><td><input type='checkbox' title='显示到地图'/></td>"
-                                    + "<td><a class='btn btn-link btn-xs' href='javascript:void(0)' title='查看详细信息'>"
+                                    body += "<tr id='" + v.trackid + "'><td><input type='checkbox'/></td>"
+                                    + "<td><a class='btn btn-link btn-xs' href='javascript:void(0)'>"
                                     + (v.name == undefined ? '无' : v.name) + "</a></td><td>"
                                     + (v.starttime == undefined ? '无' : v.starttime) + "</td><td>"
                                     + calcFileSize(v.filesize) + "</td></tr>";
@@ -234,7 +244,7 @@ $(document).ready(function () {
                                 $id.addClass('success');
                             } else {
                                 $id.addClass("danger");
-                                tooltipShow($(it), 3000, "轨迹显示失败");
+                                tooltipShow($(it), 2000, "轨迹显示失败");
                             }
                             $('.table-overlay').hide();
                         });
@@ -247,12 +257,10 @@ $(document).ready(function () {
             } else {
                 jmap(id).setViewPort();
             }
-            it.title = "取消显示";
         }
         else {
             //隐藏
             jmap(id).hide();
-            it.title = "显示到地图";
         }
     }).
         on('click', 'a', function(){//查看详细信息
@@ -307,8 +315,6 @@ $(document).ready(function () {
                         '</tr>' +
                         '</table>';
                     $.fancybox(msg);
-                    /*$("#ui-dialog").html(msg);
-                    $("#ui-dialog").dialog("open");*/
                 }
             );
         });
@@ -434,7 +440,9 @@ $(document).ready(function () {
         if (ids.length > 0) {
             exportTrackRecord($.toJSON(ids));
         } else {
-            tooltipShow($(this), 2000, "请先选中要导出的轨迹");
+            tooltipShow($(this), 2000, "请先选中要导出的轨迹", {
+                placement: 'top'
+            });
         }
     });
 
@@ -481,7 +489,9 @@ $(document).ready(function () {
                 }
             );
         } else {
-            tooltipShow($(this), 2000, "请先选中至少两条轨迹")
+            tooltipShow($(this), 2000, "请先选中至少两条轨迹", {
+                placement: 'top'
+            })
         }
     });
 

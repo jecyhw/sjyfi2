@@ -3,65 +3,16 @@
  */
 var mp;//地图实例
 $(document).ready(function () {
-    //加载背景图片
-    var img_bg_count = 2, img_bg_load_count = 0;
-    var img_bgs = new Array(img_bg_count);
-    for (var i = 0; i < img_bg_count; i++)
-    {
-        img_bgs[i] = new Image();
-        img_bgs[i].onload = function() {
-            img_bg_load_count++;
-            if (img_bg_count == img_bg_load_count) {
-                var $show_rtup = $("#show_rtup"),
-                    offset = $show_rtup.offset(),
-                    $tip = $show_rtup.find(".tooltip"),
-                    osTop = offset.top + $tip.height() / 2,
-                    osL = $show_rtup.width() - $tip.width() - 10,
-                    tipW = $tip.width() + 10;
-
-                $show_rtup.hover(function (e) {
-                    $tip.addClass("in");
-                }, function () {
-                    $tip.removeClass("in");
-                }).mousemove(function (e) {
-                    var top = e.pageY - osTop,
-                        left = e.pageX - offset.left;
-                    if (left > osL) {
-                        if ($tip.hasClass("right")) {
-                            $tip.removeClass("right").addClass("left");
-                        }
-                        left -= tipW;
-                    } else {
-                        if ($tip.hasClass("left")) {
-                            $tip.removeClass("left").addClass("right");
-                        }
-                    }
-                    $tip.css({
-                        top: top,
-                        left: left
-                    });
-                });
-
-                $show_rtup.append($(this));
-                img_bg_load_count = 0;
-                window.setInterval(function() {
-                    img_bg_load_count = (img_bg_load_count + 1) % img_bg_count;
-                    $show_rtup.children("img").replaceWith($(img_bgs[img_bg_count - img_bg_load_count - 1]));
-                }, 5000);
-            }
-        }
-        img_bgs[i].src = web_prefix + "/image/top_bg" + i + ".jpg";
-
-    }
-    //加载地图
-    var clipMap;//地图区域选择实例
+    loadBg();
     mp = createMap('map');
     locateByIp(mp);
 
-	var $tabs = $("#stabs").tabs({
+    var clipMap;//地图区域选择实例
+	$("#stabs").tabs({
 		activate: function(e, ui) {
-            var height = ($(".top").outerHeight() - 1) + "px"
+            var height = $("#stabs").outerHeight();
 			$(".bottom").css("top", height);
+            $(".top-right").height(height);
             $('.table-overlay').css("top", height);
             var regionCapture =  ui.oldPanel.find("button[name='region_capture']");
             if (regionCapture.length > 0 && regionCapture.html().indexOf("选择区域") == -1) {
@@ -72,9 +23,10 @@ $(document).ready(function () {
             }
 		},
 		create: function(e, ui) {
-            var $tabSelf = $(this);
-            var height = ($(".top").outerHeight() - 1) + "px"
+            var $tabSelf = $(this),
+                height = $("#stabs").outerHeight();
             $(".bottom").css("top", height);
+            $(".top-right").height(height);
             $('.table-overlay').css("top", height);
             query($.toJSON({recorder: $("#account").html()}));
 
@@ -145,19 +97,27 @@ $(document).ready(function () {
                         clipMap.setOptions({ hide: true, disable: true });
                     }
                     $this.addClass("disabled");
+                    var html = $this.html();
+                    $this.html("正在查询...");
                     query($.toJSON(cons), function () {
+                        $this.html(html);
                         $this.removeClass("disabled");
                     });
                 } else {
-                    var msg;
+                    var msg, option = {placement: 'right'};
                     if (tabsIndex == 0) {
                         msg = "请输入相关记录人";
                     } else if (tabsIndex == 1) {
                         msg = "请输入相关地址";
+                    } else if (tabsIndex == 2) {
+                        msg = "请先选择时间段";
+                    }else if (tabsIndex == 3) {
+                        msg = "请先选择区域";
                     } else {
                         msg = "选项不能全部为空";
+
                     }
-                    tooltipShow($this, 2000, msg);
+                    tooltipShow($this, 2000, msg, option);
                 }
             });
 
@@ -182,8 +142,8 @@ $(document).ready(function () {
                             var body = "";
                             $.each(data, function (k, v) {
                                 if (v.trackid) {
-                                    body += "<tr id='" + v.trackid + "'><td><input type='checkbox' title='显示到地图'/></td>"
-                                    + "<td><a class='btn btn-link btn-xs' href='javascript:void(0)' title='查看详细信息'>"
+                                    body += "<tr id='" + v.trackid + "'><td><input type='checkbox'/></td>"
+                                    + "<td><a class='btn btn-link btn-xs' href='javascript:void(0)'>"
                                     + (v.name == undefined ? '无' : v.name) + "</a></td><td>"
                                     + (v.starttime == undefined ? '无' : v.starttime) + "</td><td>"
                                     + calcFileSize(v.filesize) + "</td></tr>";
@@ -265,10 +225,6 @@ $(document).ready(function () {
 		}
 	});
 
-    //
-    //
-
-    //
     $("#query-result").on("click", "input", function(){//将对应选中的轨迹显示到地图
         var it = this,
             id = it.parentNode.parentNode.id;
@@ -288,7 +244,7 @@ $(document).ready(function () {
                                 $id.addClass('success');
                             } else {
                                 $id.addClass("danger");
-                                tooltipShow($(it), 3000, "轨迹显示失败");
+                                tooltipShow($(it), 2000, "轨迹显示失败");
                             }
                             $('.table-overlay').hide();
                         });
@@ -301,12 +257,10 @@ $(document).ready(function () {
             } else {
                 jmap(id).setViewPort();
             }
-            it.title = "取消显示";
         }
         else {
             //隐藏
             jmap(id).hide();
-            it.title = "显示到地图";
         }
     }).
         on('click', 'a', function(){//查看详细信息
@@ -361,8 +315,6 @@ $(document).ready(function () {
                         '</tr>' +
                         '</table>';
                     $.fancybox(msg);
-                    /*$("#ui-dialog").html(msg);
-                    $("#ui-dialog").dialog("open");*/
                 }
             );
         });
@@ -396,18 +348,12 @@ $(document).ready(function () {
     $(function() {
         var $fileList = $("#file-list"),
             $fileUploadList = $("#file-upload-list");
-        // Setup html5 version
         $fileList.plupload({
-            // General settings
-            //runtimes : 'html5,flash,silverlight,html4',
             url : web_prefix +  '/UploadFile.do',
-            //chunk_size: '1mb',
             max_retries: 3,
             chunk_size: '1024kb',
             filters : {
-                // Maximum file size
                 max_file_size : '1000mb',
-                // Specify what files to browse for
                 mime_types: [
                     {title : "kmz files", extensions : "kmz"}
                 ],
@@ -415,20 +361,11 @@ $(document).ready(function () {
                 checkExisting: web_prefix + "/CheckFileExist.do"
             },
             flash_swf_url : 'js/plupload/Moxie.swf',
-
-            // Silverlight settings
             silverlight_xap_url : 'js/plupload/Moxie.xap'
-            // Post init events, bound after the internal events
-            //init : {
-            //    Error: function(up, args) {
-            //
-            //    }
-            //}
         });
 
         plupload.addFileFilter("checkExisting", function(checkUrl, file, cb) {
-            var unDef;
-            if (checkUrl != unDef) {
+            if (checkUrl) {
                 $.getJSON(checkUrl,
                     {filename: file.name},
                     function(data) {
@@ -502,6 +439,10 @@ $(document).ready(function () {
         var ids = jmap.ids();
         if (ids.length > 0) {
             exportTrackRecord($.toJSON(ids));
+        } else {
+            tooltipShow($(this), 2000, "请先选中要导出的轨迹", {
+                placement: 'top'
+            });
         }
     });
 
@@ -547,6 +488,10 @@ $(document).ready(function () {
                     $it.html(val);
                 }
             );
+        } else {
+            tooltipShow($(this), 2000, "请先选中至少两条轨迹", {
+                placement: 'top'
+            })
         }
     });
 
@@ -592,4 +537,53 @@ function checkTimeout(xhr) {
 
 function log(msg) {
     console.log(msg);
+}
+
+//加载背景图片
+function loadBg() {
+    var img_bg_count = 2, img_bg_load_count = 0;
+    var img_bgs = new Array(img_bg_count);
+    for (var i = 0; i < img_bg_count; i++) {
+        img_bgs[i] = new Image();
+        img_bgs[i].onload = function () {
+            img_bg_load_count++;
+            if (img_bg_count == img_bg_load_count) {
+                var $show_rtup = $("#show_rtup"),
+                    offset = $show_rtup.offset(),
+                    $tip = $show_rtup.find(".tooltip"),
+                    osTop = offset.top + $tip.height() / 2,
+                    osL = $show_rtup.width() - $tip.width() - 10,
+                    tipW = $tip.width() + 10;
+                $show_rtup.hover(function (e) {
+                    $tip.addClass("in");
+                }, function () {
+                    $tip.removeClass("in");
+                }).mousemove(function (e) {
+                    var top = e.pageY - osTop,
+                        left = e.pageX - offset.left;
+                    if (left > osL) {
+                        if ($tip.hasClass("right")) {
+                            $tip.removeClass("right").addClass("left");
+                        }
+                        left -= tipW;
+                    } else {
+                        if ($tip.hasClass("left")) {
+                            $tip.removeClass("left").addClass("right");
+                        }
+                    }
+                    $tip.css({
+                        top: top,
+                        left: left
+                    });
+                });
+                $show_rtup.append($(this));
+                img_bg_load_count = 0;
+                window.setInterval(function () {
+                    img_bg_load_count = (img_bg_load_count + 1) % img_bg_count;
+                    $show_rtup.children("img").replaceWith($(img_bgs[img_bg_count - img_bg_load_count - 1]));
+                }, 5000);
+            }
+        }
+        img_bgs[i].src = web_prefix + "/image/top_bg" + i + ".jpg";
+    }
 }

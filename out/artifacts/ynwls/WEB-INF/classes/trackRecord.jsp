@@ -44,39 +44,31 @@
             height: 100%;
             margin: 0px;
             padding: 0px;
-        }
-        body {
-
-            font-size: 12px!important;
+            font-size: 12px;
             min-width: 1100px;
             overflow-y: hidden;
         }
 
         .form-control-hack, .form-group-hack input[type="text"] {
-            display: inline !important;
-            width: 120px !important;
-            *height: 30px;
-            _height: 30px;
+            display: inline ;
+            width: 120px ;
         }
 
         .input-xss {
-            display: inline !important;
-            width: 90px!important;
-            *height: 30px;
-            _height: 30px;
+            display: inline ;
+            width: 90px;
         }
         .stabs-hack {
-            padding-left: 0px !important;
-            padding-right: 0px !important;
-        }
-
-        .top {
-            position: relative;
+            padding-left: 0px;
+            padding-right: 0px;
         }
 
         .top-left {
             width: 800px;
             text-align: center;
+            position: absolute;
+            top: 0px;
+            left: 0px;
         }
 
         .top-right {
@@ -84,7 +76,6 @@
             left: 800px;
             right: 0px;
             top: 0px;
-            bottom: 0px;
             text-align: center;
         }
         #show_rtup {
@@ -114,8 +105,7 @@
             position: absolute;
             bottom: 0px;
             top: 163px;
-            left: 0px;
-            right: 0px;
+            width: 100%;
         }
 
         .bottom-left {
@@ -169,7 +159,7 @@
             !important;
         }
         /* upload file css end*/
-        .table-overlay, .tabs-overlay {
+        .table-overlay {
             position: absolute;
             top: 0px;
             left: 0px;
@@ -200,174 +190,170 @@
 </head>
 <body>
 <div>
-    <div class="top">
-        <div id="stabs" class="top-left">
-            <ul>
-                <li><a href="#stabs-0">记录人检索</a></li>
-                <li><a href="#stabs-1">地点检索</a></li>
-                <li><a href="#stabs-2">时间段检索</a></li>
-                <li><a href="#stabs-3">区域检索</a></li>
-                <li><a href="#stabs-4">综合检索</a></li>
-            </ul>
-            <div id="stabs-0" class="stabs-hack">
-                <label class="sr-only control-label" for="recorder0">相关记录人</label>
-                <input class="form-control input-sm form-control-hack" type="text" name="recorder"
-                       placeholder="相关记录人" title="相关记录人" id="recorder0"/>
-                <button class="btn btn-primary btn-sm" type="button" name="search_submit" id="search_submit0">
-                    <span>搜索</span>
-                    <span class="glyphicon glyphicon-search"></span>
-                </button>
-            </div>
-            <div id="stabs-1" class="stabs-hack">
-                <label class="sr-only control-label" for="address1">相关地址</label>
-                <input class="form-control input-sm form-control-hack" type="text" name="address"
-                       placeholder="相关地址" title="相关地址" id="address1"/>
-                <button class="btn btn-primary btn-sm" type="button" name="search_submit" id="search_submit1">
-                    <span>搜索</span>
-                    <span class="glyphicon glyphicon-search"></span>
-                </button>
-            </div>
-            <div id="stabs-2" class="stabs-hack">
-                <label class="control-label" for="startTime2">从</label>
-                <input class="form-control input-sm input-xss" type="text" name="startTime" placeholder="开始时间" title="开始时间" id="startTime2"/>
-                <label class="control-label" for="endTime2">到</label>
-                <input class="form-control input-sm input-xss" type="text" name="endTime" placeholder="结束时间" title="结束时间" id="endTime2"/>
-                <button class="btn btn-primary btn-sm" type="button" name="search_submit" id="search_submit2">
-                    <span>搜索</span>
-                    <span class="glyphicon glyphicon-search"></span>
-                </button>
-            </div>
-            <div id="stabs-3" class="stabs-hack">
-                <table style="margin: 0px auto; width: 600px">
-                    <tr>
-                        <td>
-                            <label class="control-label" for="left3">左上角:经度</label>
-                            <input class="form-control input-sm input-xss" type="text" name="left" title="区域左上角x坐标" id="left3"/>
-                            <label class="control-label" for="top3">纬度</label>
-                            <input class="form-control input-sm input-xss" type="text" name="top" title="区域左上角y坐标" id="top3"/>
-                        </td>
-                        <td rowspan="2">
-                            <button class="btn btn-primary btn-sm" type="button" name="region_capture" title="在地图上选择区域"
-                                    id="region_capture3">
-                                <span>选择区域</span>
-                                <span class="glyphicon glyphicon-screenshot"></span>
-                            </button>
-                            <button class="btn btn-primary btn-sm" type="button" name="search_submit" id="search_submit3">
-                                <span>搜索</span>
-                                <span class="glyphicon glyphicon-search"></span>
-                            </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><label class="control-label" for="right3">右下角:经度</label>
-                            <input class="form-control input-sm input-xss" type="text" name="right" title="区域右下角x坐标" id="right3"/>
-                            <label class="control-label" for="bottom3">纬度</label>
-                            <input class="form-control input-sm input-xss" type="text" name="bottom" title="区域右下角y坐标" id="bottom3"/>
-                        </td>
-                        <td></td>
-                    </tr>
-                </table>
-            </div>
-            <div id="stabs-4" class="stabs-hack">
-                <table style="margin: 0px auto; width: 796px">
-                    <tr>
-                        <td style="width: 350px">
-                            <label class="control-label" for="startTime4">时间段:</label>
-                            <label class="control-label" for="startTime4">从</label>
-                            <input class="form-control input-sm input-xss" type="text"
-                                   name="startTime" placeholder="开始时间" title="开始时间" id="startTime4"/>
-                            <label class="control-label" for="endTime4">到</label>
-                            <input class="form-control input-sm input-xss" type="text" name="endTime"
-                                   placeholder="结束时间" title="结束时间" id="endTime4"/>
-                        </td>
-                        <td  style="width: 76px">
-                            <label class="control-label" for="left4">区域坐标:</label>
-                        </td>
-                        <td  style="width: 370px">
-                            <label class="control-label" for="left4">左上角:经度</label>
-                            <input class="form-control input-sm input-xss" type="text" name="left" title="区域左上角x坐标" id="left4"/>
-                            <label class="control-label" for="top4">纬度</label>
-                            <input class="form-control input-sm input-xss" type="text" name="top" title="区域左上角y坐标" id="top4"/>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <label class="control-label" for="address4">地点:</label>
-                            <input	class="form-control input-sm form-control-hack" type="text" name="address"
-                                      placeholder="相关地址" title="相关地址" id="address4"/>
-                            <label class="control-label" for="recorder4">记录人:</label>
-                            <input class="form-control input-sm form-control-hack" type="text"
-                                   name="recorder" placeholder="相关记录人" title="相关记录人" id="recorder4"/></td>
-                        <td></td>
-                        <td>
-                            <label class="control-label" for="right4">右下角:经度</label>
-                            <input class="form-control input-sm input-xss" type="text"
-                                   name="right" title="区域右下角x坐标" id="right4" />
-                            <label class="control-label" for="bottom4">纬度</label>
-                            <input class="form-control input-sm input-xss" type="text" name="bottom" title="区域右下角y坐标" id="bottom4"/>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td>
-                            <button class="btn btn-primary btn-sm" type="button" name="search_submit" id="search_submit4">
-                                <span>搜索</span>
-                                <span class="glyphicon glyphicon-search"></span>
-                            </button>
-                        </td>
-                        <td>
-                            <button class="btn btn-primary btn-sm" type="button" name="region_capture" title="在地图上选择区域"
-                                    id="region_capture4">
-                                <span>选择区域</span>
-                                <span class="glyphicon glyphicon-screenshot"></span>
-                            </button>
-                        </td>
-                    </tr>
-                </table>
-            </div>
-            <div class="tabs-overlay"><div class="sjyfi-loading"></div></div>
+    <div id="stabs" class="top-left">
+        <ul>
+            <li><a href="#stabs-0">记录人检索</a></li>
+            <li><a href="#stabs-1">地点检索</a></li>
+            <li><a href="#stabs-2">时间段检索</a></li>
+            <li><a href="#stabs-3">区域检索</a></li>
+            <li><a href="#stabs-4">综合检索</a></li>
+        </ul>
+        <div id="stabs-0" class="stabs-hack">
+            <label class="sr-only control-label" for="recorder0">相关记录人</label>
+            <input class="form-control input-sm form-control-hack" type="text" name="recorder"
+                   placeholder="相关记录人" id="recorder0"/>
+            <button class="btn btn-primary btn-sm" type="button" name="search_submit" id="search_submit0" data-loading-text="正在查询...">
+                <span>搜索</span>
+                <span class="glyphicon glyphicon-search"></span>
+            </button>
         </div>
-        <div class="top-right">
-            <a id="show_rtup" href="showRTUserPosition.html">
-                <div class="tooltip right" role="tooltip">
-                    <div class="tooltip-arrow"></div>
-                    <div class="tooltip-inner">
-                        点击查看用户实时位置
-                    </div>
-                </div>
-            </a>
-            <div class="top-right-topright">
-                <button type="button" class="btn btn-info btn-sm disabled"
-                        id="account"><%=session.getAttribute("userName")%></button>
-                <button type="button" class="btn btn-primary btn-sm" id="exit">
-                    <span>退出</span>
-                    <span class="glyphicon glyphicon-off"></span>
-                </button>
-            </div>
-            <div class="top-right-bottomright">
-                <div class="btn-group">
-                    <button type="button" class="btn btn-primary btn-sm"
-                            id="file_upload" title="只能上传kmz文件">
-                        <span>文件上传</span>
-                        <span class="glyphicon glyphicon-upload"></span>
-                    </button>
-                    <% try { Integer role = (Integer)session.getAttribute("role"); if (role > 0 && role < 3) {%>
-                    <button type="button" class="btn btn-primary btn-sm"
-                            id="save_track_record" title="保存显示在地图上的轨迹">
-                        <span>保存轨迹</span>
-                        <span class="glyphicon glyphicon-import"></span>
-                    </button>
-                    <%}} catch (Exception e) {}%>
-
-                    <button type="button" class="btn btn-primary btn-sm"
-                            id="export_track_record" title="导出显示在地图上的轨迹">
-                        <span>导出轨迹</span>
-                        <span class="glyphicon glyphicon-export"></span>
-                    </button>
+        <div id="stabs-1" class="stabs-hack">
+            <label class="sr-only control-label" for="address1">相关地址</label>
+            <input class="form-control input-sm form-control-hack" type="text" name="address"
+                   placeholder="相关地址" id="address1"/>
+            <button class="btn btn-primary btn-sm" type="button" name="search_submit" id="search_submit1">
+                <span>搜索</span>
+                <span class="glyphicon glyphicon-search"></span>
+            </button>
+        </div>
+        <div id="stabs-2" class="stabs-hack">
+            <label class="control-label" for="startTime2">从</label>
+            <input class="form-control input-sm input-xss" type="text" name="startTime" placeholder="开始时间" id="startTime2"/>
+            <label class="control-label" for="endTime2">到</label>
+            <input class="form-control input-sm input-xss" type="text" name="endTime" placeholder="结束时间" id="endTime2"/>
+            <button class="btn btn-primary btn-sm" type="button" name="search_submit" id="search_submit2">
+                <span>搜索</span>
+                <span class="glyphicon glyphicon-search"></span>
+            </button>
+        </div>
+        <div id="stabs-3" class="stabs-hack">
+            <table style="margin: 0px auto; width: 600px">
+                <tr>
+                    <td>
+                        <label class="control-label" for="left3">左上角:经度</label>
+                        <input class="form-control input-sm input-xss" type="text" name="left" id="left3"/>
+                        <label class="control-label" for="top3">纬度</label>
+                        <input class="form-control input-sm input-xss" type="text" name="top" id="top3"/>
+                    </td>
+                    <td rowspan="2">
+                        <button class="btn btn-primary btn-sm" type="button" name="region_capture"
+                                id="region_capture3">
+                            <span>选择区域</span>
+                            <span class="glyphicon glyphicon-screenshot"></span>
+                        </button>
+                        <button class="btn btn-primary btn-sm" type="button" name="search_submit" id="search_submit3">
+                            <span>搜索</span>
+                            <span class="glyphicon glyphicon-search"></span>
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label class="control-label" for="right3">右下角:经度</label>
+                        <input class="form-control input-sm input-xss" type="text" name="right" id="right3"/>
+                        <label class="control-label" for="bottom3">纬度</label>
+                        <input class="form-control input-sm input-xss" type="text" name="bottom"  id="bottom3"/>
+                    </td>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
+        <div id="stabs-4" class="stabs-hack">
+            <table style="margin: 0px auto; width: 796px">
+                <tr>
+                    <td style="width: 350px">
+                        <label class="control-label" for="startTime4">时间段:</label>
+                        <label class="control-label" for="startTime4">从</label>
+                        <input class="form-control input-sm input-xss" type="text"
+                               name="startTime" placeholder="开始时间"  id="startTime4"/>
+                        <label class="control-label" for="endTime4">到</label>
+                        <input class="form-control input-sm input-xss" type="text" name="endTime"
+                               placeholder="结束时间"  id="endTime4"/>
+                    </td>
+                    <td  style="width: 76px">
+                        <label class="control-label" for="left4">区域坐标:</label>
+                    </td>
+                    <td  style="width: 370px">
+                        <label class="control-label" for="left4">左上角:经度</label>
+                        <input class="form-control input-sm input-xss" type="text" name="left"  id="left4"/>
+                        <label class="control-label" for="top4">纬度</label>
+                        <input class="form-control input-sm input-xss" type="text" name="top"  id="top4"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label class="control-label" for="address4">地点:</label>
+                        <input	class="form-control input-sm form-control-hack" type="text" name="address"
+                                  placeholder="相关地址"  id="address4"/>
+                        <label class="control-label" for="recorder4">记录人:</label>
+                        <input class="form-control input-sm form-control-hack" type="text"
+                               name="recorder" placeholder="相关记录人"  id="recorder4"/></td>
+                    <td></td>
+                    <td>
+                        <label class="control-label" for="right4">右下角:经度</label>
+                        <input class="form-control input-sm input-xss" type="text"
+                               name="right"  id="right4" />
+                        <label class="control-label" for="bottom4">纬度</label>
+                        <input class="form-control input-sm input-xss" type="text" name="bottom"  id="bottom4"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <button class="btn btn-primary btn-sm" type="button" name="search_submit" id="search_submit4">
+                            <span>搜索</span>
+                            <span class="glyphicon glyphicon-search"></span>
+                        </button>
+                    </td>
+                    <td>
+                        <button class="btn btn-primary btn-sm" type="button" name="region_capture"
+                                id="region_capture4">
+                            <span>选择区域</span>
+                            <span class="glyphicon glyphicon-screenshot"></span>
+                        </button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="top-right">
+        <a id="show_rtup" href="showRTUserPosition.html">
+            <div class="tooltip right" role="tooltip">
+                <div class="tooltip-arrow"></div>
+                <div class="tooltip-inner">
+                    点击查看用户实时位置
                 </div>
             </div>
+        </a>
+        <div class="top-right-topright">
+            <button type="button" class="btn btn-info btn-sm disabled"
+                    id="account"><%=session.getAttribute("userName")%></button>
+            <button type="button" class="btn btn-primary btn-sm" id="exit">
+                <span>退出</span>
+                <span class="glyphicon glyphicon-off"></span>
+            </button>
         </div>
+        <div class="top-right-bottomright">
+            <div class="btn-group">
+                <button type="button" class="btn btn-primary btn-sm"
+                        id="file_upload">
+                    <span>文件上传</span>
+                    <span class="glyphicon glyphicon-upload"></span>
+                </button>
+                <% try { Integer role = (Integer)session.getAttribute("role"); if (role > 0 && role < 3) {%>
+                <button type="button" class="btn btn-primary btn-sm"
+                        id="save_track_record">
+                    <span>保存轨迹</span>
+                    <span class="glyphicon glyphicon-import"></span>
+                </button>
+                <%}} catch (Exception e) {}%>
 
+                <button type="button" class="btn btn-primary btn-sm"
+                        id="export_track_record">
+                    <span>导出轨迹</span>
+                    <span class="glyphicon glyphicon-export"></span>
+                </button>
+            </div>
+        </div>
     </div>
     <div class="bottom">
         <div class="bottom-left">
