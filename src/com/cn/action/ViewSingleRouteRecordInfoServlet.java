@@ -23,7 +23,7 @@ public class ViewSingleRouteRecordInfoServlet extends HttpServlet {
         values.add(request.getParameter("id"));
 
         AEntityDao dao = new TTracksDao();
-        String sql ="select * from " + TableName.tracks + " where trackid = ?";
+        String sql ="select * from " + TableName.getTracks() + " where trackid = ?";
 
         Out out = new Out(response);
         out.printJson(DBUtil.query(dao, sql, values));

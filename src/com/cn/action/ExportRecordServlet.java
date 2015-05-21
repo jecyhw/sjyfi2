@@ -30,7 +30,7 @@ public class ExportRecordServlet extends HttpServlet {
 
         AEntityDao dao = new TTracksDao();
         StringBuilder sbSql = new StringBuilder();
-        sbSql.append("select * from ").append(TableName.tracks).append(" where trackid in (?");
+        sbSql.append("select * from ").append(TableName.getTracks()).append(" where trackid in (?");
         for (int i = ids.size() - 1; i > 0; i--) {//生成sql语句
             sbSql.append(", ?");
         }

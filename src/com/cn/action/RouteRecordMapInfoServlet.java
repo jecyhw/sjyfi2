@@ -31,7 +31,7 @@ public class RouteRecordMapInfoServlet extends HttpServlet {
         values.add(request.getParameter("id"));
 
         AEntityDao dao = new TTracksDao();
-        String sql ="select * from " + TableName.tracks + " where trackid = ?";
+        String sql ="select * from " + TableName.getTracks() + " where trackid = ?";
 
         TTracksEntity entity = (TTracksEntity) DBUtil.query(dao, sql, values);
 
@@ -44,7 +44,7 @@ public class RouteRecordMapInfoServlet extends HttpServlet {
                 String fileName = path + Config.KMZFileInfo.routeRecordFileName;
                 try {
                     PlaceMarkFileParse fileParse = new PlaceMarkFileParse();
-                    new JSAXParser().parse(fileName, fileParse);
+                    new JSAXParser().parse(fileParse, fileName);
                     result = fileParse.getParseObject();
                 } catch (ParserConfigurationException e) {
                     e.printStackTrace();

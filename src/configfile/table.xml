@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<table
+        user="sjyfi_user"
+        tracks="t_tracks"
+        tracks_points="t_tracks_points"
+        rt_gpspoints="t_rt_gpspoints"
+        rt_gpspoint_new="t_rt_gpspoint_new"
+        />

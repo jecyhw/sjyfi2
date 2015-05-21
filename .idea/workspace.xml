@@ -2,13 +2,678 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e1439de4-4f98-482f-9cb8-3e26cdac86bb" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/js/color.js" afterPath="$PROJECT_DIR$/web/js/color.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/js/jmap.js" afterPath="$PROJECT_DIR$/web/js/jmap.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/cn/util/File/DbParser.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/cn/service/UploadFileService.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/configfile/db.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/configfile/table.xml" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\log.txt" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\1111.html" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\1111.html" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\WEB-INF\web.xml" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\com\cn\action\CheckFileExistServlet.class" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\com\cn\action\DownloadFileServlet.class" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\com\cn\action\ExportRecordServlet.class" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\com\cn\action\QueryRecordServlet.class" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\com\cn\action\QueryUserHistoryServlet.class" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\com\cn\action\QueryUserNameServlet.class" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\com\cn\action\QueryUserPositionServlet.class" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\com\cn\action\RouteRecordMapInfoServlet.class" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\com\cn\action\SaveRecordServlet.class" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\com\cn\action\UploadFileServlet.class" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\com\cn\action\UserLogOutServlet.class" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\com\cn\action\UserLoginServlet.class" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\com\cn\action\ViewSingleRouteRecordInfoServlet.class" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\com\cn\bean\ConditionEntity.class" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\com\cn\bean\KeyPointPlaceMark.class" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\com\cn\bean\PlaceMark.class" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\com\cn\bean\RoutePlaceMark.class" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\com\cn\bean\RouteStyle.class" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\com\cn\bean\SjyfiUserEntity.class" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\com\cn\bean\TTracksEntity.class" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\com\cn\bean\TTracksPointsEntity.class" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\com\cn\bean\TrtGpsPointEntity.class" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\com\cn\bean\UserHistoryEntity.class" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\com\cn\dao\AEntityDao.class" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\com\cn\dao\CheckFileExistDao.class" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\com\cn\dao\DBHelper.class" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\com\cn\dao\GetUserNameDao.class" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\com\cn\dao\SjyfiUserDao.class" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\com\cn\dao\TTracksDao.class" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\com\cn\dao\TrtGpsPointDao.class" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\com\cn\dao\UserHistoryDao.class" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\com\cn\filter\SessionTimeOutFilter.class" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\com\cn\filter\SetCharacterEncodingFilter.class" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\com\cn\service\TRtGPSPointService.class" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\com\cn\service\UserHistoryService.class" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\com\cn\service\UserRealTimePositionServlet.class" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\com\cn\test\TestOutput.class" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\com\cn\test\testServlet.class" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\com\cn\util\Config$KMZFileInfo.class" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\com\cn\util\Config.class" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\com\cn\util\DBUtil.class" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\com\cn\util\DateUtil.class" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\com\cn\util\File\BaseFileParse.class" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\com\cn\util\File\DefaultSaxParse.class" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\com\cn\util\File\DownloadFile.class" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\com\cn\util\File\FileMerge.class" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\com\cn\util\File\FileSaxParse.class" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\com\cn\util\File\FileUtil.class" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\com\cn\util\File\JFile.class" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\com\cn\util\File\JSAXParser.class" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\com\cn\util\File\JUnZipFile.class" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\com\cn\util\File\JZipFile.class" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\com\cn\util\File\PlaceMarkFileParse.class" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\com\cn\util\File\RouteRecordFileParseAndMerge.class" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\com\cn\util\File\TrackDetailFileParse.class" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\com\cn\util\File\TrackDetailFileParseAndMerge.class" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\com\cn\util\File\UploadFile.class" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\com\cn\util\Json.class" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\com\cn\util\JsonTimestampDeserialize.class" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\com\cn\util\JsonTimestampSerializer.class" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\com\cn\util\Out.class" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\com\cn\util\SqlAssist.class" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\com\cn\util\TableName.class" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\com\cn\websocket\EchoEndpoint$EchoMessageHandler.class" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\com\cn\websocket\EchoEndpoint.class" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\com\cn\websocket\ShowUserByRealTime.class" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\css\imgareaselect-default.css" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\css\jquery.plupload.ui.css" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\download.jsp" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\image\baidu\markers.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\image\download.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\image\imgareaselect\border-anim-h.gif" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\image\imgareaselect\border-anim-v.gif" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\image\imgareaselect\border-h.gif" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\image\imgareaselect\border-v.gif" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\image\plupload.ui\loading.gif" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\image\plupload.ui\plupload.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\image\sprite_n1_ccdf642.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\image\top_bg0.jpg" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\image\top_bg1.jpg" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\index.html" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\index.jsp" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\all.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\bdmap.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\bootstrap\css\bootstrap-theme.css" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\bootstrap\css\bootstrap-theme.min.css" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\bootstrap\css\bootstrap.css" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\bootstrap\css\bootstrap.min.css" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\bootstrap\fonts\glyphicons-halflings-regular.eot" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\bootstrap\fonts\glyphicons-halflings-regular.svg" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\bootstrap\fonts\glyphicons-halflings-regular.ttf" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\bootstrap\fonts\glyphicons-halflings-regular.woff" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\bootstrap\fonts\glyphicons-halflings-regular.woff2" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\bootstrap\js\affix.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\bootstrap\js\alert.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\bootstrap\js\bootstrap.autocomplete.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\bootstrap\js\bootstrap.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\bootstrap\js\bootstrap.min.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\bootstrap\js\button.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\bootstrap\js\carousel.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\bootstrap\js\collapse.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\bootstrap\js\dropdown.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\bootstrap\js\modal.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\bootstrap\js\npm.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\bootstrap\js\popover.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\bootstrap\js\scrollspy.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\bootstrap\js\tab.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\bootstrap\js\tooltip.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\bootstrap\js\transition.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\color.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\fancybox\blank.gif" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\fancybox\fancybox_loading.gif" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\fancybox\fancybox_loading@2x.gif" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\fancybox\fancybox_overlay.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\fancybox\fancybox_sprite.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\fancybox\fancybox_sprite@2x.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\fancybox\helpers\fancybox_buttons.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\fancybox\helpers\jquery.fancybox-buttons.css" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\fancybox\helpers\jquery.fancybox-buttons.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\fancybox\helpers\jquery.fancybox-media.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\fancybox\helpers\jquery.fancybox-thumbs.css" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\fancybox\helpers\jquery.fancybox-thumbs.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\fancybox\jquery.fancybox.css" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\fancybox\jquery.fancybox.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\fancybox\jquery.fancybox.pack.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\fancybox\jquery.mousewheel-3.0.6.pack.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\form-validator\bootstrap\css\bootstrap-theme.css" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\form-validator\bootstrap\css\bootstrap-theme.css.map" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\form-validator\bootstrap\css\bootstrap-theme.min.css" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\form-validator\bootstrap\css\bootstrap.css" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\form-validator\bootstrap\css\bootstrap.css.map" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\form-validator\bootstrap\css\bootstrap.min.css" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\form-validator\bootstrap\fonts\glyphicons-halflings-regular.eot" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\form-validator\bootstrap\fonts\glyphicons-halflings-regular.svg" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\form-validator\bootstrap\fonts\glyphicons-halflings-regular.ttf" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\form-validator\bootstrap\fonts\glyphicons-halflings-regular.woff" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\form-validator\bootstrap\js\bootstrap.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\form-validator\bootstrap\js\bootstrap.min.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\form-validator\bootstrap\js\npm.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\form-validator\date.dev.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\form-validator\date.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\form-validator\file.dev.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\form-validator\file.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\form-validator\form-test.html" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\form-validator\html5.dev.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\form-validator\html5.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\form-validator\jquery-ui\external\jquery\jquery.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\form-validator\jquery-ui\i18n\jquery.ui.datepicker-zh-CN.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\form-validator\jquery-ui\images\ui-bg_diagonals-thick_18_b81900_40x40.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\form-validator\jquery-ui\images\ui-bg_diagonals-thick_20_666666_40x40.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\form-validator\jquery-ui\images\ui-bg_flat_10_000000_40x100.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\form-validator\jquery-ui\images\ui-bg_glass_100_f6f6f6_1x400.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\form-validator\jquery-ui\images\ui-bg_glass_100_fdf5ce_1x400.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\form-validator\jquery-ui\images\ui-bg_glass_65_ffffff_1x400.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\form-validator\jquery-ui\images\ui-bg_gloss-wave_35_f6a828_500x100.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\form-validator\jquery-ui\images\ui-bg_highlight-soft_100_eeeeee_1x100.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\form-validator\jquery-ui\images\ui-bg_highlight-soft_75_ffe45c_1x100.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\form-validator\jquery-ui\images\ui-icons_222222_256x240.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\form-validator\jquery-ui\images\ui-icons_228ef1_256x240.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\form-validator\jquery-ui\images\ui-icons_ef8c08_256x240.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\form-validator\jquery-ui\images\ui-icons_ffd27a_256x240.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\form-validator\jquery-ui\images\ui-icons_ffffff_256x240.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\form-validator\jquery-ui\index.html" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\form-validator\jquery-ui\jquery-ui.css" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\form-validator\jquery-ui\jquery-ui.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\form-validator\jquery-ui\jquery-ui.min.css" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\form-validator\jquery-ui\jquery-ui.min.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\form-validator\jquery-ui\jquery-ui.structure.css" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\form-validator\jquery-ui\jquery-ui.structure.min.css" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\form-validator\jquery-ui\jquery-ui.theme.css" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\form-validator\jquery-ui\jquery-ui.theme.min.css" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\form-validator\jquery.form-validator.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\form-validator\jquery.form-validator.min.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\form-validator\location.dev.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\form-validator\location.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\form-validator\qunit.html" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\form-validator\security.dev.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\form-validator\security.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\form-validator\sweden.dev.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\form-validator\sweden.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\form-validator\uk.dev.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\form-validator\uk.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\gps_bd.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\jmap.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\jquery-ui\external\jquery\jquery.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\jquery-ui\i18n\jquery.ui.datepicker-zh-CN.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\jquery-ui\images\ui-bg_diagonals-thick_18_b81900_40x40.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\jquery-ui\images\ui-bg_diagonals-thick_20_666666_40x40.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\jquery-ui\images\ui-bg_flat_10_000000_40x100.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\jquery-ui\images\ui-bg_glass_100_f6f6f6_1x400.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\jquery-ui\images\ui-bg_glass_100_fdf5ce_1x400.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\jquery-ui\images\ui-bg_glass_65_ffffff_1x400.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\jquery-ui\images\ui-bg_gloss-wave_35_f6a828_500x100.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\jquery-ui\images\ui-bg_highlight-soft_100_eeeeee_1x100.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\jquery-ui\images\ui-bg_highlight-soft_75_ffe45c_1x100.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\jquery-ui\images\ui-icons_222222_256x240.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\jquery-ui\images\ui-icons_228ef1_256x240.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\jquery-ui\images\ui-icons_ef8c08_256x240.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\jquery-ui\images\ui-icons_ffd27a_256x240.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\jquery-ui\images\ui-icons_ffffff_256x240.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\jquery-ui\index.html" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\jquery-ui\jquery-ui.css" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\jquery-ui\jquery-ui.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\jquery-ui\jquery-ui.min.css" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\jquery-ui\jquery-ui.min.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\jquery-ui\jquery-ui.structure.css" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\jquery-ui\jquery-ui.structure.min.css" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\jquery-ui\jquery-ui.theme.css" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\jquery-ui\jquery-ui.theme.min.css" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\jquery.imgareaselect.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\jquery.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\jquery.json.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\lp.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\plupload\Moxie.swf" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\plupload\Moxie.xap" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\plupload\jquery.plupload.queue.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\plupload\jquery.plupload.queue.min.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\plupload\jquery.plupload.ui.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\plupload\jquery.plupload.ui.min.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\plupload\plupload.full.min.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\plupload\zh_CN.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\rtol.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\js\trackRecord.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\showRTUserPosition.html" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\test.html" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\classes\trackRecord.jsp" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\lib\ant.jar" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\lib\commons-fileupload-1.3.1.jar" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\lib\commons-io-2.4.jar" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\lib\jackson-annotations-2.5.3-javadoc.jar" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\lib\jackson-annotations-2.5.3.jar" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\lib\jackson-core-2.5.3-javadoc.jar" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\lib\jackson-core-2.5.3.jar" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\lib\jackson-databind-2.5.3-javadoc.jar" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\lib\jackson-databind-2.5.3.jar" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\lib\mysql-connector-java-5.1.32-bin.jar" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\WEB-INF\web.xml" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\css\imgareaselect-default.css" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\css\jquery.plupload.ui.css" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\download.jsp" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\image\baidu\markers.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\image\download.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\image\imgareaselect\border-anim-h.gif" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\image\imgareaselect\border-anim-v.gif" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\image\imgareaselect\border-h.gif" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\image\imgareaselect\border-v.gif" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\image\plupload.ui\loading.gif" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\image\plupload.ui\plupload.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\image\sprite_n1_ccdf642.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\image\top_bg0.jpg" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\image\top_bg1.jpg" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\index.html" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\index.jsp" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\all.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\bdmap.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\bootstrap\css\bootstrap-theme.css" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\bootstrap\css\bootstrap-theme.min.css" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\bootstrap\css\bootstrap.css" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\bootstrap\css\bootstrap.min.css" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\bootstrap\fonts\glyphicons-halflings-regular.eot" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\bootstrap\fonts\glyphicons-halflings-regular.svg" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\bootstrap\fonts\glyphicons-halflings-regular.ttf" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\bootstrap\fonts\glyphicons-halflings-regular.woff" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\bootstrap\fonts\glyphicons-halflings-regular.woff2" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\bootstrap\js\affix.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\bootstrap\js\alert.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\bootstrap\js\bootstrap.autocomplete.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\bootstrap\js\bootstrap.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\bootstrap\js\bootstrap.min.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\bootstrap\js\button.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\bootstrap\js\carousel.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\bootstrap\js\collapse.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\bootstrap\js\dropdown.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\bootstrap\js\modal.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\bootstrap\js\npm.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\bootstrap\js\popover.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\bootstrap\js\scrollspy.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\bootstrap\js\tab.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\bootstrap\js\tooltip.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\bootstrap\js\transition.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\color.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\fancybox\blank.gif" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\fancybox\fancybox_loading.gif" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\fancybox\fancybox_loading@2x.gif" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\fancybox\fancybox_overlay.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\fancybox\fancybox_sprite.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\fancybox\fancybox_sprite@2x.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\fancybox\helpers\fancybox_buttons.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\fancybox\helpers\jquery.fancybox-buttons.css" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\fancybox\helpers\jquery.fancybox-buttons.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\fancybox\helpers\jquery.fancybox-media.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\fancybox\helpers\jquery.fancybox-thumbs.css" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\fancybox\helpers\jquery.fancybox-thumbs.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\fancybox\jquery.fancybox.css" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\fancybox\jquery.fancybox.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\fancybox\jquery.fancybox.pack.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\fancybox\jquery.mousewheel-3.0.6.pack.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\form-validator\bootstrap\css\bootstrap-theme.css" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\form-validator\bootstrap\css\bootstrap-theme.css.map" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\form-validator\bootstrap\css\bootstrap-theme.min.css" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\form-validator\bootstrap\css\bootstrap.css" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\form-validator\bootstrap\css\bootstrap.css.map" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\form-validator\bootstrap\css\bootstrap.min.css" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\form-validator\bootstrap\fonts\glyphicons-halflings-regular.eot" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\form-validator\bootstrap\fonts\glyphicons-halflings-regular.svg" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\form-validator\bootstrap\fonts\glyphicons-halflings-regular.ttf" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\form-validator\bootstrap\fonts\glyphicons-halflings-regular.woff" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\form-validator\bootstrap\js\bootstrap.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\form-validator\bootstrap\js\bootstrap.min.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\form-validator\bootstrap\js\npm.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\form-validator\date.dev.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\form-validator\date.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\form-validator\file.dev.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\form-validator\file.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\form-validator\form-test.html" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\form-validator\html5.dev.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\form-validator\html5.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\form-validator\jquery-ui\external\jquery\jquery.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\form-validator\jquery-ui\i18n\jquery.ui.datepicker-zh-CN.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\form-validator\jquery-ui\images\ui-bg_diagonals-thick_18_b81900_40x40.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\form-validator\jquery-ui\images\ui-bg_diagonals-thick_20_666666_40x40.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\form-validator\jquery-ui\images\ui-bg_flat_10_000000_40x100.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\form-validator\jquery-ui\images\ui-bg_glass_100_f6f6f6_1x400.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\form-validator\jquery-ui\images\ui-bg_glass_100_fdf5ce_1x400.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\form-validator\jquery-ui\images\ui-bg_glass_65_ffffff_1x400.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\form-validator\jquery-ui\images\ui-bg_gloss-wave_35_f6a828_500x100.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\form-validator\jquery-ui\images\ui-bg_highlight-soft_100_eeeeee_1x100.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\form-validator\jquery-ui\images\ui-bg_highlight-soft_75_ffe45c_1x100.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\form-validator\jquery-ui\images\ui-icons_222222_256x240.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\form-validator\jquery-ui\images\ui-icons_228ef1_256x240.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\form-validator\jquery-ui\images\ui-icons_ef8c08_256x240.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\form-validator\jquery-ui\images\ui-icons_ffd27a_256x240.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\form-validator\jquery-ui\images\ui-icons_ffffff_256x240.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\form-validator\jquery-ui\index.html" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\form-validator\jquery-ui\jquery-ui.css" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\form-validator\jquery-ui\jquery-ui.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\form-validator\jquery-ui\jquery-ui.min.css" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\form-validator\jquery-ui\jquery-ui.min.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\form-validator\jquery-ui\jquery-ui.structure.css" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\form-validator\jquery-ui\jquery-ui.structure.min.css" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\form-validator\jquery-ui\jquery-ui.theme.css" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\form-validator\jquery-ui\jquery-ui.theme.min.css" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\form-validator\jquery.form-validator.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\form-validator\jquery.form-validator.min.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\form-validator\location.dev.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\form-validator\location.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\form-validator\qunit.html" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\form-validator\security.dev.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\form-validator\security.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\form-validator\sweden.dev.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\form-validator\sweden.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\form-validator\uk.dev.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\form-validator\uk.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\gps_bd.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\jmap.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\jquery-ui\external\jquery\jquery.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\jquery-ui\i18n\jquery.ui.datepicker-zh-CN.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\jquery-ui\images\ui-bg_diagonals-thick_18_b81900_40x40.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\jquery-ui\images\ui-bg_diagonals-thick_20_666666_40x40.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\jquery-ui\images\ui-bg_flat_10_000000_40x100.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\jquery-ui\images\ui-bg_glass_100_f6f6f6_1x400.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\jquery-ui\images\ui-bg_glass_100_fdf5ce_1x400.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\jquery-ui\images\ui-bg_glass_65_ffffff_1x400.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\jquery-ui\images\ui-bg_gloss-wave_35_f6a828_500x100.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\jquery-ui\images\ui-bg_highlight-soft_100_eeeeee_1x100.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\jquery-ui\images\ui-bg_highlight-soft_75_ffe45c_1x100.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\jquery-ui\images\ui-icons_222222_256x240.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\jquery-ui\images\ui-icons_228ef1_256x240.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\jquery-ui\images\ui-icons_ef8c08_256x240.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\jquery-ui\images\ui-icons_ffd27a_256x240.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\jquery-ui\images\ui-icons_ffffff_256x240.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\jquery-ui\index.html" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\jquery-ui\jquery-ui.css" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\jquery-ui\jquery-ui.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\jquery-ui\jquery-ui.min.css" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\jquery-ui\jquery-ui.min.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\jquery-ui\jquery-ui.structure.css" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\jquery-ui\jquery-ui.structure.min.css" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\jquery-ui\jquery-ui.theme.css" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\jquery-ui\jquery-ui.theme.min.css" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\jquery.imgareaselect.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\jquery.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\jquery.json.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\lp.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\plupload\Moxie.swf" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\plupload\Moxie.xap" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\plupload\jquery.plupload.queue.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\plupload\jquery.plupload.queue.min.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\plupload\jquery.plupload.ui.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\plupload\jquery.plupload.ui.min.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\plupload\plupload.full.min.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\plupload\zh_CN.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\rtol.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\js\trackRecord.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\showRTUserPosition.html" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\test.html" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\artifacts\ynwls\trackRecord.jsp" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\1111.html" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\WEB-INF\web.xml" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\com\cn\action\CheckFileExistServlet.class" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\com\cn\action\DownloadFileServlet.class" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\com\cn\action\ExportRecordServlet.class" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\com\cn\action\QueryRecordServlet.class" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\com\cn\action\QueryUserHistoryServlet.class" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\com\cn\action\QueryUserNameServlet.class" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\com\cn\action\QueryUserPositionServlet.class" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\com\cn\action\RouteRecordMapInfoServlet.class" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\com\cn\action\SaveRecordServlet.class" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\com\cn\action\UploadFileServlet.class" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\com\cn\action\UserLogOutServlet.class" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\com\cn\action\UserLoginServlet.class" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\com\cn\action\ViewSingleRouteRecordInfoServlet.class" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\com\cn\bean\ConditionEntity.class" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\com\cn\bean\KeyPointPlaceMark.class" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\com\cn\bean\PlaceMark.class" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\com\cn\bean\RoutePlaceMark.class" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\com\cn\bean\RouteStyle.class" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\com\cn\bean\SjyfiUserEntity.class" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\com\cn\bean\TTracksEntity.class" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\com\cn\bean\TTracksPointsEntity.class" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\com\cn\bean\TrtGpsPointEntity.class" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\com\cn\bean\UserHistoryEntity.class" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\com\cn\dao\AEntityDao.class" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\com\cn\dao\CheckFileExistDao.class" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\com\cn\dao\DBHelper.class" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\com\cn\dao\GetUserNameDao.class" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\com\cn\dao\SjyfiUserDao.class" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\com\cn\dao\TTracksDao.class" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\com\cn\dao\TrtGpsPointDao.class" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\com\cn\dao\UserHistoryDao.class" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\com\cn\filter\SessionTimeOutFilter.class" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\com\cn\filter\SetCharacterEncodingFilter.class" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\com\cn\service\TRtGPSPointService.class" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\com\cn\service\UserHistoryService.class" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\com\cn\service\UserRealTimePositionServlet.class" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\com\cn\test\TestOutput.class" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\com\cn\test\testServlet.class" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\com\cn\util\Config$KMZFileInfo.class" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\com\cn\util\Config.class" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\com\cn\util\DBUtil.class" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\com\cn\util\DateUtil.class" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\com\cn\util\File\BaseFileParse.class" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\com\cn\util\File\DefaultSaxParse.class" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\com\cn\util\File\DownloadFile.class" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\com\cn\util\File\FileMerge.class" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\com\cn\util\File\FileSaxParse.class" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\com\cn\util\File\FileUtil.class" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\com\cn\util\File\JFile.class" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\com\cn\util\File\JSAXParser.class" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\com\cn\util\File\JUnZipFile.class" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\com\cn\util\File\JZipFile.class" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\com\cn\util\File\PlaceMarkFileParse.class" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\com\cn\util\File\RouteRecordFileParseAndMerge.class" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\com\cn\util\File\TrackDetailFileParse.class" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\com\cn\util\File\TrackDetailFileParseAndMerge.class" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\com\cn\util\File\UploadFile.class" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\com\cn\util\Json.class" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\com\cn\util\JsonTimestampDeserialize.class" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\com\cn\util\JsonTimestampSerializer.class" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\com\cn\util\Out.class" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\com\cn\util\SqlAssist.class" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\com\cn\util\TableName.class" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\com\cn\websocket\EchoEndpoint$EchoMessageHandler.class" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\com\cn\websocket\EchoEndpoint.class" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\com\cn\websocket\ShowUserByRealTime.class" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\css\imgareaselect-default.css" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\css\jquery.plupload.ui.css" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\download.jsp" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\image\baidu\markers.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\image\download.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\image\imgareaselect\border-anim-h.gif" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\image\imgareaselect\border-anim-v.gif" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\image\imgareaselect\border-h.gif" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\image\imgareaselect\border-v.gif" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\image\plupload.ui\loading.gif" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\image\plupload.ui\plupload.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\image\sprite_n1_ccdf642.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\image\top_bg0.jpg" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\image\top_bg1.jpg" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\index.html" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\index.jsp" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\all.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\bdmap.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\bootstrap\css\bootstrap-theme.css" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\bootstrap\css\bootstrap-theme.min.css" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\bootstrap\css\bootstrap.css" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\bootstrap\css\bootstrap.min.css" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\bootstrap\fonts\glyphicons-halflings-regular.eot" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\bootstrap\fonts\glyphicons-halflings-regular.svg" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\bootstrap\fonts\glyphicons-halflings-regular.ttf" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\bootstrap\fonts\glyphicons-halflings-regular.woff" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\bootstrap\fonts\glyphicons-halflings-regular.woff2" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\bootstrap\js\affix.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\bootstrap\js\alert.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\bootstrap\js\bootstrap.autocomplete.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\bootstrap\js\bootstrap.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\bootstrap\js\bootstrap.min.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\bootstrap\js\button.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\bootstrap\js\carousel.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\bootstrap\js\collapse.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\bootstrap\js\dropdown.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\bootstrap\js\modal.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\bootstrap\js\npm.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\bootstrap\js\popover.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\bootstrap\js\scrollspy.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\bootstrap\js\tab.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\bootstrap\js\tooltip.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\bootstrap\js\transition.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\color.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\fancybox\blank.gif" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\fancybox\fancybox_loading.gif" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\fancybox\fancybox_loading@2x.gif" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\fancybox\fancybox_overlay.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\fancybox\fancybox_sprite.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\fancybox\fancybox_sprite@2x.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\fancybox\helpers\fancybox_buttons.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\fancybox\helpers\jquery.fancybox-buttons.css" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\fancybox\helpers\jquery.fancybox-buttons.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\fancybox\helpers\jquery.fancybox-media.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\fancybox\helpers\jquery.fancybox-thumbs.css" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\fancybox\helpers\jquery.fancybox-thumbs.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\fancybox\jquery.fancybox.css" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\fancybox\jquery.fancybox.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\fancybox\jquery.fancybox.pack.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\fancybox\jquery.mousewheel-3.0.6.pack.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\form-validator\bootstrap\css\bootstrap-theme.css" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\form-validator\bootstrap\css\bootstrap-theme.css.map" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\form-validator\bootstrap\css\bootstrap-theme.min.css" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\form-validator\bootstrap\css\bootstrap.css" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\form-validator\bootstrap\css\bootstrap.css.map" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\form-validator\bootstrap\css\bootstrap.min.css" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\form-validator\bootstrap\fonts\glyphicons-halflings-regular.eot" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\form-validator\bootstrap\fonts\glyphicons-halflings-regular.svg" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\form-validator\bootstrap\fonts\glyphicons-halflings-regular.ttf" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\form-validator\bootstrap\fonts\glyphicons-halflings-regular.woff" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\form-validator\bootstrap\js\bootstrap.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\form-validator\bootstrap\js\bootstrap.min.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\form-validator\bootstrap\js\npm.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\form-validator\date.dev.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\form-validator\date.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\form-validator\file.dev.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\form-validator\file.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\form-validator\form-test.html" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\form-validator\html5.dev.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\form-validator\html5.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\form-validator\jquery-ui\external\jquery\jquery.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\form-validator\jquery-ui\i18n\jquery.ui.datepicker-zh-CN.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\form-validator\jquery-ui\images\ui-bg_diagonals-thick_18_b81900_40x40.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\form-validator\jquery-ui\images\ui-bg_diagonals-thick_20_666666_40x40.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\form-validator\jquery-ui\images\ui-bg_flat_10_000000_40x100.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\form-validator\jquery-ui\images\ui-bg_glass_100_f6f6f6_1x400.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\form-validator\jquery-ui\images\ui-bg_glass_100_fdf5ce_1x400.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\form-validator\jquery-ui\images\ui-bg_glass_65_ffffff_1x400.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\form-validator\jquery-ui\images\ui-bg_gloss-wave_35_f6a828_500x100.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\form-validator\jquery-ui\images\ui-bg_highlight-soft_100_eeeeee_1x100.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\form-validator\jquery-ui\images\ui-bg_highlight-soft_75_ffe45c_1x100.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\form-validator\jquery-ui\images\ui-icons_222222_256x240.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\form-validator\jquery-ui\images\ui-icons_228ef1_256x240.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\form-validator\jquery-ui\images\ui-icons_ef8c08_256x240.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\form-validator\jquery-ui\images\ui-icons_ffd27a_256x240.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\form-validator\jquery-ui\images\ui-icons_ffffff_256x240.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\form-validator\jquery-ui\index.html" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\form-validator\jquery-ui\jquery-ui.css" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\form-validator\jquery-ui\jquery-ui.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\form-validator\jquery-ui\jquery-ui.min.css" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\form-validator\jquery-ui\jquery-ui.min.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\form-validator\jquery-ui\jquery-ui.structure.css" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\form-validator\jquery-ui\jquery-ui.structure.min.css" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\form-validator\jquery-ui\jquery-ui.theme.css" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\form-validator\jquery-ui\jquery-ui.theme.min.css" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\form-validator\jquery.form-validator.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\form-validator\jquery.form-validator.min.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\form-validator\location.dev.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\form-validator\location.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\form-validator\qunit.html" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\form-validator\security.dev.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\form-validator\security.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\form-validator\sweden.dev.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\form-validator\sweden.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\form-validator\uk.dev.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\form-validator\uk.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\gps_bd.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\jmap.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\jquery-ui\external\jquery\jquery.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\jquery-ui\i18n\jquery.ui.datepicker-zh-CN.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\jquery-ui\images\ui-bg_diagonals-thick_18_b81900_40x40.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\jquery-ui\images\ui-bg_diagonals-thick_20_666666_40x40.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\jquery-ui\images\ui-bg_flat_10_000000_40x100.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\jquery-ui\images\ui-bg_glass_100_f6f6f6_1x400.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\jquery-ui\images\ui-bg_glass_100_fdf5ce_1x400.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\jquery-ui\images\ui-bg_glass_65_ffffff_1x400.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\jquery-ui\images\ui-bg_gloss-wave_35_f6a828_500x100.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\jquery-ui\images\ui-bg_highlight-soft_100_eeeeee_1x100.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\jquery-ui\images\ui-bg_highlight-soft_75_ffe45c_1x100.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\jquery-ui\images\ui-icons_222222_256x240.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\jquery-ui\images\ui-icons_228ef1_256x240.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\jquery-ui\images\ui-icons_ef8c08_256x240.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\jquery-ui\images\ui-icons_ffd27a_256x240.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\jquery-ui\images\ui-icons_ffffff_256x240.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\jquery-ui\index.html" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\jquery-ui\jquery-ui.css" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\jquery-ui\jquery-ui.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\jquery-ui\jquery-ui.min.css" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\jquery-ui\jquery-ui.min.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\jquery-ui\jquery-ui.structure.css" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\jquery-ui\jquery-ui.structure.min.css" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\jquery-ui\jquery-ui.theme.css" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\jquery-ui\jquery-ui.theme.min.css" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\jquery.imgareaselect.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\jquery.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\jquery.json.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\lp.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\plupload\Moxie.swf" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\plupload\Moxie.xap" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\plupload\jquery.plupload.queue.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\plupload\jquery.plupload.queue.min.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\plupload\jquery.plupload.ui.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\plupload\jquery.plupload.ui.min.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\plupload\plupload.full.min.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\plupload\zh_CN.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\rtol.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\js\trackRecord.js" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\showRTUserPosition.html" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\test.html" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\out\production\ynwls\trackRecord.jsp" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\src\com\cn\util\File\FileSaxParse.java" afterPath="" />
+      <change type="DELETED" beforePath="E:\sjyfi\sjyfi2\web\index.jsp" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/.name" afterPath="$PROJECT_DIR$/.idea/.name" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/1111.html" afterPath="$PROJECT_DIR$/web/1111.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/cn/util/File/BaseFileParse.java" afterPath="$PROJECT_DIR$/src/com/cn/util/File/BaseFileParse.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/cn/action/CheckFileExistServlet.java" afterPath="$PROJECT_DIR$/src/com/cn/action/CheckFileExistServlet.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/cn/bean/ConditionEntity.java" afterPath="$PROJECT_DIR$/src/com/cn/bean/ConditionEntity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/cn/util/DBUtil.java" afterPath="$PROJECT_DIR$/src/com/cn/util/DBUtil.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/cn/action/ExportRecordServlet.java" afterPath="$PROJECT_DIR$/src/com/cn/action/ExportRecordServlet.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/cn/util/File/FileMerge.java" afterPath="$PROJECT_DIR$/src/com/cn/util/File/FileMerge.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/cn/util/File/JFile.java" afterPath="$PROJECT_DIR$/src/com/cn/util/File/JFile.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/cn/util/File/JSAXParser.java" afterPath="$PROJECT_DIR$/src/com/cn/util/File/JSAXParser.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/cn/util/Json.java" afterPath="$PROJECT_DIR$/src/com/cn/util/Json.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/cn/action/QueryUserNameServlet.java" afterPath="$PROJECT_DIR$/src/com/cn/action/QueryUserNameServlet.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/cn/action/RouteRecordMapInfoServlet.java" afterPath="$PROJECT_DIR$/src/com/cn/action/RouteRecordMapInfoServlet.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/cn/action/SaveRecordServlet.java" afterPath="$PROJECT_DIR$/src/com/cn/action/SaveRecordServlet.java" />
+      <change type="MODIFICATION" beforePath="E:\sjyfi\sjyfi2\src\com\cn\service\TRtGPSPointService.java" afterPath="$PROJECT_DIR$/src/com/cn/service/TRtGPSPointService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/cn/util/TableName.java" afterPath="$PROJECT_DIR$/src/com/cn/util/TableName.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/cn/util/File/UploadFile.java" afterPath="$PROJECT_DIR$/src/com/cn/util/File/UploadFile.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/cn/action/UploadFileServlet.java" afterPath="$PROJECT_DIR$/src/com/cn/action/UploadFileServlet.java" />
+      <change type="MODIFICATION" beforePath="E:\sjyfi\sjyfi2\src\com\cn\service\UserHistoryService.java" afterPath="$PROJECT_DIR$/src/com/cn/service/UserHistoryService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/cn/action/UserLoginServlet.java" afterPath="$PROJECT_DIR$/src/com/cn/action/UserLoginServlet.java" />
+      <change type="MODIFICATION" beforePath="E:\sjyfi\sjyfi2\src\com\cn\service\UserRealTimePositionServlet.java" afterPath="$PROJECT_DIR$/src/com/cn/service/UserRealTimePositionServlet.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/cn/action/ViewSingleRouteRecordInfoServlet.java" afterPath="$PROJECT_DIR$/src/com/cn/action/ViewSingleRouteRecordInfoServlet.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/js/all.js" afterPath="$PROJECT_DIR$/web/js/all.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/download.jsp" afterPath="$PROJECT_DIR$/web/download.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/js/gps_bd.js" afterPath="$PROJECT_DIR$/web/js/gps_bd.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/index.html" afterPath="$PROJECT_DIR$/web/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/js/lp.js" afterPath="$PROJECT_DIR$/web/js/lp.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/js/rtol.js" afterPath="$PROJECT_DIR$/web/js/rtol.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/showRTUserPosition.html" afterPath="$PROJECT_DIR$/web/showRTUserPosition.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/js/trackRecord.js" afterPath="$PROJECT_DIR$/web/js/trackRecord.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/trackRecord.jsp" afterPath="$PROJECT_DIR$/web/trackRecord.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/web/WEB-INF/web.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MOVED" beforePath="E:\sjyfi\sjyfi2\.idea\artifacts\ynwls.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/sjyfi2.xml" />
+      <change type="MOVED" beforePath="E:\sjyfi\sjyfi2\ynwls.iml" afterPath="$PROJECT_DIR$/syjfi2.iml" />
     </list>
     <ignored path="ynwls.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -31,81 +696,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="rtol.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/js/rtol.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.7413793">
-              <caret line="62" column="23" selection-start-line="62" selection-start-column="23" selection-end-line="62" selection-end-column="23" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="jmap.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/js/jmap.js">
+      <file leaf-file-name="UserLoginServlet.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/cn/action/UserLoginServlet.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="130" column="54" selection-start-line="130" selection-start-column="54" selection-end-line="130" selection-end-column="54" />
+              <caret line="24" column="50" selection-start-line="24" selection-start-column="50" selection-end-line="24" selection-end-column="50" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DateUtil.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/cn/util/DateUtil.java">
+      <file leaf-file-name="CheckFileExistServlet.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/cn/action/CheckFileExistServlet.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DBUtil.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/cn/util/DBUtil.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="19" column="20" selection-start-line="19" selection-start-column="20" selection-end-line="19" selection-end-column="20" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="showRTUserPosition.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/showRTUserPosition.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-9.178572">
-              <caret line="54" column="59" selection-start-line="54" selection-start-column="59" selection-end-line="54" selection-end-column="59" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="trackRecord.jsp" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/web/trackRecord.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.44357976">
-              <caret line="318" column="71" selection-start-line="318" selection-start-column="71" selection-end-line="318" selection-end-column="71" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="lp.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/js/lp.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-9.689655">
-              <caret line="182" column="23" selection-start-line="182" selection-start-column="23" selection-end-line="182" selection-end-column="23" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="1111.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/1111.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.785714">
-              <caret line="24" column="25" selection-start-line="24" selection-start-column="25" selection-end-line="24" selection-end-column="25" />
+            <state vertical-scroll-proportion="0.7702703">
+              <caret line="41" column="20" selection-start-line="41" selection-start-column="20" selection-end-line="41" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -117,8 +722,10 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Html5" />
-        <option value="Class" />
         <option value="JavaScript File" />
+        <option value="Tag Library Descriptor" />
+        <option value="XSLT Stylesheet" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -133,51 +740,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/web/js/bootstrap/css/bootstrap.css" />
-        <option value="$PROJECT_DIR$/web/ws.js" />
-        <option value="$PROJECT_DIR$/web/lp.js" />
-        <option value="$PROJECT_DIR$/src/com/cn/util/TableName.java" />
-        <option value="$PROJECT_DIR$/src/com/cn/dao/AEntityDao.java" />
-        <option value="$PROJECT_DIR$/src/com/cn/action/UserLoginServlet.java" />
-        <option value="$PROJECT_DIR$/src/com/cn/dao/SjyfiUserDao.java" />
-        <option value="$PROJECT_DIR$/src/com/cn/dao/TTracksDao.java" />
-        <option value="$PROJECT_DIR$/src/com/cn/action/ViewSingleRouteRecordInfoServlet.java" />
-        <option value="$PROJECT_DIR$/src/com/cn/action/SaveRecordServlet.java" />
-        <option value="$PROJECT_DIR$/src/com/cn/service/TRtGPSPointService.java" />
-        <option value="$PROJECT_DIR$/src/com/cn/action/RouteRecordMapInfoServlet.java" />
-        <option value="$PROJECT_DIR$/src/com/cn/action/ExportRecordServlet.java" />
-        <option value="$PROJECT_DIR$/src/com/cn/dao/TrtGpsPointNewDao.java" />
-        <option value="$PROJECT_DIR$/src/com/cn/dao/GetUserNameDao.java" />
-        <option value="$PROJECT_DIR$/src/com/cn/util/JsonTimestampSerializer.java" />
-        <option value="$PROJECT_DIR$/src/com/cn/action/QueryUserNameServlet.java" />
-        <option value="$PROJECT_DIR$/src/com/cn/dao/TrtGpsPointDao.java" />
-        <option value="$PROJECT_DIR$/src/com/cn/service/UserHistoryService.java" />
-        <option value="$PROJECT_DIR$/src/com/cn/bean/GpsPoint.java" />
-        <option value="$PROJECT_DIR$/src/com/cn/util/Json.java" />
         <option value="$PROJECT_DIR$/src/com/cn/bean/TrtGpsPointEntity.java" />
         <option value="$PROJECT_DIR$/src/com/cn/bean/UserHistoryEntity.java" />
         <option value="$PROJECT_DIR$/src/com/cn/dao/UserHistoryDao.java" />
         <option value="$PROJECT_DIR$/web/js/common.js" />
-        <option value="$PROJECT_DIR$/src/com/cn/service/UserRealTimePositionServlet.java" />
         <option value="$PROJECT_DIR$/src/com/cn/action/QueryUserHistoryServlet.java" />
-        <option value="$PROJECT_DIR$/src/com/cn/util/DBUtil.java" />
         <option value="$PROJECT_DIR$/src/com/cn/test/TestOutput.java" />
-        <option value="$PROJECT_DIR$/web/WEB-INF/web.xml" />
-        <option value="$PROJECT_DIR$/web/index.html" />
         <option value="$PROJECT_DIR$/web/js/web_prefix.js" />
-        <option value="$PROJECT_DIR$/web/js/gps_bd.js" />
-        <option value="$PROJECT_DIR$/web/js/all.js" />
         <option value="$PROJECT_DIR$/web/js/bootstrap/js/tooltip.js" />
         <option value="$PROJECT_DIR$/web/js/tip.js" />
-        <option value="$PROJECT_DIR$/web/js/trackRecord.js" />
         <option value="$PROJECT_DIR$/web/test.html" />
-        <option value="$PROJECT_DIR$/web/1111.html" />
         <option value="$PROJECT_DIR$/web/js/color.js" />
-        <option value="$PROJECT_DIR$/web/js/lp.js" />
-        <option value="$PROJECT_DIR$/web/showRTUserPosition.html" />
-        <option value="$PROJECT_DIR$/web/js/rtol.js" />
         <option value="$PROJECT_DIR$/web/js/jmap.js" />
+        <option value="$PROJECT_DIR$/web/js/gps_bd.js" />
+        <option value="$PROJECT_DIR$/src/com/cn/Service/TRtGPSPointService.java" />
+        <option value="$PROJECT_DIR$/web/index.html" />
+        <option value="$PROJECT_DIR$/src/com/cn/util/Json.java" />
+        <option value="$PROJECT_DIR$/web/js/rtol.js" />
+        <option value="$PROJECT_DIR$/web/showRTUserPosition.html" />
+        <option value="$PROJECT_DIR$/web/js/lp.js" />
+        <option value="$PROJECT_DIR$/web/download.jsp" />
+        <option value="$PROJECT_DIR$/web/1111.html" />
+        <option value="$PROJECT_DIR$/src/com/cn/action/UploadFileServlet.java" />
+        <option value="$PROJECT_DIR$/src/com/cn/service/UploadFileService.java" />
+        <option value="$PROJECT_DIR$/out/artifacts/ynwls/WEB-INF/classes/configfile/db.properties" />
+        <option value="$PROJECT_DIR$/src/configfile/db.xml.tld" />
+        <option value="$PROJECT_DIR$/src/com/cn/util/File/JSAXParser.java" />
+        <option value="$PROJECT_DIR$/src/com/cn/util/File/FileMerge.java" />
+        <option value="$PROJECT_DIR$/src/com/cn/util/File/BaseFileParse.java" />
+        <option value="$PROJECT_DIR$/src/com/cn/util/File/JFile.java" />
+        <option value="$PROJECT_DIR$/src/com/cn/service/UserHistoryService.java" />
+        <option value="$PROJECT_DIR$/src/com/cn/service/TRtGPSPointService.java" />
+        <option value="$PROJECT_DIR$/src/com/cn/action/ExportRecordServlet.java" />
+        <option value="$PROJECT_DIR$/src/com/cn/action/RouteRecordMapInfoServlet.java" />
+        <option value="$PROJECT_DIR$/src/com/cn/action/ViewSingleRouteRecordInfoServlet.java" />
+        <option value="$PROJECT_DIR$/src/com/cn/service/UserRealTimePositionServlet.java" />
+        <option value="$PROJECT_DIR$/src/com/cn/action/SaveRecordServlet.java" />
+        <option value="$PROJECT_DIR$/src/com/cn/action/QueryUserNameServlet.java" />
+        <option value="$PROJECT_DIR$/src/com/cn/action/UserLoginServlet.java" />
+        <option value="$PROJECT_DIR$/src/com/cn/util/DBUtil.java" />
+        <option value="$PROJECT_DIR$/src/com/cn/bean/ConditionEntity.java" />
+        <option value="$PROJECT_DIR$/web/js/all.js" />
+        <option value="$PROJECT_DIR$/src/com/cn/util/TableName.java" />
+        <option value="$PROJECT_DIR$/src/com/cn/util/File/DbParser.java" />
+        <option value="$PROJECT_DIR$/src/configfile/db.xml" />
+        <option value="$PROJECT_DIR$/web/WEB-INF/web.xml" />
+        <option value="$PROJECT_DIR$/out/artifacts/syjfi2/index.html" />
+        <option value="$PROJECT_DIR$/src/configfile/table.xml" />
         <option value="$PROJECT_DIR$/web/trackRecord.jsp" />
+        <option value="$PROJECT_DIR$/web/js/trackRecord.js" />
+        <option value="$PROJECT_DIR$/src/com/cn/action/CheckFileExistServlet.java" />
+        <option value="$PROJECT_DIR$/src/com/cn/util/File/UploadFile.java" />
       </list>
     </option>
   </component>
@@ -228,32 +841,31 @@
     <panes>
       <pane id="Scope" />
       <pane id="Scratches" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="ynwls" />
+              <option name="myItemId" value="sjyfi2" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="ynwls" />
+              <option name="myItemId" value="sjyfi2" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="ynwls" />
+              <option name="myItemId" value="sjyfi2" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="ynwls" />
+              <option name="myItemId" value="sjyfi2" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="ynwls" />
+              <option name="myItemId" value="sjyfi2" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -263,121 +875,29 @@
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="ynwls" />
+              <option name="myItemId" value="sjyfi2" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="ynwls" />
+              <option name="myItemId" value="sjyfi2" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
+              <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="WEB-INF" />
+              <option name="myItemId" value="configfile" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="ynwls" />
+              <option name="myItemId" value="sjyfi2" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="ynwls" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ynwls" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ynwls" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bootstrap" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ynwls" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ynwls" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bootstrap" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ynwls" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ynwls" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bootstrap" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="css" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ynwls" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ynwls" />
+              <option name="myItemId" value="sjyfi2" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -388,18 +908,14 @@
               <option name="myItemId" value="cn" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WebSocket" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="ynwls" />
+              <option name="myItemId" value="sjyfi2" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="ynwls" />
+              <option name="myItemId" value="sjyfi2" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -417,11 +933,11 @@
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="ynwls" />
+              <option name="myItemId" value="sjyfi2" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="ynwls" />
+              <option name="myItemId" value="sjyfi2" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -432,17 +948,102 @@
               <option name="myItemId" value="cn" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="util" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="File" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sjyfi2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sjyfi2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cn" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="service" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sjyfi2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sjyfi2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cn" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="action" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sjyfi2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sjyfi2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="out" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sjyfi2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sjyfi2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="out" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="artifacts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="recentsLimit" value="5" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/json" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ynwls/ynwls.iml" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2626953" />
     <property name="FullScreen" value="false" />
@@ -456,54 +1057,57 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\ynwls\src\configfile" />
       <recent name="C:\Users\SNNU\Documents\GitHub\ynwls\web\js\bootstrap\js" />
       <recent name="C:\Users\SNNU\Documents\GitHub\ynwls\web\js\bootstrap\css" />
       <recent name="C:\Users\SNNU\Documents\GitHub\ynwls\web\js\bootstrap\fonts" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\ynwls\src\configfile" />
+      <recent name="E:\ynwls\src\com\cn\util" />
       <recent name="C:\Users\SNNU\Documents\GitHub\ynwls\web\js" />
     </key>
   </component>
-  <component name="RunManager" selected="Tomcat Server.Tomcat 7.0.59">
-    <configuration default="false" name="test.html" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" temporary="true" APPLICATION_SERVER_NAME="Tomcat 7.0.59" ALTERNATIVE_JRE_ENABLED="false">
-      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/test.html" />
-      <deployment>
-        <artifact name="ynwls">
-          <settings>
-            <option name="CONTEXT_PATH" value="/" />
-          </settings>
-        </artifact>
-      </deployment>
-      <server-settings>
-        <option name="BASE_DIRECTORY_NAME" value="test_html_ynwls" />
-      </server-settings>
-      <predefined_log_file id="Tomcat" enabled="true" />
-      <predefined_log_file id="Tomcat Catalina" enabled="true" />
-      <predefined_log_file id="Tomcat Manager" enabled="false" />
-      <predefined_log_file id="Tomcat Host Manager" enabled="false" />
-      <predefined_log_file id="Tomcat Localhost Access" enabled="false" />
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
-        <option name="USE_ENV_VARIABLES" value="true" />
-        <STARTUP>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </STARTUP>
-        <SHUTDOWN>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </SHUTDOWN>
-      </ConfigurationWrapper>
-      <method>
-        <option name="BuildArtifacts" enabled="true">
-          <artifact name="ynwls" />
-        </option>
-      </method>
+  <component name="RunManager" selected="Tomcat Server.Remote">
+    <configuration default="false" name="DbParser" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.cn.util.File.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="com.cn.util.File.DbParser" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="ynwls" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="TableName" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.cn.util.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="com.cn.util.TableName" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="ynwls" />
+      <envs />
+      <method />
     </configuration>
     <configuration default="true" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" ALTERNATIVE_JRE_ENABLED="false">
       <deployment />
@@ -514,6 +1118,19 @@
       <predefined_log_file id="Tomcat Host Manager" enabled="false" />
       <predefined_log_file id="Tomcat Localhost Access" enabled="false" />
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <method />
+    </configuration>
+    <configuration default="true" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Remote" ALTERNATIVE_JRE_ENABLED="false">
+      <option name="LOCAL" value="false" />
+      <deployment />
+      <server-settings>
+        <data>
+          <option name="transportHostId" value="" />
+          <host-id />
+        </data>
+      </server-settings>
+      <predefined_log_file id="Tomcat" enabled="true" />
+      <predefined_log_file id="TOMCAT_LOCALHOST_LOG_ID" enabled="true" />
       <method />
     </configuration>
     <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
@@ -787,17 +1404,52 @@
       <envs />
       <method />
     </configuration>
-    <configuration default="false" name="Tomcat 7.0.59" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 7.0.59" ALTERNATIVE_JRE_ENABLED="false" ALTERNATIVE_JRE_PATH="">
-      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/ynwls" />
+    <configuration default="false" name="Remote" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Remote" APPLICATION_SERVER_NAME="Tomcat 7.0.59" ALTERNATIVE_JRE_ENABLED="false" ALTERNATIVE_JRE_PATH="">
+      <option name="HOST" value="159.226.15.215" />
+      <option name="PORT" value="55555" />
+      <option name="LOCAL" value="false" />
+      <option name="OPEN_IN_BROWSER_URL" value="http://159.226.15.215:55555/sjyfi2" />
+      <deployment />
+      <server-settings>
+        <data>
+          <option name="stagingRemotePath" value="" />
+          <option name="transportHostId" value="" />
+          <option name="transportStagingTarget">
+            <TransportTarget>
+              <option name="id" value="e75d8f92-a19d-4900-a7a6-a3ff034eed48" />
+              <id>e75d8f92-a19d-4900-a7a6-a3ff034eed48</id>
+            </TransportTarget>
+          </option>
+          <transport-target>
+            <TransportTarget>
+              <option name="id" value="e75d8f92-a19d-4900-a7a6-a3ff034eed48" />
+              <id>e75d8f92-a19d-4900-a7a6-a3ff034eed48</id>
+            </TransportTarget>
+          </transport-target>
+          <staging-path />
+          <host-id />
+        </data>
+      </server-settings>
+      <predefined_log_file id="Tomcat" enabled="true" />
+      <predefined_log_file id="TOMCAT_LOCALHOST_LOG_ID" enabled="true" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="55555" />
+        <option name="LOCAL" value="false" />
+      </RunnerSettings>
+      <method />
+    </configuration>
+    <configuration default="false" name="Tomcat" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 7.0.59" ALTERNATIVE_JRE_ENABLED="false" ALTERNATIVE_JRE_PATH="">
+      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/sjyfi2" />
+      <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
-        <artifact name="ynwls">
+        <artifact name="sjyfi2">
           <settings>
-            <option name="CONTEXT_PATH" value="/ynwls" />
+            <option name="CONTEXT_PATH" value="/sjyfi2" />
           </settings>
         </artifact>
       </deployment>
       <server-settings>
-        <option name="BASE_DIRECTORY_NAME" value="Tomcat_7_0_59_ynwls" />
+        <option name="BASE_DIRECTORY_NAME" value="Unnamed_sjyfi2" />
       </server-settings>
       <predefined_log_file id="Tomcat" enabled="true" />
       <predefined_log_file id="Tomcat Catalina" enabled="true" />
@@ -805,13 +1457,9 @@
       <predefined_log_file id="Tomcat Host Manager" enabled="false" />
       <predefined_log_file id="Tomcat Localhost Access" enabled="false" />
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <RunnerSettings RunnerId="Cover" />
       <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="1704" />
-        <option name="TRANSPORT" value="0" />
-        <option name="LOCAL" value="true" />
+        <option name="DEBUG_PORT" value="13002" />
       </RunnerSettings>
-      <RunnerSettings RunnerId="Run" />
       <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
         <option name="USE_ENV_VARIABLES" value="true" />
         <STARTUP>
@@ -859,18 +1507,21 @@
       </ConfigurationWrapper>
       <method>
         <option name="BuildArtifacts" enabled="true">
-          <artifact name="ynwls" />
+          <artifact name="sjyfi2" />
         </option>
       </method>
     </configuration>
-    <list size="3">
+    <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Application.Json" />
-      <item index="1" class="java.lang.String" itemvalue="Tomcat Server.Tomcat 7.0.59" />
-      <item index="2" class="java.lang.String" itemvalue="Tomcat Server.test.html" />
+      <item index="1" class="java.lang.String" itemvalue="Tomcat Server.Remote" />
+      <item index="2" class="java.lang.String" itemvalue="Tomcat Server.Tomcat" />
+      <item index="3" class="java.lang.String" itemvalue="Application.DbParser" />
+      <item index="4" class="java.lang.String" itemvalue="Application.TableName" />
     </list>
     <recent_temporary>
-      <list size="1">
-        <item index="0" class="java.lang.String" itemvalue="Tomcat Server.test.html" />
+      <list size="2">
+        <item index="0" class="java.lang.String" itemvalue="Application.TableName" />
+        <item index="1" class="java.lang.String" itemvalue="Application.DbParser" />
       </list>
     </recent_temporary>
   </component>
@@ -903,11 +1554,22 @@
       <workItem from="1431915330851" duration="1170000" />
       <workItem from="1431916773752" duration="22000" />
       <workItem from="1431916977332" duration="9249000" />
+      <workItem from="1431999363990" duration="9618000" />
+      <workItem from="1432009432736" duration="6207000" />
+      <workItem from="1432016326370" duration="8616000" />
+      <workItem from="1432087661521" duration="3595000" />
+      <workItem from="1432107199762" duration="14487000" />
+      <workItem from="1432123874320" duration="1808000" />
+      <workItem from="1432126390170" duration="1911000" />
+      <workItem from="1432173586948" duration="982000" />
+      <workItem from="1432174597408" duration="3212000" />
+      <workItem from="1432177957795" duration="696000" />
+      <workItem from="1432184915149" duration="556000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="153410000" />
+    <option name="totallyTimeSpent" value="205098000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1456" height="876" extended-state="6" />
@@ -915,34 +1577,34 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3294271" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3216146" sideWeight="0.39722222" order="14" side_tool="true" content_ui="tabs" x="0" y="252" width="1366" height="223" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2578125" sideWeight="0.25138888" order="10" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2578125" sideWeight="0.10138889" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2578125" sideWeight="0.7486111" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23958333" sideWeight="0.6818182" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24583334" sideWeight="0.3181818" order="5" side_tool="true" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22708334" sideWeight="0.8367347" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23888889" sideWeight="0.1632653" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.329429" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18125" sideWeight="0.32291666" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.29427084" sideWeight="0.61527777" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.025" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2643229" sideWeight="0.61527777" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2578125" sideWeight="0.31666666" order="14" side_tool="true" content_ui="tabs" x="0" y="252" width="1366" height="223" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.27604166" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33072916" sideWeight="0.68333334" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.37766832" sideWeight="0.7409722" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.37109375" sideWeight="0.7409722" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -958,9 +1620,15 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="9" />
+      <option name="time" value="17" />
     </breakpoint-manager>
-    <watches-manager />
+    <watches-manager>
+      <configuration name="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory">
+        <watch expression="fileItem.getString()" language="JAVA" custom="" />
+        <watch expression="fileItem.isFormField()" />
+        <watch expression="fileItem.getName()" language="JAVA" custom="" />
+      </configuration>
+    </watches-manager>
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
@@ -970,374 +1638,362 @@
     <entry file="file://$PROJECT_DIR$/web/js/all.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
+          <caret line="11" column="22" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/js/fancybox/jquery.fancybox.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-69.98708">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="47" column="16" selection-start-line="47" selection-start-column="16" selection-end-line="47" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/gps_bd.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="44" column="1" selection-start-line="44" selection-start-column="1" selection-end-line="44" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/trackRecord.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="463" column="32" selection-start-line="463" selection-start-column="32" selection-end-line="463" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/test.html">
+    <entry file="file://$PROJECT_DIR$/web/js/bootstrap/js/modal.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/cn/dao/SjyfiUserDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3505535">
+          <caret line="16" column="23" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/download.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8871595">
+          <caret line="57" column="7" selection-start-line="57" selection-start-column="7" selection-end-line="57" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/js/lp.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="103" column="48" selection-start-line="103" selection-start-column="48" selection-end-line="103" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/showRTUserPosition.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="65" column="55" selection-start-line="65" selection-start-column="55" selection-end-line="65" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/js/rtol.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.018450184">
+          <caret line="215" column="15" selection-start-line="215" selection-start-column="15" selection-end-line="215" selection-end-column="15" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/1111.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="76" column="48" selection-start-line="76" selection-start-column="48" selection-end-line="76" selection-end-column="48" />
-          <folding>
-            <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
+          <caret line="104" column="50" selection-start-line="104" selection-start-column="47" selection-end-line="104" selection-end-column="50" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/gps_bd.js">
+    <entry file="jar://$PROJECT_DIR$/lib/file-upload/commons-fileupload-1.3.1.jar!/org/apache/commons/fileupload/FileUploadBase.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.42166343">
+          <caret line="61" column="106" selection-start-line="61" selection-start-column="106" selection-end-line="61" selection-end-column="106" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/file-upload/commons-fileupload-1.3.1.jar!/org/apache/commons/fileupload/servlet/ServletFileUpload.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.36750484">
+          <caret line="23" column="90" selection-start-line="23" selection-start-column="90" selection-end-line="23" selection-end-column="90" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/cn/action/UploadFileServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.31549814">
+          <caret line="16" column="49" selection-start-line="16" selection-start-column="49" selection-end-line="16" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/cn/util/Config.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.701107">
+          <caret line="20" column="1" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/cn/util/File/DefaultSaxParse.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="74" column="1" selection-start-line="74" selection-start-column="1" selection-end-line="74" selection-end-column="1" />
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/cn/util/JsonTimestampDeserialize.java">
+    <entry file="file://$PROJECT_DIR$/src/com/cn/util/File/JSAXParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.45571956">
+          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/cn/util/File/PlaceMarkFileParse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.6125461">
+          <caret line="60" column="40" selection-start-line="60" selection-start-column="40" selection-end-line="60" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/cn/util/File/DownloadFile.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/cn/util/JsonTimestampSerializer.java">
+    <entry file="jar://C:/Program Files/Java/jdk1.7.0_75/src.zip!/org/xml/sax/Attributes.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/bootstrap/js/bootstrap.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.2855134">
-          <caret line="496" column="0" selection-start-line="496" selection-start-column="0" selection-end-line="496" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/cn/bean/TTracksPointsEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.12837838">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        <state vertical-scroll-proportion="-4.3653135">
+          <caret line="114" column="33" selection-start-line="114" selection-start-column="24" selection-end-line="114" selection-end-column="33" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/cn/util/Json.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="71" column="0" selection-start-line="71" selection-start-column="0" selection-end-line="71" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.71955717">
+          <caret line="81" column="5" selection-start-line="74" selection-start-column="3" selection-end-line="81" selection-end-column="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/cn/dao/AEntityDao.java">
+    <entry file="file://$PROJECT_DIR$/src/com/cn/util/File/FileUtil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="32" column="22" selection-start-line="32" selection-start-column="22" selection-end-line="32" selection-end-column="22" />
+        <state vertical-scroll-proportion="0.13718411">
+          <caret line="10" column="29" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/cn/dao/CheckFileExistDao.java">
+    <entry file="file://$PROJECT_DIR$/src/com/cn/util/File/FileMerge.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        <state vertical-scroll-proportion="0.80627304">
+          <caret line="44" column="49" selection-start-line="44" selection-start-column="49" selection-end-line="44" selection-end-column="49" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/cn/dao/DBHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="58" column="5" selection-start-line="58" selection-start-column="5" selection-end-line="58" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/cn/dao/SjyfiUserDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/cn/dao/TrtGpsPointDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="15" column="18" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/cn/dao/TTracksDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.17972973">
-          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/jquery.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-126.28108">
-          <caret line="5169" column="4" selection-start-line="5169" selection-start-column="4" selection-end-line="5169" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/cn/bean/TrtGpsPointEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="16" column="28" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/cn/WebSocket/ShowUserByRealTime.java">
+    <entry file="file://$PROJECT_DIR$/src/com/cn/util/File/BaseFileParse.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/cn/Service/TRtGPSPointService.java">
+    <entry file="file://$PROJECT_DIR$/src/com/cn/service/UserHistoryService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="62" column="80" selection-start-line="62" selection-start-column="80" selection-end-line="62" selection-end-column="80" />
+          <caret line="31" column="84" selection-start-line="31" selection-start-column="84" selection-end-line="31" selection-end-column="84" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/cn/action/UserLoginServlet.java">
+    <entry file="file://$PROJECT_DIR$/src/com/cn/action/QueryUserNameServlet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.40636042">
-          <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.018450184">
+          <caret line="33" column="72" selection-start-line="33" selection-start-column="72" selection-end-line="33" selection-end-column="72" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/cn/action/QueryUserPositionServlet.java">
+    <entry file="file://$PROJECT_DIR$/src/com/cn/action/SaveRecordServlet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.29889297">
+          <caret line="62" column="32" selection-start-line="62" selection-start-column="32" selection-end-line="62" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/cn/service/UserRealTimePositionServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.43726936">
+          <caret line="24" column="69" selection-start-line="24" selection-start-column="69" selection-end-line="24" selection-end-column="69" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/cn/action/ViewSingleRouteRecordInfoServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.84132844">
+          <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/cn/action/RouteRecordMapInfoServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.3321033">
+          <caret line="33" column="60" selection-start-line="33" selection-start-column="60" selection-end-line="33" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/cn/action/ExportRecordServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3321033">
+          <caret line="32" column="67" selection-start-line="32" selection-start-column="67" selection-end-line="32" selection-end-column="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/cn/service/TRtGPSPointService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3321033">
+          <caret line="58" column="62" selection-start-line="58" selection-start-column="62" selection-end-line="58" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/cn/util/File/JFile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="2.0155642">
+          <caret line="75" column="98" selection-start-line="75" selection-start-column="98" selection-end-line="75" selection-end-column="98" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/cn/util/Out.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+          <caret line="18" column="47" selection-start-line="18" selection-start-column="47" selection-end-line="18" selection-end-column="47" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/cn/test/TestOutput.java">
+    <entry file="file://$PROJECT_DIR$/src/com/cn/bean/ConditionEntity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="15" column="17" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/cn/Service/UserHistoryService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4864865">
-          <caret line="38" column="59" selection-start-line="38" selection-start-column="59" selection-end-line="38" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/cn/Service/UserRealTimePositionServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.20405406">
-          <caret line="34" column="28" selection-start-line="34" selection-start-column="28" selection-end-line="34" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/web.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3837838">
-          <caret line="164" column="0" selection-start-line="164" selection-start-column="0" selection-end-line="164" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/jquery.json.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/gps_bd.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="84" column="1" selection-start-line="84" selection-start-column="1" selection-end-line="84" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="40" column="16" selection-start-line="40" selection-start-column="16" selection-end-line="40" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/jquery-ui/external/jquery/jquery.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.40035275">
-          <caret line="5362" column="36" selection-start-line="5362" selection-start-column="36" selection-end-line="5362" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/lib/idea.jar!/resources/html5-schema/html5/common.rnc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.337931">
-          <caret line="328" column="0" selection-start-line="328" selection-start-column="0" selection-end-line="328" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/test.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="111.28571">
-          <caret line="16" column="76" selection-start-line="0" selection-start-column="0" selection-end-line="417" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/all.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.707635">
-          <caret line="20" column="32" selection-start-line="20" selection-start-column="32" selection-end-line="20" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/trackRecord.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3943662">
-          <caret line="29" column="27" selection-start-line="29" selection-start-column="27" selection-end-line="29" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/test.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.214286">
-          <caret line="183" column="0" selection-start-line="183" selection-start-column="0" selection-end-line="402" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/bootstrap/css/bootstrap.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="5879" column="18" selection-start-line="5879" selection-start-column="2" selection-end-line="5879" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ynwls.iml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3243243">
-          <caret line="12" column="40" selection-start-line="12" selection-start-column="40" selection-end-line="12" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/bootstrap/js/tooltip.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.945946">
-          <caret line="79" column="2" selection-start-line="79" selection-start-column="2" selection-end-line="79" selection-end-column="2" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/bdmap.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.36209553">
-          <caret line="3066" column="11" selection-start-line="3066" selection-start-column="11" selection-end-line="3066" selection-end-column="64" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/color.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.206897">
-          <caret line="11" column="18" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/1111.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.785714">
-          <caret line="24" column="25" selection-start-line="24" selection-start-column="25" selection-end-line="24" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/lp.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.689655">
-          <caret line="182" column="23" selection-start-line="182" selection-start-column="23" selection-end-line="182" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/cn/util/DateUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-          <folding />
+          <caret line="36" column="104" selection-start-line="36" selection-start-column="104" selection-end-line="36" selection-end-column="104" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/cn/util/DBUtil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="19" column="20" selection-start-line="19" selection-start-column="20" selection-end-line="19" selection-end-column="20" />
-          <folding />
+        <state vertical-scroll-proportion="0.46444446">
+          <caret line="21" column="80" selection-start-line="21" selection-start-column="72" selection-end-line="21" selection-end-column="80" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/rtol.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.7413793">
-          <caret line="62" column="23" selection-start-line="62" selection-start-column="23" selection-end-line="62" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/jmap.js">
+    <entry file="file://$PROJECT_DIR$/src/com/cn/util/File/DbParser.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="130" column="54" selection-start-line="130" selection-start-column="54" selection-end-line="130" selection-end-column="54" />
+          <caret line="15" column="59" selection-start-line="15" selection-start-column="59" selection-end-line="15" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/js/all.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="11" column="22" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/configfile/db.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.07702703">
+          <caret line="3" column="31" selection-start-line="3" selection-start-column="31" selection-end-line="3" selection-end-column="31" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/showRTUserPosition.html">
+    <entry file="file://$PROJECT_DIR$/src/configfile/table.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.178572">
-          <caret line="54" column="59" selection-start-line="54" selection-start-column="59" selection-end-line="54" selection-end-column="59" />
+        <state vertical-scroll-proportion="0.17972973">
+          <caret line="7" column="10" selection-start-line="7" selection-start-column="10" selection-end-line="7" selection-end-column="10" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/trackRecord.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.44357976">
-          <caret line="318" column="71" selection-start-line="318" selection-start-column="71" selection-end-line="318" selection-end-column="71" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="307" column="27" selection-start-line="307" selection-start-column="27" selection-end-line="307" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/js/trackRecord.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6918919">
+          <caret line="495" column="0" selection-start-line="495" selection-start-column="0" selection-end-line="495" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/syjfi2.iml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.43648648">
+          <caret line="17" column="50" selection-start-line="17" selection-start-column="50" selection-end-line="17" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/web.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="14" column="45" selection-start-line="14" selection-start-column="45" selection-end-line="14" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/test.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.17275281">
+          <caret line="77" column="41" selection-start-line="77" selection-start-column="41" selection-end-line="77" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/cn/util/TableName.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="18" column="52" selection-start-line="18" selection-start-column="52" selection-end-line="18" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/cn/service/UploadFileService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3538175">
+          <caret line="16" column="17" selection-start-line="16" selection-start-column="17" selection-end-line="16" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/cn/dao/CheckFileExistDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3538175">
+          <caret line="11" column="20" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../ynwls/ynwls.iml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/cn/action/UserLoginServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="24" column="50" selection-start-line="24" selection-start-column="50" selection-end-line="24" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/cn/util/File/UploadFile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.2067567">
+          <caret line="61" column="25" selection-start-line="61" selection-start-column="25" selection-end-line="61" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/cn/action/CheckFileExistServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7702703">
+          <caret line="41" column="20" selection-start-line="41" selection-start-column="20" selection-end-line="41" selection-end-column="20" />
           <folding />
         </state>
       </provider>
@@ -1348,7 +2004,7 @@
       <state key="ArtifactsStructureConfigurable.UI">
         <settings>
           <artifact-editor />
-          <last-edited>ynwls</last-edited>
+          <last-edited>sjyfi2</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -1361,7 +2017,7 @@
       </state>
       <state key="FacetStructureConfigurable.UI">
         <settings>
-          <last-edited>Web</last-edited>
+          <last-edited>Web (syjfi2)|Web</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -1396,7 +2052,7 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
-          <last-edited>ynwls</last-edited>
+          <last-edited>syjfi2</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

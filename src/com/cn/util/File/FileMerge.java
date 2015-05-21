@@ -40,7 +40,7 @@ public class FileMerge {
                         } else {
                             fileParse = trackDetailFile;
                         }
-                        new JSAXParser().parse(fileName + file.getName(), fileParse);
+                        new JSAXParser().parse(fileParse, fileName + file.getName());
                     }  else {
                         if (file.isDirectory()) {
                             FileUtils.copyDirectory(file, new File(mergeFileName + file.getName()));

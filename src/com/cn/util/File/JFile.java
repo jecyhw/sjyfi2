@@ -53,19 +53,19 @@ public class JFile extends Thread {
                     String nestDir = FileUtil.getNestDir(unZipFileName);
                     if (nestDir != null) {
                         BaseFileParse fileParse = new TrackDetailFileParse();
-                        new JSAXParser().parse(nestDir + Config.KMZFileInfo.trackDetailFileName, fileParse);
+                        new JSAXParser().parse(fileParse,nestDir + Config.KMZFileInfo.trackDetailFileName);
 
                         TTracksEntity tracksEntity = (TTracksEntity) fileParse.getParseObject();
                         tracksEntity.setPath(FileUtil.removeLastSeparator(unZipFileName));
                         tracksEntity.setFilesize((int) new File(kmzFileName).length());
                         tracksEntity.setTrackid(DBUtil.insertAndReturnAutoIncreaseId(
-                                DBHelper.getInsertSql(TableName.tracks, tracksEntity),
+                                DBHelper.getInsertSql(TableName.getTracks(), tracksEntity),
                                 DBHelper.getSqlValues(tracksEntity)));
 
                         String sql = null;
                         List sqlValueList = new ArrayList();
                         fileParse = new PlaceMarkFileParse();
-                        new JSAXParser().parse(nestDir + Config.KMZFileInfo.routeRecordFileName, fileParse);
+                        new JSAXParser().parse(fileParse, nestDir + Config.KMZFileInfo.routeRecordFileName);
                         List<List<TTracksPointsEntity>> pointList = ((PlaceMarkFileParse) fileParse).getPoints();
                         for (List<TTracksPointsEntity> pointsList : pointList) {
                             for (TTracksPointsEntity point : pointsList) {
@@ -73,7 +73,7 @@ public class JFile extends Thread {
                                 sqlValueList.add(DBHelper.getSqlValues(point));
                                 TestOutput.println(point);
                                 if (sql == null) {
-                                    sql = DBHelper.getInsertSql(TableName.trackPoint, point);
+                                    sql = DBHelper.getInsertSql(TableName.getTrackPoint(), point);
                                 }
                             }
                         }

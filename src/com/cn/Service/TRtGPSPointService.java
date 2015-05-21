@@ -1,5 +1,6 @@
 package com.cn.service;
 
+import com.cn.bean.SjyfiUserEntity;
 import com.cn.util.*;
 import com.cn.websocket.ShowUserByRealTime;
 import com.cn.bean.TrtGpsPointEntity;
@@ -12,10 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.Timestamp;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Created by SNNU on 2015/5/5.
@@ -33,6 +31,15 @@ public class TRtGPSPointService extends HttpServlet {
             entity.setLatitude(Double.valueOf(request.getParameter("latitude")));
             entity.setAltitude(Double.valueOf(request.getParameter("altitude")));
             entity.setTime(Timestamp.valueOf(request.getParameter("time")));
+            Calendar cal = Calendar.getInstance();
+            cal.set(Calendar.HOUR, 0);
+            cal.set(Calendar.SECOND, 0);
+            cal.set(Calendar.MINUTE, 0);
+            cal.set(Calendar.MILLISECOND, 0);
+            if (entity.getTime().getTime() <= cal.getTimeInMillis()) {
+                msg = "time日期已经过时";
+            }
+
         } catch (Exception e) {
             if (entity.getUid() == null) {
                 msg = "uid值缺失或者格式不对(必须为整型)";
@@ -49,16 +56,18 @@ public class TRtGPSPointService extends HttpServlet {
 
         if (msg == null) {
             SjyfiUserDao userDao = new SjyfiUserDao();
-            String sql = "select * from " + TableName.sjyfiUser + " where uid = ?";
+            String sql = "select name, role from " + TableName.getUser() + " where uid = ?";
             List valList = new ArrayList();
             valList.add(entity.getUid());
-            if (DBUtil.query(new SjyfiUserDao(), sql, valList) == null) {
+            Object userEntity = DBUtil.query(new SjyfiUserDao(), sql, valList);
+            if (userEntity == null) {
                 msg = "uid对应的用户不存在";
                 msgCode = 1;
             }
-            else if (DBUtil.insert(DBHelper.getInsertSql(TableName.tRtGpsPoint, entity), DBHelper.getSqlValues(entity)) > 0) {
+            else if (DBUtil.insert(DBHelper.getInsertSql(TableName.gettRtGpsPoint(), entity), DBHelper.getSqlValues(entity)) > 0) {
                 msg = "success";
                 List updateGpsList = new ArrayList();
+                entity.setName(((SjyfiUserEntity)userEntity).getName());
                 updateGpsList.add(entity);
                 ShowUserByRealTime.broadcast(Json.writeAsString(updateGpsList));
             } else {

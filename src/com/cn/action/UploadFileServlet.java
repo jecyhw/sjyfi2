@@ -1,6 +1,7 @@
 package com.cn.action;
 
 import com.cn.util.File.UploadFile;
+import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -13,7 +14,7 @@ import java.io.IOException;
  */
 public class UploadFileServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        new UploadFile().work(request);
+        new UploadFile().work(request, response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

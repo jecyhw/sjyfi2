@@ -2,22 +2,24 @@ package com.cn.util;
 
 import com.cn.dao.AEntityDao;
 import com.cn.test.TestOutput;
+import com.cn.util.File.DbParser;
+import com.cn.util.File.JSAXParser;
+import org.xml.sax.SAXException;
 
+import javax.xml.parsers.ParserConfigurationException;
+import java.io.IOException;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class DBUtil {
     private static Connection conn = getConnection();//数据库连接引用
-
     static private Connection getConnection() {
         Connection connection = null;
         try {
-            Class.forName("com.mysql.jdbc.Driver");
-            connection = DriverManager.getConnection("jdbc:mysql://159.226.15" +
-            ".215:3306/ynwls_db?zeroDateTimeBehavior=convertToNull&allowMultiQueries=true&characterEncoding=utf8&autoReconnect=true", "jecyhw", "yanghuiwei");
-            //connection = DriverManager.getConnection("jdbc:mysql://localhost" +
-                  //"/ynwls_db?zeroDateTimeBehavior=convertToNull&allowMultiQueries=true&characterEncoding=utf8&autoReconnect=true", "root", "123654");
+            DbParser dbParser = DbParser.getInstance();
+            Class.forName(dbParser.getDriver());
+            connection = DriverManager.getConnection(dbParser.getUrl(), dbParser.getUserName(), dbParser.getPassword());
             TestOutput.println("数据库连接正常");
         } catch (ClassNotFoundException e) {
             TestOutput.println("找不到数据库的驱动文件:");

@@ -22,7 +22,7 @@ public class UserRealTimePositionServlet extends HttpServlet {
         Map<String, Object> result = new Hashtable<String, Object>();
         String uid = request.getParameter("uid");
         TrtGpsPointDao dao = new TrtGpsPointDao();
-        String sql = "select * from " + TableName.tRtGpsPointNew;//默认获取全部用户的更新信息
+        String sql = "select * from " + TableName.gettRtGpsPointNew();//默认获取全部用户的更新信息
         List uidList = new ArrayList();
         if (uid != null) {
             if (uid.matches("(?:[\\d]+,)*\\d+")) {

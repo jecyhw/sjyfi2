@@ -12,6 +12,8 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.io.Writer;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -71,12 +73,11 @@ public class Json {
     }
 
     public static void main(String[] args) throws IOException {
-        String sql = "select " + TableName.tRtGpsPoint + ".*, " + TableName.sjyfiUser + ".name from " + TableName.tRtGpsPoint
-                + "," + TableName.sjyfiUser + " where " + TableName.sjyfiUser + ".name like  ? and "
-                + TableName.tRtGpsPoint + ".time >= \"1997-05-08\" and "
-                + TableName.sjyfiUser + ".uid=" + TableName.tRtGpsPoint + ".uid";
-        List uidList = new ArrayList();
-        uidList.add("%" + 1 + "%");
-        System.out.println(writeAsString(DBUtil.queryMulti(new UserHistoryDao(), sql, uidList)));
+        Calendar cal = Calendar.getInstance();
+        cal.set(Calendar.HOUR, 0);
+        cal.set(Calendar.SECOND, 0);
+        cal.set(Calendar.MINUTE, 0);
+        cal.set(Calendar.MILLISECOND, 0);
+        System.out.println(new Date().getTime() + ":" + cal.getTimeInMillis());
     }
 }

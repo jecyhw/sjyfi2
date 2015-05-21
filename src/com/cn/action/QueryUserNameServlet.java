@@ -31,7 +31,7 @@ public class QueryUserNameServlet extends HttpServlet {
         int msgCode = 0;
         Map<String, Object> result = new Hashtable<String, Object>();
         GetUserNameDao dao = new GetUserNameDao();
-        String sql = "select name from " + TableName.tRtGpsPointNew;//默认获取全部用户的更新信息
+        String sql = "select name from " + TableName.gettRtGpsPointNew();//默认获取全部用户的更新信息
         List uidList = new ArrayList();
         String name = request.getParameter("name");
         if (name != null) {
