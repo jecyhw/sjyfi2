@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<jdbc driver="com.mysql.jdbc.Driver"
+      protocol="jdbc:mysql://"
+      hostname="159.226.15.215"
+      port="3306"
+      database="ynwls_db"
+      username="jecyhw"
+      password="yanghuiwei">
+
+    <param zeroDateTimeBehavior="convertToNull" allowMultiQueries="true" characterEncoding="utf-8" autoReconnect="true"/>
+</jdbc>

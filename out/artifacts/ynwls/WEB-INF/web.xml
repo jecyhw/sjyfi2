@@ -164,6 +164,15 @@
     </servlet-mapping>
 
     <servlet>
+        <servlet-name>UploadFileService</servlet-name>
+        <servlet-class>com.cn.service.UploadFileService</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UploadFileService</servlet-name>
+        <url-pattern>/UploadFile</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
         <servlet-name>UserHistoryService</servlet-name>
         <servlet-class>com.cn.service.UserHistoryService</servlet-class>
     </servlet>

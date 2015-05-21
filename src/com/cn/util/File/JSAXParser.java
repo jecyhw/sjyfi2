@@ -12,8 +12,12 @@ import java.io.IOException;
  */
 public class JSAXParser {
     static SAXParserFactory factory = SAXParserFactory.newInstance();
-    public void parse(String parseFileUri, BaseFileParse fileParse ) throws ParserConfigurationException, SAXException, IOException {
+    public void parse(BaseFileParse fileParse, String parseFileUri) throws ParserConfigurationException, SAXException, IOException {
         fileParse.setParseFileUri(parseFileUri);
         factory.newSAXParser().parse(new File(parseFileUri), new DefaultSaxParse(fileParse));
+    }
+
+    public void parse(BaseFileParse fileParse) throws ParserConfigurationException, SAXException, IOException {
+        factory.newSAXParser().parse(new File(fileParse.getParseFileUri()), new DefaultSaxParse(fileParse));
     }
 }

@@ -29,11 +29,11 @@ public class UserHistoryService extends HttpServlet {
         Map<String, Object> result = new Hashtable<String, Object>();
         String name = request.getParameter("name");
         if (name != null) {
-            String sql = "select " + TableName.tRtGpsPoint + ".*, " + TableName.sjyfiUser + ".name from " + TableName.tRtGpsPoint
-                    + "," + TableName.sjyfiUser + " where " + TableName.sjyfiUser + ".name like  ? and "
-                    + TableName.tRtGpsPoint + ".time >= curdate() and "
-                    + TableName.sjyfiUser + ".uid=" + TableName.tRtGpsPoint + ".uid"
-                    +" order by " + TableName.tRtGpsPoint + ".uid, " + TableName.tRtGpsPoint + ".time";
+            String sql = "select " + TableName.gettRtGpsPoint() + ".*, " + TableName.getUser() + ".name from " + TableName.gettRtGpsPoint()
+                    + "," + TableName.getUser() + " where " + TableName.getUser() + ".name like  ? and "
+                    + TableName.gettRtGpsPoint() + ".time >= curdate() and "
+                    + TableName.getUser() + ".uid=" + TableName.gettRtGpsPoint() + ".uid"
+                    +" order by " + TableName.gettRtGpsPoint() + ".uid, " + TableName.gettRtGpsPoint() + ".time";
             List uidList = new ArrayList();
             uidList.add("%" + name + "%");
             result.put("result", DBUtil.queryMulti(new UserHistoryDao(), sql, uidList));

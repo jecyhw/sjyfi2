@@ -16,8 +16,6 @@
     <script type="text/javascript" src="js/color.js"></script>
     <script type="text/javascript" src="js/all.js"></script>
     <script type="text/javascript" src="js/bootstrap/js/bootstrap.js"></script>
-    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=QT9ntk6IBtEHGSy4BG7zOXoU"></script>
-    <script type="text/javascript" src="js/gps_bd.js"></script>
 
 
     <style>
@@ -66,15 +64,36 @@
 </head>
 <script>
 
+
 </script>
 <body >
+<div style="" class="popover fade right in" >
+    <div class="arrow"></div>
+    <div class="popover-title">用户信息
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="popover-content">
+        <table class="table table-bordered table-hover table-condensed table-striped" style="margin-bottom: 0px;">
+            <tbody>
+            <tr><td>名称:</td><td><span>银湖海岸城</span></td></tr>
+            <tr><td>经度:</td><td><span>jingdu</span></td></tr>
+            <tr><td>纬度:</td><td><span>weidu</span></td></tr>
+            <tr><td>海拔:</td><td><span>haiba米</span></td></tr>
+            <tr><td>更新时间:</td><td><span>2015-5-15 10:23:12</span></td></tr>
+            <tr><td colspan="2" align="center"><a href="javascript:void(0)"> 查看当天轨迹</a></td></tr>
+            </tbody>
+        </table>
+    </div>
+</div>
 <div class="tip-arrow">
 
 </div>
 <div style="width: 100px; height: 100px;">
     <div class="tooltip lt in">
         <div class="tip-arrow"></div>
-        <div class="tooltip-inner">hello</div>
+        <div class="tooltip-inner">起</div>
     </div>
 </div>
 <div style="width: 100px; height: 100px;">
@@ -83,9 +102,14 @@
         <div class="tooltip-inner">hello</div>
     </div>
 </div>
-<div style="width: 500px; height: 500px;" id="map">
+<div style="width: 1000px; height: 500px;" id="map">
 
 </div>
 </body>
+
+<link rel="stylesheet" type="text/css" href="js/fancybox/jquery.fancybox.css"  media="screen">
+<script type="text/javascript" src="js/fancybox/jquery.fancybox.js"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=QT9ntk6IBtEHGSy4BG7zOXoU"></script>
+<script type="text/javascript" src="js/gps_bd.js"></script>
 <script type="text/javascript" src="js/rtol.js"></script>
 </html>

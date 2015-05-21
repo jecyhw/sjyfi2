@@ -16,7 +16,7 @@
     <link rel="stylesheet" type="text/css" href="js/bootstrap/css/bootstrap.css" media="screen"/>
 </head>
 <body>
-<div id="downloadTip">
+<div id="downloadTip" style="margin: 50px auto; width: 800px;">
     <div class="alert alert-success text-center" role="alert">
         <strong>正在努力合并要下载的文件，请耐心等待</strong>
         <img src="js/fancybox/fancybox_loading.gif"/>

@@ -119,6 +119,15 @@
     </servlet-mapping>
 
     <servlet>
+        <servlet-name>ThumbnailServlet</servlet-name>
+        <servlet-class>com.cn.action.ThumbnailServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ThumbnailServlet</servlet-name>
+        <url-pattern>/Thumbnail.do</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
         <servlet-name>UploadFileServlet</servlet-name>
         <servlet-class>com.cn.action.UploadFileServlet</servlet-class>
     </servlet>
@@ -161,6 +170,15 @@
     <servlet-mapping>
         <servlet-name>TRtGPSPointService</servlet-name>
         <url-pattern>/TRtGPSPointAdd</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>UploadFileService</servlet-name>
+        <servlet-class>com.cn.service.UploadFileService</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UploadFileService</servlet-name>
+        <url-pattern>/UploadFile</url-pattern>
     </servlet-mapping>
 
     <servlet>

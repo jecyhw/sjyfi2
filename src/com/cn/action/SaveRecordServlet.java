@@ -27,7 +27,7 @@ public class SaveRecordServlet extends HttpServlet {
 
         AEntityDao dao = new TTracksDao();
         StringBuilder sbSql = new StringBuilder();
-        sbSql.append("select * from ").append(TableName.tracks).append(" where trackid in (?");
+        sbSql.append("select * from ").append(TableName.getTracks()).append(" where trackid in (?");
         for (int i = ids.size() - 1; i > 0; i--) {//生成sql语句
             sbSql.append(", ?");
         }
@@ -45,19 +45,19 @@ public class SaveRecordServlet extends HttpServlet {
                 new SimpleDateFormat("yyyyMMdd_HHmmss"));//生成合并文件所在的文件名
 
         Map<String, String> result = new Hashtable<String, String>();
-        String mergeFileName = Config.unZipFileDir + fileName;//合并的文件全路径
-        String zipFileName = Config.zipFileDir + fileName + ".kmz";//压缩的文件名
+        String mergeFileName = Config.getUnZipFileDir() + fileName;//合并的文件全路径
+        String zipFileName = Config.getZipFileDir() + fileName + ".kmz";//压缩的文件名
         FileMerge merge = new FileMerge();
         try {
             merge.work(paths, mergeFileName);//合并文件
             new JZipFile().work(mergeFileName, zipFileName);//进行压缩
             TrackDetailFileParse fileParse = new TrackDetailFileParse();
 
-            new JSAXParser().parse(FileUtil.getNestDir(mergeFileName) + Config.KMZFileInfo.trackDetailFileName, fileParse);//解析TrackDetail文件
+            new JSAXParser().parse(fileParse, FileUtil.getNestDir(mergeFileName) + Config.KMZFileInfo.trackDetailFileName);//解析TrackDetail文件
             TTracksEntity entity = (TTracksEntity) fileParse.getParseObject();//获取TrackDetail的相关信息
             entity.setFilesize((int)new File(zipFileName).length());//设置文件大小
             entity.setPath(mergeFileName);//设置文件存放路径
-            DBUtil.insert(DBHelper.getInsertSql(TableName.tracks, entity), DBHelper.getSqlValues(entity));//保存到数据库
+            DBUtil.insert(DBHelper.getInsertSql(TableName.getTracks(), entity), DBHelper.getSqlValues(entity));//保存到数据库
             result.put("result", "true");//返回结果
         } catch (Exception e) {
             e.printStackTrace();

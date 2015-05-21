@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+uploadDir上传目录
+uploadTempDir上传的临时目录
+zipFileDir压缩目录
+unZipFileDir解压目录
+ThumbnailDir图片展示的缩略图的目录
+默认uploadTempDir,zipFileDir,unZipFileDir,thumbnailDir等于uploadDir的值
+-->
+<config
+        uploadDir="/var/gpstracks/jecyhw/"
+        uploadTempDir="/var/gpstracks/jecyhw/"
+        zipFileDir="/var/gpstracks/jecyhw/"
+        unZipFileDir="/var/gpstracks/jecyhw/"
+        thumbnailDir="/var/gpstracks/jecyhw/"/>

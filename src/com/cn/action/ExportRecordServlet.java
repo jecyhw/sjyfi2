@@ -30,7 +30,7 @@ public class ExportRecordServlet extends HttpServlet {
 
         AEntityDao dao = new TTracksDao();
         StringBuilder sbSql = new StringBuilder();
-        sbSql.append("select * from ").append(TableName.tracks).append(" where trackid in (?");
+        sbSql.append("select * from ").append(TableName.getTracks()).append(" where trackid in (?");
         for (int i = ids.size() - 1; i > 0; i--) {//生成sql语句
             sbSql.append(", ?");
         }
@@ -52,11 +52,11 @@ public class ExportRecordServlet extends HttpServlet {
                     }
                 }
                 String fileName = "routeRecord_" + DateUtil.date2String(new Date(), new SimpleDateFormat("yyyyMMdd_HHmmss"));//生成合并文件所在的文件名
-                String mergeFileName = Config.unZipFileDir + fileName;//完整路径，和解压kmz的文件目录一致
+                String mergeFileName = Config.getUnZipFileDir() + fileName;//完整路径，和解压kmz的文件目录一致
                 try {
                     FileMerge merge = new FileMerge();
                     merge.work(paths, mergeFileName);//文件开始合并
-                    zipFileName = Config.zipFileDir + fileName + ".kmz";//压缩的全路径
+                    zipFileName = Config.getZipFileDir() + fileName + ".kmz";//压缩的全路径
                     new JZipFile().work(mergeFileName, zipFileName);//对合并的文件进行压缩
                     isDeleted = 1;//设置删除标志
                 } catch (IOException e) {

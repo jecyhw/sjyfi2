@@ -2,6 +2,7 @@ package com.cn.bean;
 
 import com.cn.util.JsonTimestampDeserialize;
 import com.cn.util.JsonTimestampSerializer;
+import com.cn.util.TableName;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
@@ -57,7 +58,16 @@ and( latitude>='-1.209283' and latitude<'180.959893' )))a where t_tracks.trackid
         StringBuilder sb = new StringBuilder();
         boolean flag = false;
         if (top != null || left != null || right != null || bottom != null) {
-            sb.append("select b.* from (select t_tracks.* from t_tracks, (select distinct t_tracks_points.trackid from t_tracks_points where (");
+            //sb.append("select b.* from (select t_tracks.* from t_tracks, (select distinct t_tracks_points.trackid from t_tracks_points where (");
+            sb.append("select b.* from (select ")
+                    .append(TableName.getTracks())
+                    .append(".* from ")
+                    .append(TableName.getTracks())
+                    .append(", (select distinct ")
+                    .append(TableName.getTrackPoint())
+                    .append(".trackid from ")
+                    .append(TableName.getTrackPoint())
+                    .append(" where (");
 
             if (left != null) {
                 sb.append(" longitude >= ? ");
@@ -96,7 +106,10 @@ and( latitude>='-1.209283' and latitude<'180.959893' )))a where t_tracks.trackid
                 flag = true;
             }
 
-            sb.append("))a where t_tracks.trackid = a.trackid)b");
+            //sb.append("))a where t_tracks.trackid = a.trackid)b");
+            sb.append("))a where ")
+                    .append(TableName.getTracks())
+                    .append(".trackid = a.trackid)b");
 
             if (recorder != null || startTime != null || endTime != null || address != null) {
                 sb.append(" where ");
@@ -106,7 +119,10 @@ and( latitude>='-1.209283' and latitude<'180.959893' )))a where t_tracks.trackid
                 return ;
             }
         } else {
-            sb.append("select distinct * from t_tracks where ");
+            //sb.append("select distinct * from t_tracks where ");
+            sb.append("select distinct * from ")
+                    .append(TableName.getTracks())
+                    .append(" where ");
         }
 
         flag = false;

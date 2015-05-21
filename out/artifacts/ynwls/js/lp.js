@@ -21,7 +21,7 @@ $(document).ready(function() {
             if ($in.val() == "") {
                 tooltipShow($in, 1000, "用户名不能为空");
             } else {
-                eval(id + '($bs,  $in)');//根据字符串来动态执行upi或者uhi函数
+                eval(id + '($bs,  "' + $in.val() +  '")');//根据字符串来动态执行upi或者uhi函数
             }
         });
 
@@ -90,7 +90,9 @@ var rt = {
         mp.removeOverlay(t);
         rt.qd[uid] = rt.py[uid] = rt.mk[uid]  = undefined;
         rt.online(-1);
-        tooltipShow($(".online"), 2000, t.inf.t + " " + t.inf.n + "用户下线了");
+        tooltipShow($(".online"), 2000, t.inf.t.replace(/\d{4}-\d{2}-\d{2} /, "") + " " + t.inf.n + "下线了", {
+            placement: "right"
+        });
     },
     /**
      *
@@ -99,7 +101,9 @@ var rt = {
      */
     update: function (inf, bd) {
         rt.mk[inf.i].update(bd, inf);
-        tooltipShow($(".online"), 2000, inf.t + " " + inf.n + "用户更新了");
+        tooltipShow($(".online"), 2000, inf.t.replace(/\d{4}-\d{2}-\d{2} /, "") + " " + inf.n + "更新了", {
+            placement: "right"
+        });
     },
     /**
      *
@@ -109,8 +113,10 @@ var rt = {
     add: function (inf, bd) {
         var t = new Rtol(bd, inf);
         rt.mk[inf.i] = t;
-            mp.addOverlay(t);//添加到地图
-        tooltipShow($(".online"), 2000, inf.t + " " + inf.n + "用户上线了");
+        mp.addOverlay(t);//添加到地图
+        tooltipShow($(".online"), 2000, inf.t.replace(/\d{4}-\d{2}-\d{2} /, "") + " " + inf.n + "上线了", {
+            placement: "right"
+        });
         rt.online(1);
         return t;
     },
@@ -181,6 +187,14 @@ var us = {};
  * @param urt 用户的更新数据
  */
 us.inf = function(urt){
+    /**
+     * 海拔
+     * @type {number|Number}
+     */
+    this.h = urt.altitude;
+    /**
+     * 颜色值
+     */
     this.c = color_list[rt.getci()];
     /**
      * 用户的gps的经度
@@ -215,6 +229,14 @@ us.inf = function(urt){
     this.eqGps = function(a){
         return this.j == a.j && this.w == a.w;
     };
+    /**
+     * 判断是否相等
+     * @param a
+     * @returns {boolean}
+     */
+    this.equals = function (a) {
+        return a.t == this.t;
+    }
     /**
      * 将gps的经纬度用逗号连接
      * @returns {string}
@@ -302,16 +324,6 @@ function updateMk(inf, bds) {
     return true;
 }
 
-/**
- *
- * @param type default|primary|success|info|warning|danger
- * @param name
- * @returns {string}
- */
-function getLbs(type, name) {
-    return '<span class="label label-' + type + '">' + name + "</span>";
-}
-
 function longPoll() {
     $.ajax({
         type: "post",
@@ -362,14 +374,14 @@ function ws() {
 /**
  * 查询用户的最新地理位置信息
  */
-function upi($btn, $in) {
-    $.getJSON( web_prefix + '/QueryUserPosition.do', {name: $in.val()}, function (data) {
+function upi($btn, name) {
+    $.getJSON( web_prefix + '/QueryUserPosition.do', {name:name}, function (data) {
         if (data.status == 0) {
             //先清空rt.qd
             c_upi();
             var urt = data.result, i, uid;
             if (urt.length == 0) {
-                tooltipShow($btn, 2000, "未查找到相关人员的当前地理位置信息");
+                tooltipShow($btn, 2000, "未查找到用户信息");
             } else {
                 var bds = [],
                     inf = convertToInf(urt);
@@ -404,7 +416,7 @@ function upi($btn, $in) {
                     mp.setViewport(bds);
                 });
 
-                tooltipShow($btn, 2000, "查找到" + bds.length + "个用户地理位置信息");
+                tooltipShow($btn, 2000, "查找到" + bds.length + "个用户信息");
             }
         }
     });
@@ -422,13 +434,13 @@ function c_upi() {
 /**
  * 查询用户的历史轨迹
  */
-function uhi($btn, $in) {
-    $.getJSON( web_prefix + '/QueryUserHistory.do', {name: $in.val()}, function (data) {
+function uhi($btn, name) {
+    $.getJSON( web_prefix + '/QueryUserHistory.do', {name: name}, function (data) {
         if (data.status == 0) {
             c_uhi();
             var uh = data.result;
-            if (uh.length == 0) {
-                tooltipShow($btn, 2000, "未查找到相关人员的历史地理位置信息");
+            if (uh.length == 0 && $btn) {
+                tooltipShow($btn, 2000, "未查找到用户信息");
             } else {
                 var rc = 0, sc = 0, bdArr = [];
                 $.each(uh, function (index, uhi) {
@@ -451,7 +463,9 @@ function uhi($btn, $in) {
                                     mp.addOverlay(rt.py[i]);
                                 }
                                 mp.setViewport(bdArr);
-                                tooltipShow($btn, 2000, "查找到" + sc + "个用户地理位置信息");
+                                if ($btn) {
+                                    tooltipShow($btn, 2000, "查找到" + sc + "个用户信息");
+                                }
                             }
                         });
                     })(uhi);
@@ -460,6 +474,8 @@ function uhi($btn, $in) {
         }
     });
 }
+
+
 /**
  * 移除查询的历史记录
  */

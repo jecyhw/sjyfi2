@@ -13,7 +13,7 @@ import java.util.Date;
  * Created by SNNU on 2015/3/20.
  */
 public abstract class BaseFileParse {
-    String parseFileUri;//需要解析的文件的完整路径
+    protected String parseFileUri;//需要解析的文件的完整路径
 
     /**
      *
