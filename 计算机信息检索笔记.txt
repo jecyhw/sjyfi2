@@ -1,0 +1,13 @@
+评价类数据库：
+EI
+Web of Science(SCI) => 文摘数据库（综合学科）
+
+学科数据库：
+ACM：ACM Digital Library
+IEEE
+
+两种休闲教育类资源：
+KUKE，网上报告厅
+
+全文数据库：
+ACM，IEEE，Elsevier， Springer期刊&电子书数据库
